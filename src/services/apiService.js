@@ -10,12 +10,12 @@ if (token) {
   apiService.defaults.headers.common['Authorization'] = `Bearer ${token}`
 }
 
-export const getProfile = (apiEndpoint, id) => {
+export const getService = (apiEndpoint, id) => {
   const apiServiceUrl = id ? `${apiEndpoint}/${id}` : `${apiEndpoint}`
   return apiService.get(apiServiceUrl)
 }
 
-export const deleteProfile = (apiEndpoint, id) => {
+export const deleteService = (apiEndpoint, id) => {
   if (!id) return 'error'
   const apiServiceUrl = `${apiEndpoint}/${id}`
   return apiService.delete(apiServiceUrl).catch((err) => {
