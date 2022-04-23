@@ -3,11 +3,11 @@ import axios from 'axios'
 const token = localStorage.getItem('token')
 
 const apiService = axios.create({
-  baseURL: process.env.REACT_APP_BASE_URL,
+  baseURL: process.env.REACT_APP_BASE_URL
 })
 
 if (token) {
-  apiService.defaults.headers.common['Authorization'] = `Bearer ${token}`
+  apiService.defaults.headers.common.Authorization = `Bearer ${token}`
 }
 
 export const getService = (apiEndpoint, id) => {
@@ -22,9 +22,8 @@ export const deleteService = (apiEndpoint, id) => {
     console.log(err)
     const error = {
       error: true,
-      message: err.message,
+      message: err.message
     }
     return error
   })
 }
-
