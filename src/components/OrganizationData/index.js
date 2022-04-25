@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from "react";
-import { getService } from "services/apiService";
-import { ENDPOINT_PUBLIC, ENDPOINT_MEMBERS } from "services/settings"
+import React, { useEffect, useState } from "react"
+import { getService } from "services/apiService"
+import { ENDPOINT_PUBLIC } from "services/settings"
+import { Container } from "./styles";
 
 export default function OrganizationData() {
   const [ongData, setOngData] = useState()
@@ -16,7 +17,7 @@ export default function OrganizationData() {
   }
 
   return (
-    <div>
+    <Container>
       OrganizationData
       {ongData
         ? <>
@@ -27,6 +28,6 @@ export default function OrganizationData() {
         : <p>No hay datos</p>
       }
 
-    </div>
+    </Container>
   )
 }
