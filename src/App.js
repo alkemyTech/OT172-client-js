@@ -1,14 +1,20 @@
 import React from 'react'
-import './App.css'
 import { BrowserRouter,  Route,  Routes } from 'react-router-dom'
-import OrganizationData from 'components/OrganizationData'
+import Home from 'pages/Home'
+import Testimonials from 'pages/Testimonials'
+import News from 'pages/News'
+import Members from 'pages/Members'
+import Activities from 'pages/Activities'
 
 function App () {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path='/' element={<OrganizationData />} />
-        <Route path='/ong' element={<OrganizationData />} />
+        <Route path='/' element={<Home />} />
+        <Route path='/activities' element={<Activities />} />
+        <Route path='/members' element={<Members />} />
+        <Route path='/news' element={<News />} />
+        <Route path='/testimonials' element={<Testimonials />} />
       </Routes>
     </BrowserRouter>
   )
