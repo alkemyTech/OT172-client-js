@@ -1,12 +1,15 @@
-import OrganizationData from 'components/OrganizationData'
 import React from 'react'
-import { Container } from "./styles"
 
-function Home() {
+import { CreateUserForm } from '../../components/CreateUser'
+import OrganizationData from 'components/OrganizationData'
+import { Container } from './styles'
+
+function Home () {
   return (
     <Container>
       Ruta Home
       <OrganizationData />
+      <CreateUserForm />
     </Container>
   )
 }
