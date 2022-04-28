@@ -12,7 +12,6 @@ export default function OrganizationData() {
   const getOrganizationData = async () => {
 
     const response = await getService(ENDPOINT_PUBLIC);
-    console.log('respuesta', response.data)
     setOngData(response.data)
   }
 

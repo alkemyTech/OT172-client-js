@@ -5,12 +5,15 @@ import Testimonials from 'pages/Testimonials'
 import News from 'pages/News'
 import Members from 'pages/Members'
 import Activities from 'pages/Activities'
+import Header from 'components/Header'
 
 function App () {
   return (
     <BrowserRouter>
+      <Header />
       <Routes>
         <Route path='/' element={<Home />} />
+        <Route path='/home' element={<Home />} />
         <Route path='/activities' element={<Activities />} />
         <Route path='/members' element={<Members />} />
         <Route path='/news' element={<News />} />
