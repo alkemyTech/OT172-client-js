@@ -6,7 +6,7 @@ import News from 'pages/News'
 import Members from 'pages/Members'
 import Activities from 'pages/Activities'
 
-export const RoutesWeb = () => {
+export default function RoutesWeb () {
   return (
     <Routes>
       <Route path='/' element={<Home />} />
