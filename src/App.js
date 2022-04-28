@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 
-import RoutesWeb from './routesWeb'
 import { getService } from 'services/apiService'
 import { ENDPOINT_PUBLIC } from 'services/settings'
+import RoutesWeb from './routesWeb'
+import Header from 'components/Header'
 import Footer from './components/Footer'
 
 const getOrganizationData = async setOngData => {
@@ -21,8 +22,7 @@ function App () {
 
   return (
     <>
-      {/* Si estamos en la pantalla de login/create la barra de nav no se mostrará */}
-      {/* {location !== '/' ? <Nav /> : null} */}
+      {location !== '/' ? <Header ongData={ongData} /> : null}
       <RoutesWeb />
       <Footer ongData={ongData} />
     </>
