@@ -5,8 +5,10 @@ import Testimonials from 'pages/Testimonials'
 import News from 'pages/News'
 import Members from 'pages/Members'
 import Activities from 'pages/Activities'
+import Categories from 'pages/Backoffice/Categories'
 
 function App () {
+  
   return (
     <BrowserRouter>
       <Routes>
@@ -15,6 +17,7 @@ function App () {
         <Route path='/members' element={<Members />} />
         <Route path='/news' element={<News />} />
         <Route path='/testimonials' element={<Testimonials />} />
+        <Route path='/backoffice/categories' element={<Categories />} />
       </Routes>
     </BrowserRouter>
   )
