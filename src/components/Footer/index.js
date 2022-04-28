@@ -1,5 +1,10 @@
 import React from 'react'
 
+import instaLogo from '../utils/assets/instaLogo.png'
+import faceLogo from '../utils/assets/faceLogo.png'
+import linkLogo from '../utils/assets/linkLogo.png'
+import gpsLogo from '../utils/assets/gpsLogo.png'
+import phoneLogo from '../utils/assets/phoneLogo.png'
 import {
   Container,
   Grid,
@@ -17,10 +22,6 @@ import {
   Adress,
   Phone
 } from './styles'
-import instaLogo from '../utils/assets/instaLogo.png'
-import faceLogo from '../utils/assets/faceLogo.png'
-import linkLogo from '../utils/assets/linkLogo.png'
-import gpsLogo from '../utils/assets/gpsLogo.png'
 
 const UrlLogo = ({ href, logo }) => {
   return (
@@ -63,7 +64,7 @@ export default function Footer ({ ongData }) {
           </OrganizationData>
         </Grid>
       ) : (
-        <h2>Loading...</h2>
+        <Name>Loading...</Name>
       )}
     </Container>
   )

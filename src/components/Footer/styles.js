@@ -55,18 +55,21 @@ export const LinkedIn = styled(center)`
   grid-column: 4/4;
 `
 
-export const OrganizationData = styled(center)`
+export const OrganizationData = styled.div`
   grid-column: 1/5;
   grid-row: 2/2;
   flex-direction: column;
+  display: grid;
+  grid-template-row: repeat(2, 50%);
 `
 
 export const Separator = styled.hr`
+  grid-row: 1/2;
   width: 100%;
 `
 
 export const Location = styled.div`
-  width: 100%;
+  grid-row: 2/2;
   display: grid;
   grid-template-column: repeat(2, 50%);
 `
