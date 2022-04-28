@@ -5,6 +5,9 @@ import { FormField } from '../Forms/formField'
 import { createUserSchema } from '../Forms/schemas'
 import { postUserService } from '../../services/apiAuth'
 import { FormContainer } from './styles'
+import { useDispatch, useSelector } from 'react-redux'
+import { addUser } from '../../store/slices/users'
+
 
 const FormFields = response => {
   return (
@@ -40,35 +43,45 @@ const FormFields = response => {
 }
 
 export const CreateUserForm = () => {
+const dispatch = useDispatch()
+const { users } = useSelector(state => state.categories)
+const [response, setResponse] = useState({ ok: false, msg: '' })
+
   const values = {
     firstName: '',
     lastName: '',
     email: '',
     password: ''
   }
-  const [response, setResponse] = useState({ ok: false, msg: '' })
 
   const handleSubmit = async (values, { resetForm }) => {
+   
     const serviceResponse = await postUserService(values)
 
     if (serviceResponse === true) {
-      setResponse(prevState => ({
+      addUser(prevState => ({
         ...prevState,
-        ok: true,
-        msg: `El usuario ${values.email} fue creado exitosamente`
-      }))
+              }))
+              setResponse(prevState => ({
+                ...prevState,
+                ok: true,
+                msg: `El usuario ${values.email} fue creado exitosamente`
+              }))
       resetForm({ values: '' })
     } else {
       setResponse(prevState => ({
         ...prevState,
         msg: serviceResponse
       }))
+      addUser(prevState => ({
+        ...prevState,
+      }))
     }
   }
 
   useEffect(() => {
-    setTimeout(() => setResponse({ ok: false, msg: '' }), 30000)
-  }, [response])
+    dispatch(addUser())
+  }, [dispatch])
 
   return (
     <FormikForm

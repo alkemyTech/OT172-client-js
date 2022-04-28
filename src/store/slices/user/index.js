@@ -1,8 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit'
 import axios from 'axios'
 
-export const userSlice = createSlice({
-    name: 'users',
+export const setUserSlice = createSlice({
+    name: 'user',
     initialState: [
         {
           id: 0, 
@@ -15,16 +15,13 @@ export const userSlice = createSlice({
         }
     ],
     reducers: {
-    addUser: (state,action) => {
-       state.push(action.payload)
+    getUser: (state,action) => {
+       state = action.payload
        return state
-    },
-    getUsers: (state,action) => {
-        return state
     }
     }
 })
 
-export const { addUser, getUsers } = userSlice.actions
+export const { getUser } = setUserSlice.actions
 
-export default userSlice.reducer
+export default setUserSlice.reducer
