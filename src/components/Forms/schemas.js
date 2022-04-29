@@ -1,12 +1,12 @@
 import * as Yup from 'yup'
 
 export const createUserSchema = Yup.object().shape({
-  firstname: Yup.string()
+  firstName: Yup.string()
     .matches(/^[aA-zZ\s]+$/, 'Solo se admiten letras')
     .min(3, 'El mínimo de caracteres es 3')
     .max(30, 'El máximo de caracteres es 30')
     .required('El nombre es requerido'),
-  lastname: Yup.string()
+  lastName: Yup.string()
     .matches(/^[aA-zZ\s]+$/, 'Solo se admiten letras')
     .min(2, 'El mínimo de caracteres es 2')
     .max(30, 'El máximo de caracteres es 30')

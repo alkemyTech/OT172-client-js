@@ -1,21 +1,25 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
 import { FormikForm } from '../Forms'
 import { FormField } from '../Forms/formField'
 import { createUserSchema } from '../Forms/schemas'
+import { postUserService } from '../../services/apiAuth'
 import { FormContainer } from './styles'
+import { useDispatch, useSelector } from 'react-redux'
+import { addUser } from '../../store/slices/users'
+
 
 const FormFields = response => {
   return (
     <>
       <FormField
-        name='firstname'
+        name='firstName'
         type='text'
         placeholder='Nombre'
         FormContainer={FormContainer}
       />
       <FormField
-        name='lastname'
+        name='lastName'
         type='text'
         placeholder='Apellido'
         FormContainer={FormContainer}
@@ -39,17 +43,45 @@ const FormFields = response => {
 }
 
 export const CreateUserForm = () => {
-  const [values, setValues] = useState({
-    firstname: '',
-    lastname: '',
+const dispatch = useDispatch()
+const { users } = useSelector(state => state.categories)
+const [response, setResponse] = useState({ ok: false, msg: '' })
+
+  const values = {
+    firstName: '',
+    lastName: '',
     email: '',
     password: ''
-  })
-  const [response, setResponse] = useState()
-
-  const handleSubmit = values => {
-    console.log('Submitting', values)
   }
+
+  const handleSubmit = async (values, { resetForm }) => {
+   
+    const serviceResponse = await postUserService(values)
+
+    if (serviceResponse === true) {
+      addUser(prevState => ({
+        ...prevState,
+              }))
+              setResponse(prevState => ({
+                ...prevState,
+                ok: true,
+                msg: `El usuario ${values.email} fue creado exitosamente`
+              }))
+      resetForm({ values: '' })
+    } else {
+      setResponse(prevState => ({
+        ...prevState,
+        msg: serviceResponse
+      }))
+      addUser(prevState => ({
+        ...prevState,
+      }))
+    }
+  }
+
+  useEffect(() => {
+    dispatch(addUser())
+  }, [dispatch])
 
   return (
     <FormikForm
@@ -58,7 +90,7 @@ export const CreateUserForm = () => {
       values={values}
       schema={createUserSchema}
       onSubmit={handleSubmit}
-      FormFields={() => FormFields(response)}
+      FormFields={() => FormFields(response.msg)}
     />
   )
 }
