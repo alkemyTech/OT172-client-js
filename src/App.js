@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
@@ -10,10 +10,12 @@ import { Toaster } from 'react-hot-toast'
 import { fetchOrganizationDataPublic } from 'store/slices/organization'
 
 
+
 function App () {
   const location = useLocation().pathname
   const dispatch = useDispatch()
-  
+  const [ongData, setOngData] = useState()
+
   useEffect(() => {
     dispatch(fetchOrganizationDataPublic())
   }, [dispatch])
