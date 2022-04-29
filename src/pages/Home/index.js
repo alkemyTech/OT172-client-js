@@ -4,6 +4,8 @@ import { CreateUserForm } from 'components/CreateUser'
 import { Container } from './styles'
 import News from 'components/News'
 
+import { LoginUserForm } from "components/LoginUser"
+
 function Home () {
  
 
@@ -13,6 +15,7 @@ function Home () {
       <p>Aca va el Componente Slider</p>
       <News qty={4} title='Últimas Noticias'/>
       <CreateUserForm />
+      <LoginUserForm />
     </Container>
   )
 }
