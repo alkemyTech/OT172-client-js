@@ -1,10 +1,11 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
 
-import instaLogo from '../utils/assets/instaLogo.png'
-import faceLogo from '../utils/assets/faceLogo.png'
-import linkLogo from '../utils/assets/linkLogo.png'
-import gpsLogo from '../utils/assets/gpsLogo.png'
-import phoneLogo from '../utils/assets/phoneLogo.png'
+import instaLogo from 'components/utils/assets/instaLogo.png'
+import faceLogo from 'components/utils/assets/faceLogo.png'
+import linkLogo from 'components/utils/assets/linkLogo.png'
+import gpsLogo from 'components/utils/assets/gpsLogo.png'
+import phoneLogo from 'components/utils/assets/phoneLogo.png'
 import {
   Container,
   Grid,
@@ -22,6 +23,7 @@ import {
   Adress,
   Phone
 } from './styles'
+import Loader from 'components/utils/Loader'
 
 const UrlLogo = ({ href, logo }) => {
   return (
@@ -31,40 +33,42 @@ const UrlLogo = ({ href, logo }) => {
   )
 }
 
-export default function Footer ({ ongData }) {
+export default function Footer () {
+  const { list: organization } = useSelector(state => state.organization)
+
   return (
     <Container>
-      {ongData ? (
+      {organization ? (
         <Grid>
           <SocialMedia>
             <Organization>
-              <Logo>{ongData.imageUrl}</Logo>
-              <Name>{ongData.name}</Name>
+              <Logo>{organization.imageUrl}</Logo>
+              <Name>{organization.name}</Name>
             </Organization>
             <Instagram>
-              <UrlLogo href={ongData.urlInstagram} logo={instaLogo} />
+              <UrlLogo href={organization.urlInstagram} logo={instaLogo} />
             </Instagram>
             <Facebook>
-              <UrlLogo href={ongData.urlFacebook} logo={faceLogo} />
+              <UrlLogo href={organization.urlFacebook} logo={faceLogo} />
             </Facebook>
             <LinkedIn>
-              <UrlLogo href={ongData.urlLinkedin} logo={linkLogo} />
+              <UrlLogo href={organization.urlLinkedin} logo={linkLogo} />
             </LinkedIn>
           </SocialMedia>
           <OrganizationData>
             <Separator />
             <Location>
               <Adress>
-                <h4>{ongData.address}</h4>
+                <h4>{organization.address}</h4>
               </Adress>
               <Phone>
-                <h4>{ongData.phone}</h4>
+                <h4>{organization.phone}</h4>
               </Phone>
             </Location>
           </OrganizationData>
         </Grid>
       ) : (
-        <Name>Loading...</Name>
+        <Loader />
       )}
     </Container>
   )

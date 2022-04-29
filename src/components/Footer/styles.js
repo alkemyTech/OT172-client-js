@@ -7,7 +7,7 @@ const center = styled.div`
 `
 
 export const Container = styled(center)`
-  position: absolute;
+  position: relative;
   bottom: 0;
   width: 100%;
   height: 25vh;
@@ -15,7 +15,7 @@ export const Container = styled(center)`
 
 export const Grid = styled.div`
   width: 60%;
-  height: 100%
+  height: 100%;
   display: grid;
   grid-template-columns: 100%;
   grid-template-rows: 70% 30%;
@@ -40,7 +40,7 @@ export const Name = styled.h2``
 export const Href = styled.a`
   width: 60%;
   display: flex;
-  justifycontent: center;
+  justify-content: center;
 `
 
 export const Instagram = styled(center)`
@@ -60,7 +60,7 @@ export const OrganizationData = styled.div`
   grid-row: 2/2;
   flex-direction: column;
   display: grid;
-  grid-template-row: repeat(2, 50%);
+  grid-template-rows: repeat(2, 50%);
 `
 
 export const Separator = styled.hr`
@@ -71,7 +71,7 @@ export const Separator = styled.hr`
 export const Location = styled.div`
   grid-row: 2/2;
   display: grid;
-  grid-template-column: repeat(2, 50%);
+  grid-template-columns: repeat(2, 50%);
 `
 
 export const Adress = styled(center)`
