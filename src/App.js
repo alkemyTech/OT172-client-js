@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
-import { fetchOrganizationDataPublic } from 'store/slices/organization'
-
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 import RoutesWeb from './routesWeb'
 import Header from 'components/Header'
 import Footer from './components/Footer'
@@ -18,8 +18,13 @@ function App () {
   
   return (
     <>
+
+      {/* {location !== '/' ? <Header ongData={ongData} /> : null} */}
+      <Header/>
+      <RoutesWeb />
+      <Footer ongData={ongData} />
+      <ToastContainer/>
       <Toaster />
-      <Header />
       <RoutesWeb />
       <Footer />
     </>
@@ -28,5 +33,3 @@ function App () {
 
 export default App
 
-// Acá se podrá invocar los dispatchers y los states de Redux, y pasarselos por props
-// a las rutas que se requieran.

@@ -10,4 +10,7 @@ export const ENDPOINT_PUBLIC = `${BASE_API_URL}/organization/1`
 
 export const ENDPOINT_CATEGORIES = `${BASE_API_URL}/categories`
 
+export const ENDPOINT_AUTH = `${BASE_API_URL}/auth/`
+
 export const ENDPOINT_NEWS = `${BASE_API_URL}/news`
+
