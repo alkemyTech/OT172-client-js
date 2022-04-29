@@ -9,6 +9,10 @@ export const Title = styled.h2`
   color: green;
 `
 
-export const SubTitle = styled.h3`
+export const SubTitle = styled.h4`
   color: purple;
+`
+
+export const OperationName= styled.h3`
+  color: black;
 `

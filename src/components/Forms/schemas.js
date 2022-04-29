@@ -24,3 +24,18 @@ export const createUserSchema = Yup.object().shape({
     .max(20, 'El máximo de caracteres es 20')
     .required('El campo password no puede estar vacío')
 })
+
+export const loginUserSchema= Yup.object().shape({//Schema to verifie login data of user
+  email: Yup.string()
+    .email('El email ingresado es invalido')
+    .max(255)
+    .required('El email es requerido'),
+  password: Yup.string()
+    .matches(
+      /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])/,
+      'La contraseña debe tener al menos una letra mayúscula, una minúscula y un número.'
+    )
+    .min(8, 'El mínimo de caracteres es 8')
+    .max(20, 'El máximo de caracteres es 20')
+    .required('El campo password no puede estar vacío')
+})
