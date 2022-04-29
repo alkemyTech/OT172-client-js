@@ -1,10 +1,11 @@
 import React from 'react'
 import { Formik, Form } from 'formik'
-import { Container, Title, SubTitle } from './styles'
+import { Container, Title, SubTitle, OperationName } from './styles'
 
 export const FormikForm = ({
   title,
   subtitle,
+  operationName,/*Delete for delete Iniciar sesion text*/
   values,
   schema,
   onSubmit,
@@ -14,6 +15,7 @@ export const FormikForm = ({
     <Container>
       <Title> {title} </Title>
       <SubTitle> {subtitle} </SubTitle>
+      <OperationName>{operationName}</OperationName> {/*Delete for delete Iniciar sesion text*/}
       <Formik
         initialValues={values}
         validationSchema={schema}
