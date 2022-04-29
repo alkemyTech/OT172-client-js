@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
-
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 import { getService } from 'services/apiService'
 import { ENDPOINT_PUBLIC } from 'services/settings'
 import RoutesWeb from './routesWeb'
@@ -22,14 +23,14 @@ function App () {
 
   return (
     <>
-      {location !== '/' ? <Header ongData={ongData} /> : null}
+      {/* {location !== '/' ? <Header ongData={ongData} /> : null} */}
+      <Header/>
       <RoutesWeb />
       <Footer ongData={ongData} />
+      <ToastContainer/>
     </>
   )
 }
 
 export default App
 
-// Acá se podrá invocar los dispatchers y los states de Redux, y pasarselos por props
-// a las rutas que se requieran.
