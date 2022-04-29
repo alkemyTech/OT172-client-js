@@ -1,8 +1,7 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { fetchAllCategories } from '../../store/slices/categories'
-import { CreateUserForm } from '../../components/CreateUser'
-import OrganizationData from 'components/OrganizationData'
+import { fetchAllCategories } from 'store/slices/categories'
+import { CreateUserForm } from 'components/CreateUser'
 import { Container } from './styles'
 
 function Home () {

@@ -1,13 +1,14 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
 import NavBar from './NavBar'
 import { Container, Logo } from './styles'
 
-const tempLogo = 'https://assets-dev.alkemy.org/assets/logo.svg'
-
-export default function Header ({ ongData }) {
+export default function Header () {
+  const { list: organization } = useSelector(state => state.organization)
+ 
   return (
     <Container>
-      <Logo src={ongData ? ongData.imageUrl : ''} />
+      <Logo src={organization ? organization.imageUrl : ''} />
       <NavBar />
     </Container>
   )

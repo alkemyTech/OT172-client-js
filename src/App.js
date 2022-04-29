@@ -1,30 +1,25 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
+import { fetchOrganizationDataPublic } from 'store/slices/organization'
 
-import { getService } from 'services/apiService'
-import { ENDPOINT_PUBLIC } from 'services/settings'
 import RoutesWeb from './routesWeb'
 import Header from 'components/Header'
 import Footer from './components/Footer'
-
-const getOrganizationData = async setOngData => {
-  const response = await getService(ENDPOINT_PUBLIC)
-  setOngData(response.data)
-}
+import { useDispatch } from 'react-redux'
 
 function App () {
   const location = useLocation().pathname
-  const [ongData, setOngData] = useState()
-
+  const dispatch = useDispatch()
+  
   useEffect(() => {
-    getOrganizationData(setOngData)
-  }, [])
-
+    dispatch(fetchOrganizationDataPublic())
+  }, [dispatch])
+  
   return (
     <>
-      {location !== '/' ? <Header ongData={ongData} /> : null}
+      <Header />
       <RoutesWeb />
-      <Footer ongData={ongData} />
+      <Footer />
     </>
   )
 }
