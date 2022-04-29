@@ -11,7 +11,7 @@ function Home () {
     <Container>
       <h1>Bienvenid@ a Somos Más</h1>
       <p>Aca va el Componente Slider</p>
-      <News />
+      <News qty={4} title='Últimas Noticias'/>
       <CreateUserForm />
     </Container>
   )

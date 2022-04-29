@@ -5,7 +5,7 @@ import { fetchAllNews } from "store/slices/news";
 import CardNew from "./CardNew";
 import { Container } from "./styles";
 
-export default function News() {
+export default function News({qty = 'all', title = ''}) {
   const { list: news } = useSelector(state => state.news)
   const dispatch = useDispatch()
   
@@ -13,11 +13,13 @@ export default function News() {
     dispatch(fetchAllNews())
   }, [dispatch])
 
+  const totalShowNews = qty === 'all' ? news.length : qty
+
   return (
     <Container>
-      <h1>Últimas Noticias</h1>
+      <h1>{title}</h1>
       {news.length > 0 
-        ? news.slice(0,4).map( (n, i) => <CardNew key={i} element={n} /> )
+        ? news.slice(0,totalShowNews).map( (n, i) => <CardNew key={i} element={n} /> )
         : <p>No hay noticias</p>
       }
     </Container>
