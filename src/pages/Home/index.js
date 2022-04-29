@@ -5,7 +5,6 @@ import { CreateUserForm } from '../../components/CreateUser'
 import OrganizationData from 'components/OrganizationData'
 import { Container } from './styles'
 
-
 function Home () {
   const { list: categories } = useSelector(state => state.categories)
   const dispatch = useDispatch()
@@ -16,8 +15,12 @@ function Home () {
   return (
     <Container>
       Ruta Home
-      <div><h1>Redux Test: </h1>{categories.nameCategories?.map((c) => <h2>{c}</h2>)}</div>
-      <OrganizationData />
+      <div>
+        <h1>Redux Test: </h1>
+        {categories.nameCategories?.map(c => (
+          <h2>{c}</h2>
+        ))}
+      </div>
       <CreateUserForm />
     </Container>
   )
