@@ -25,12 +25,11 @@ function App () {
 
       {/* {location !== '/' ? <Header ongData={ongData} /> : null} */}
       <Header/>
-      <RoutesWeb />
       <Footer ongData={ongData} />
       <ToastContainer/>
       <Toaster />
       <RoutesWeb />
-      <Footer />
+      
     </>
   )
 }
