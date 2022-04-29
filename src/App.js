@@ -7,6 +7,8 @@ import Header from 'components/Header'
 import Footer from './components/Footer'
 import { useDispatch } from 'react-redux'
 import { Toaster } from 'react-hot-toast'
+import { fetchOrganizationDataPublic } from 'store/slices/organization'
+
 
 function App () {
   const location = useLocation().pathname
