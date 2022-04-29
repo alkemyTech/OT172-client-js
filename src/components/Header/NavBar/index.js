@@ -3,6 +3,8 @@ import { Link, useNavigate } from 'react-router-dom'
 import { Container } from './styles'
 import { useSelector, useDispatch } from 'react-redux'
 import { logout, reset } from '../../../store/slices/auth/index'
+import { toast } from 'react-toastify'
+
 
 
 const links = [
@@ -37,6 +39,7 @@ const onLogout = () => {
   dispatch(logout())
   dispatch(reset())
   navigate('/')
+  toast.success('Logout success')
 }
 
   return (

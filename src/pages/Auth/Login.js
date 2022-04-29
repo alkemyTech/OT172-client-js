@@ -4,28 +4,10 @@ import { createUserSchema } from '../../components/Forms/schemas'
 import { FormContainer } from './styles'
 import { FormikForm } from '../../components/Forms'
 import { FormField } from '../../components/Forms/formField'
-
-const FormFields = response => {
-    return (
-      <>
-       
-        <FormField
-          name='email'
-          type='email'
-          placeholder='Email'
-          FormContainer={FormContainer}
-        />
-        <FormField
-          name='password'
-          type='password'
-          placeholder='Contraseña'
-          FormContainer={FormContainer}
-        />
-        <button type='submit'>Crear</button>
-        <div> {response} </div>
-      </>
-    )
-  }
+import { useSelector, useDispatch } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
+import { toast } from 'react-toastify'
+import { login, reset } from '../../store/slices/auth/index'
 
 
 function Login() {
@@ -34,40 +16,91 @@ const [formData,setFormData] = useState({
     password: ''
 })
 
+const navigate = useNavigate()
+const dispatch = useDispatch()
+
+const {user, isLoading, isError, isSuccess, message} = useSelector((state) => state.auth) 
 
 const { email, password} = formData
 
 const onChange = (e) => {
-setFormData((prevState) => ({
+  const {name, value} = e.target
+  setFormData((prevState) => ({
     ...prevState,
-    [e.target.name]: e.target.value
-}))
+    [name]: value,
+  }))
 }
 
 const onSubmit = (e) => {
-    e.preventDefault()
+  e.preventDefault()
+  const userData = {
+      email, password
+  }
+  setFormData((prevState) => ({
+      ...prevState,
+  }))
+  if (isSuccess) {
+    toast.success('Login success')
+  } 
+  console.log(userData)
+  dispatch(login(userData))
+}
+
+useEffect(() => {
+  if(isError){
+      toast.error(message)
+  }
+  if(isSuccess || user){
+     navigate('/home')
+  }
+  dispatch(reset())
+  }, [user, isError, isSuccess, message, navigate, dispatch])
+  
+  if(isLoading) {
+    return <div>IS LOADING ...</div>
 }
 
   return (
-   <>
-   <section className='heading'>
-<h1>
-    Login
-</h1>
-<p>Log in and enjoy the web</p>
-   </section>
-   <section>
-   <FormikForm
-      title='Bienvenid@ a Somos Más'
-      subtitle='Desde 1997 generando procesos de crecimiento y de inserción social'
-      values={formData}
-      schema={createUserSchema}
-    onChange={onChange}
-    onSubmit={onSubmit}
-      FormFields={() => FormFields()}
-    />
-   </section>
-   </>
+    <>
+    <section className='heading'>
+ <h1>
+     Login
+ </h1>
+ <p>Please login with your account</p>
+    </section>
+    <section className='form'>
+         <form onSubmit={onSubmit}>
+           <div className='form-group'>
+             <input
+               type='email'
+               className='form-control'
+               id='email'
+               name='email'
+               value={email}
+               placeholder='Enter email'
+               onChange={onChange}
+             />
+           </div>
+           <div className='form-group'>
+             <input
+               type='password'
+               className='form-control'
+               id='password'
+               name='password'
+               value={password}
+               placeholder='Enter password'
+               onChange={onChange}
+             />
+           </div>
+           <div className='form-group'>
+             <button type='submit' className='btn btn-block'>
+               Submit
+             </button>
+           </div>
+         </form>
+       </section>
+    
+    </>
   )
 }
 

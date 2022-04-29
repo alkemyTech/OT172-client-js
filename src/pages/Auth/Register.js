@@ -82,9 +82,6 @@ const onChange = (e) => {
       [name]: value,
     }))
   }
-
-
-
     
   
 const onSubmit = (e) => {
@@ -95,6 +92,9 @@ const onSubmit = (e) => {
     setFormData((prevState) => ({
         ...prevState,
     }))
+  if (isSuccess) {
+    toast.success('Register success')
+  } 
     console.log(userData)
     dispatch(register(userData))
 }
@@ -153,7 +153,7 @@ if(isLoading) {
               id='password'
               name='password'
               value={password}
-              placeholder='Confirm password'
+              placeholder='Enter password'
               onChange={onChange}
             />
           </div>
