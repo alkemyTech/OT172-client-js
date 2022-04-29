@@ -69,6 +69,7 @@ if(isError){
     toast.error(message)
 }
 if(isSuccess || user){
+  toast.success('Register success')
    navigate('/home')
 }
 dispatch(reset())
@@ -92,9 +93,6 @@ const onSubmit = (e) => {
     setFormData((prevState) => ({
         ...prevState,
     }))
-  if (isSuccess) {
-    toast.success('Register success')
-  } 
     console.log(userData)
     dispatch(register(userData))
 }

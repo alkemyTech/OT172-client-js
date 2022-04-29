@@ -39,9 +39,7 @@ const onSubmit = (e) => {
   setFormData((prevState) => ({
       ...prevState,
   }))
-  if (isSuccess) {
-    toast.success('Login success')
-  } 
+  
   console.log(userData)
   dispatch(login(userData))
 }
@@ -51,7 +49,9 @@ useEffect(() => {
       toast.error(message)
   }
   if(isSuccess || user){
+  toast.success('Login success')
      navigate('/home')
+
   }
   dispatch(reset())
   }, [user, isError, isSuccess, message, navigate, dispatch])
