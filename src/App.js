@@ -6,6 +6,7 @@ import RoutesWeb from './routesWeb'
 import Header from 'components/Header'
 import Footer from './components/Footer'
 import { useDispatch } from 'react-redux'
+import { Toaster } from 'react-hot-toast'
 
 function App () {
   const location = useLocation().pathname
@@ -17,6 +18,7 @@ function App () {
   
   return (
     <>
+      <Toaster />
       <Header />
       <RoutesWeb />
       <Footer />
