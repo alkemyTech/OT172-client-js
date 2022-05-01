@@ -1,8 +1,9 @@
 import React, { useState } from "react"
 import { FormikForm } from "../../Forms"
-import { FormField } from "../../Forms/formField"
+import { FormField } from "components/Forms/formField"
 import { contactSchema } from "components/Forms/schemas" 
-import {FormContainer}from "./styles"
+import {FormContainer, CustomTextArea, CustomInput}from "./styles"
+import {  } from "./styles"
 
 const FormFields = () =>{
     return (
@@ -11,24 +12,28 @@ const FormFields = () =>{
                 name= "firstName"
                 type= "text"
                 placeholder= "Nombre"
+                as={CustomInput}
                 FormContainer={FormContainer}
             />
             <FormField
                 name="lastName"
                 type="text"
                 placeholder="Apellido"
+                as={CustomInput}
                 FormContainer={FormContainer}
             />
             <FormField
                 name="email"
                 type="email"
                 placeholder="Email de contacto"
+                as={CustomInput}
                 FormContainer={FormContainer}
             />
             
             <FormField
                 name="message"
                 type="text"
+                as={CustomTextArea}//This sets the field as textarea, //CREAR TEXTAREA CUSTOM Y ENVIARLO
                 placeholder="Mensaje para la orgnaizacion"
                 FormContainer={FormContainer}
             />

@@ -14,7 +14,7 @@ export const ContactText = styled.p`
     color:black;
     margin:0;
     padding: 25px;
-    border-right: 1px solid blue;
+    border-right: 1px solid #999999;
 `
 
 
