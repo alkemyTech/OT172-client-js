@@ -8,7 +8,7 @@ const apiService = axios.create({
 })
 
 if (token) {
-  apiService.defaults.headers.common.Authorization = `Bearer ${token}`
+  apiService.defaults.headers.common = {'x-access-token': `${token}`}
 }
 
 export const getService = (apiEndpoint, id) => {
