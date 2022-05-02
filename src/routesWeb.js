@@ -32,7 +32,7 @@ export default function RoutesWeb () {
 
       {/* BackOffice */}
 
-      {user?.user.roleId === 1 &&
+      {user?.user?.roleId === 1 &&
         <>
           <Route path='/backoffice/users' element={<Users />} />
           <Route path='/backoffice/categories' element={<Categories />} />
