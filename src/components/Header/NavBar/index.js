@@ -48,8 +48,7 @@ const onLogout = () => {
       {/*  BACKOFFICE */}
 
       {user?.user?.roleId === 1 ?  // IF USER IS ADMIN
-       <Link to='/backoffice/categories'> Categories </Link> 
-       <Link to='/backoffice/users'> Users </Link> 
+       <><Link to='/backoffice/categories'> Categories </Link><Link to='/backoffice/users'> Users </Link></> 
 
        : null                 // IF NOT 
         }
