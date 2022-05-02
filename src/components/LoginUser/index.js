@@ -19,7 +19,7 @@ const FormFields = () =>{
                 placeholder="Password"
                 FormContainer={FormContainer}
             />
-            <button type="submit">Crear</button>
+            <button type="submit">Iniciar sesion</button>
         </>
     )
 }
