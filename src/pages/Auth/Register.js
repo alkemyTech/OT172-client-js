@@ -7,6 +7,7 @@ import { FormikForm } from '../../components/Forms'
 import { FormField } from '../../components/Forms/formField'
 import { register, reset } from '../../store/slices/auth/index'
 import { alertToast } from 'services/alerts'
+import { CreateUserForm } from 'components/CreateUser'
 
 // const FormFields = response => {
 //     return (
@@ -49,7 +50,7 @@ import { alertToast } from 'services/alerts'
 function Register() {
     
     
-const [formData,setFormData] = useState({
+/*const [formData,setFormData] = useState({
     firstName: '',
     lastName: '',
     email: '',
@@ -99,10 +100,10 @@ const onSubmit = (e) => {
 
 if(isLoading) {
     return <div>IS LOADING ...</div>
-}
+}*/
 
   return (
-   <>
+   /*<>
    <section className='heading'>
 <h1>
     Register
@@ -163,7 +164,8 @@ if(isLoading) {
         </form>
       </section>
    
-   </>
+   </>*/
+   <CreateUserForm />
   )
 }
 
