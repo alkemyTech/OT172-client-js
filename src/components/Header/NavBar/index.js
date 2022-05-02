@@ -24,10 +24,6 @@ const links = [
     name: 'Members',
     path: 'members'
   },
-  {
-    name: 'Categories',
-    path: 'backoffice/categories'
-  }
 ]
 
 export default function NavBar() {
@@ -45,7 +41,18 @@ const onLogout = () => {
   return (
     <Container>
       {links.map(link => <Link key={link.path} to={link.path}>{link.name}</Link>)}
-      {user ? (<> <button onClick={onLogout}>Logout</button>  </>) : (<> <Link to='/login'> Login </Link> <Link to='/register'> Register </Link>  </>)}
+      {user ? // IF USER IS LOGGED IN
+      (<> <button onClick={onLogout}>Logout</button>  </>) 
+      :      //  IF NOT 
+      (<> <Link to='/login'> Login </Link> <Link to='/register'> Register </Link>  </>)}
+
+
+      {/*  BACKOFFICE */}
+      {user?.user.roleId === 1 ?  // IF USER IS ADMIN
+       <Link to='/backoffice/categories'> Categories </Link> 
+       : null                 // IF NOT 
+        }
+        
     </Container>
   )
 }

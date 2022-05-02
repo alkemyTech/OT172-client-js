@@ -5,14 +5,18 @@ import Testimonials from 'pages/Testimonials'
 import NewsPage from 'pages/NewsPage'
 import Members from 'pages/Members'
 import Activities from 'pages/Activities'
-import Auth from 'pages/Auth'
 import Login from 'pages/Auth/Login'
 import Register from 'pages/Auth/Register'
 import Categories from 'pages/BackOffice/Categories'
+import {  useSelector } from 'react-redux'
+
 
 
 
 export default function RoutesWeb () {
+ 
+ const { user } = useSelector((state) => state.auth)
+
   return (
     <Routes>
       <Route path='/' element={<Home/>} />
@@ -23,7 +27,10 @@ export default function RoutesWeb () {
       <Route path='/members' element={<Members />} />
       <Route path='/news' element={<NewsPage />} />
       <Route path='/testimonials' element={<Testimonials />} />
-      <Route path='/backoffice/categories' element={<Categories />} />
+
+      {/* BackOffice */}
+      <Route path='/backoffice/categories' element={user?.user.roleId === 1 ? <Categories /> : null} />
+     
     </Routes>
   )
 }
