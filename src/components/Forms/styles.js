@@ -16,3 +16,8 @@ export const SubTitle = styled.h4`
 export const OperationName= styled.h3`
   color: black;
 `
+
+export const ErrorMessageFormik= styled.div`
+  color:red;
+  font-size:15px
+`

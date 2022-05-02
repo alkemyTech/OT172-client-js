@@ -1,11 +1,13 @@
 import React from 'react'
 import { Field, ErrorMessage } from 'formik'
-
-export const FormField = ({ name, type, placeholder, FormContainer }) => {
+import { ErrorMessageFormik } from './styles'
+export const FormField = ({ name, type, placeholder, FormContainer, as}) => {
   return (
     <FormContainer>
-      <Field name={name} type={type} placeholder={placeholder} />
-      <ErrorMessage name={name} />
+      <Field as= {as} name={name} type={type} placeholder={placeholder}/>
+      <ErrorMessage name={name}>
+        {msg=><ErrorMessageFormik>{msg}</ErrorMessageFormik> }
+      </ErrorMessage> 
     </FormContainer>
   )
 }

@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
-import { toast } from 'react-toastify'
 import { createUserSchema } from '../../components/Forms/schemas'
 import { FormContainer } from './styles'
 import { FormikForm } from '../../components/Forms'
 import { FormField } from '../../components/Forms/formField'
 import { register, reset } from '../../store/slices/auth/index'
+import { alertToast } from 'services/alerts'
 
 // const FormFields = response => {
 //     return (
@@ -66,10 +66,10 @@ const {user, isLoading, isError, isSuccess, message} = useSelector((state) => st
 
 useEffect(() => {
 if(isError){
-    toast.error(message)
+  alertToast('error',message)
 }
 if(isSuccess || user){
-  toast.success('Register success')
+    alertToast('success','Register successs')
    navigate('/home')
 }
 dispatch(reset())

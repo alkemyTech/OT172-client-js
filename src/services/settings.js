@@ -14,3 +14,7 @@ export const ENDPOINT_AUTH = `${BASE_API_URL}/auth/`
 
 export const ENDPOINT_NEWS = `${BASE_API_URL}/news`
 
+export const ENDPOINT_USERS = `${BASE_API_URL}/users`
+
+export const ENDPOINT_MEMBERS = `${BASE_API_URL}/members`
+
