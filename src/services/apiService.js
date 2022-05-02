@@ -8,12 +8,17 @@ const apiService = axios.create({
 })
 
 if (token) {
-  apiService.defaults.headers.common.Authorization = `Bearer ${token}`
+  apiService.defaults.headers.common = {'x-access-token': `${token}`}
 }
 
 export const getService = (apiEndpoint, id) => {
   const apiServiceUrl = id ? `${apiEndpoint}/${id}` : `${apiEndpoint}`
   return apiService.get(apiServiceUrl)
+}
+
+export const postService = (apiEndpoint, data) => {
+  const apiServiceUrl = `${apiEndpoint}`
+  return apiService.post(apiServiceUrl, data)
 }
 
 export const deleteService = (apiEndpoint, id) => {
