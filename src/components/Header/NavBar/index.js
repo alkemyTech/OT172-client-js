@@ -28,7 +28,7 @@ export default function NavBar() {
   const navigate = useNavigate()
   const dispatch = useDispatch()
   const { user } = useSelector((state) => state.auth)
-
+  
 const onLogout = () => {
   dispatch(logout())
   dispatch(reset())
@@ -46,7 +46,7 @@ const onLogout = () => {
 
 
       {/*  BACKOFFICE */}
-      {user?.user.roleId === 1 ?  // IF USER IS ADMIN
+      {user?.roleId === 1 ?  // IF USER IS ADMIN
        <>
         <Link to='/backoffice/users'> Users </Link> 
         <Link to='/backoffice/categories'> Categories </Link> 
