@@ -3,9 +3,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import { Container } from './styles'
 import { useSelector, useDispatch } from 'react-redux'
 import { logout, reset } from '../../../store/slices/auth/index'
-import { toast } from 'react-toastify'
-
-
+import { alertToast } from 'services/alerts'
 
 const links = [
   {
@@ -35,7 +33,7 @@ const onLogout = () => {
   dispatch(logout())
   dispatch(reset())
   navigate('/')
-  toast.success('Logout success')
+  alertToast('success','Logout success')
 }
 
   return (
@@ -49,7 +47,10 @@ const onLogout = () => {
 
       {/*  BACKOFFICE */}
       {user?.user.roleId === 1 ?  // IF USER IS ADMIN
-       <Link to='/backoffice/categories'> Categories </Link> 
+       <>
+        <Link to='/backoffice/users'> Users </Link> 
+        <Link to='/backoffice/categories'> Categories </Link> 
+      </>
        : null                 // IF NOT 
         }
         

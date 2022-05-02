@@ -6,8 +6,8 @@ import { FormikForm } from '../../components/Forms'
 import { FormField } from '../../components/Forms/formField'
 import { useSelector, useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
-import { toast } from 'react-toastify'
 import { login, reset } from '../../store/slices/auth/index'
+import { alertToast } from 'services/alerts'
 
 
 function Login() {
@@ -46,10 +46,10 @@ const onSubmit = (e) => {
 
 useEffect(() => {
   if(isError){
-      toast.error(message)
+    alertToast('error',message)
   }
   if(isSuccess || user){
-  toast.success('Login success')
+    alertToast('success','Login success')
      navigate('/home')
 
   }
