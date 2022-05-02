@@ -3,7 +3,7 @@ import toast from 'react-hot-toast';
 import styled from 'styled-components';
 
 // For simple alert call alert
-export const alert = (type, msg) => {
+export const alertToast = (type, msg) => {
   return toast[type](msg)
 }
 
