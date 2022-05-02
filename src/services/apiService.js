@@ -16,6 +16,11 @@ export const getService = (apiEndpoint, id) => {
   return apiService.get(apiServiceUrl)
 }
 
+export const postService = (apiEndpoint, data) => {
+  const apiServiceUrl = `${apiEndpoint}`
+  return apiService.post(apiServiceUrl, data)
+}
+
 export const deleteService = (apiEndpoint, id) => {
   if (!id) return 'error'
   const apiServiceUrl = `${apiEndpoint}/${id}`
