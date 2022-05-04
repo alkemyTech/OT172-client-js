@@ -33,7 +33,7 @@ const onLogout = () => {
   dispatch(logout())
   dispatch(reset())
   navigate('/')
-  alertToast('success','Logout success')
+  alertToast('success','Sesión cerrada con exito!')
 }
 
   return (

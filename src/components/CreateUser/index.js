@@ -42,32 +42,34 @@ const FormFields = response => {
 }
 
 export const CreateUserForm = () => {
-const dispatch = useDispatch()
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
+  const {user, isLoading, isError, isSuccess, message} = useSelector((state) => state.auth) 
   const values = {
     firstName: '',
     lastName: '',
     email: '',
     password: ''
   }
-    
-  const navigate = useNavigate()
-  
-  const {user, isLoading, isError, isSuccess, message} = useSelector((state) => state.auth) 
-  
+
+  //Register req
+  const handleSubmit = values => {
+    dispatch(register(values))
+  }
+
+  //Effects/notifications 
   useEffect(() => {
     if(isError){
       alertToast('error',message)
     }
     if(isSuccess || user){
-      alertToast('success','Registro con exito!')
+      alertToast('success','Registrado exitosamente!')
       navigate('/home')
     }
     dispatch(reset())
   }, [user, isError, isSuccess, message, navigate, dispatch])
 
-  const handleSubmit = (values) => {
-    dispatch(register(values))
-  }
+  
 
   /*if(isLoading) {
       //Loading screen, check preserve the state of the fields for not write all again after re-render
