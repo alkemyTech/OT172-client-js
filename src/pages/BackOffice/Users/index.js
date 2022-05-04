@@ -4,7 +4,7 @@ import { fetchAllUsers } from 'store/slices/users'
 import UsersList from 'components/BackOffice/Users'
 
 function Users() {
-  const { list: users } = useSelector(state => state.users)
+  const { users } = useSelector(state => state.users)
   const dispatch = useDispatch()
   useEffect(() => {
     dispatch(fetchAllUsers())
