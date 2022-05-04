@@ -15,9 +15,13 @@ const fetcher = (verb, endPoint, body=null) => {
 }
 
 export const getService = (apiEndpoint, id) => {
-  
   const apiServiceUrl = id ? `${apiEndpoint}/${id}` : `${apiEndpoint}`
   return fetcher('get', apiServiceUrl)
+}
+
+export const deleteService = (apiEndpoint, id) => {
+  const apiServiceUrl = `${apiEndpoint}/${id}`
+  return fetcher('delete', apiServiceUrl)
 }
 
 export const postService = (apiEndpoint, data) => {
