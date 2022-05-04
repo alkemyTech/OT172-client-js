@@ -30,7 +30,7 @@ export default function RoutesWeb () {
       <Route path='/testimonials' element={<Testimonials />} />
 
       {/* BackOffice */}
-      {user?.roleId === 1 &&
+      {user?.user?.roleId === 1 &&
         <>
           <Route path='/backoffice/users' element={<Users />} />
           <Route path='/backoffice/categories' element={<Categories />} />
