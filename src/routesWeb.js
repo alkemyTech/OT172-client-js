@@ -10,6 +10,7 @@ import Register from 'pages/Auth/Register'
 import Categories from 'pages/BackOffice/Categories'
 import {  useSelector } from 'react-redux'
 import Users from 'pages/BackOffice/Users'
+import New from 'pages/New'
 
 export default function RoutesWeb () {
   
@@ -24,6 +25,7 @@ export default function RoutesWeb () {
       <Route path='/activities' element={<Activities />} />
       <Route path='/members' element={<Members />} />
       <Route path='/news' element={<NewsPage />} />
+      <Route path='/news/:id' element={<New />} />
       <Route path='/testimonials' element={<Testimonials />} />
 
       {/* BackOffice */}
