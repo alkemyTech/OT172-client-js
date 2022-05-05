@@ -28,12 +28,12 @@ export default function NavBar() {
   const navigate = useNavigate()
   const dispatch = useDispatch()
   const { user } = useSelector((state) => state.auth)
-
+  
 const onLogout = () => {
   dispatch(logout())
   dispatch(reset())
   navigate('/')
-  alertToast('success','Logout success')
+  alertToast('success','Sesión cerrada con exito!')
 }
 
   return (
@@ -44,12 +44,12 @@ const onLogout = () => {
       :      //  IF NOT 
       (<> <Link to='/login'> Login </Link> <Link to='/register'> Register </Link>  </>)}
 
-
       {/*  BACKOFFICE */}
-
       {user?.user?.roleId === 1 ?  // IF USER IS ADMIN
-       <><Link to='/backoffice/categories'> Categories </Link><Link to='/backoffice/users'> Users </Link></> 
-
+       <>
+        <Link to='/backoffice/users'> Users </Link> 
+        <Link to='/backoffice/categories'> Categories </Link> 
+      </>
        : null                 // IF NOT 
         }
         
