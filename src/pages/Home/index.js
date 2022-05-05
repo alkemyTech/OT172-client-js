@@ -1,16 +1,14 @@
 import React from 'react'
 import { Container } from './styles'
 import News from 'components/News'
-
-
+import Slider from 'components/Slider'
 
 function Home () {
  
-
   return (
     <Container>
       <h1>Bienvenid@ a Somos Más</h1>
-      <p>Aca va el Componente Slider</p>
+      <Slider />
       <News qty={4} title='Últimas Noticias'/>
     </Container>
   )
