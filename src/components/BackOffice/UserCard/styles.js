@@ -28,6 +28,16 @@ export const Row = styled.article`
     width: 15%;
     justify-content:right;
     align-items: center ;
+    &>button {
+      cursor:pointer;
+      background: transparent;
+      border:none;
+      &:hover {
+        &>svg {
+          color: #0000bb;
+        }
+      }
+    }
   }
 
 `
