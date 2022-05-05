@@ -7,25 +7,27 @@ export const alertToast = (type, msg) => {
   return toast[type](msg)
 }
 
-  const makeConfirm = (t, setState, value) => {
-    toast.dismiss(t.id)
-    setState(value)
-  }
-
 // Forconfirm action call confirm
-  export const confirm = (setState, value, msg) => toast((t) => (
+  export const confirm = (setState, msg) => toast((t) => (
     <Container>
       <Title>{msg}</Title>
       <ContainerBtns>
-        <button onClick={() => makeConfirm(t, setState, value )}>
+        <Button onClick={()=>{
+          setState()
+          toast.dismiss(t.id)
+        }
+          }>
           Aceptar
-        </button>
-        <button onClick={() => toast.dismiss(t.id)}>
+        </Button>
+        <Button onClick={() => toast.dismiss(t.id)}>
           Cancelar
-        </button>
+        </Button>
       </ContainerBtns>
     </Container>
-  ));
+  ),
+  {
+    duration: "2000"
+  });
 
   const Container = styled.div`
     display: block;
@@ -43,3 +45,6 @@ export const alertToast = (type, msg) => {
     gap: 1rem;
     justify-content: center;
   `
+const Button = styled.button`
+  cursor: pointer;
+`
