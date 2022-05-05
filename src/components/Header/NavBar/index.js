@@ -44,7 +44,6 @@ const onLogout = () => {
       :      //  IF NOT 
       (<> <Link to='/login'> Login </Link> <Link to='/register'> Register </Link>  </>)}
 
-
       {/*  BACKOFFICE */}
       {user?.user?.roleId === 1 ?  // IF USER IS ADMIN
        <>

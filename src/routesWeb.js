@@ -11,9 +11,6 @@ import Categories from 'pages/BackOffice/Categories'
 import {  useSelector } from 'react-redux'
 import Users from 'pages/BackOffice/Users'
 
-
-
-
 export default function RoutesWeb () {
   
  const { user } = useSelector((state) => state.auth)
