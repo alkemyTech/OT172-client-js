@@ -48,7 +48,6 @@ export default newSlice.reducer
 export const fetchAllNews = createAsyncThunk('news',async (thunkAPI) => {
     try {
         const data = await getService(ENDPOINT_NEWS)
-        console.log('la data', data);
         return data.data.newsList
     } catch (error) {
         const message = (error.response && error.response.data && error.response.data.message) || error.message || error.toString()
