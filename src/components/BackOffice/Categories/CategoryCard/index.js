@@ -1,0 +1,61 @@
+import React, { useEffect, useState } from 'react'
+import { FaTrash, FaEdit } from 'react-icons/fa'
+import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { alertToast, confirm } from 'services/alerts';
+import { deleteCategories } from 'store/slices/categories';
+import { Card, Row } from './styles'
+
+
+export default function CategoryCard({ category }) {
+  const { isError, isSuccess, message } = useSelector(state => state.categories)
+
+  const [deleteCategory, setDeleteCategory] = useState(false)
+  const dispatch = useDispatch()
+
+  const handleEdit = (id) => {
+    console.log(`el category id es: ${id}`);
+    console.log({category});
+  }
+
+  const handleDelete = () => {
+    confirm(() => setDeleteCategory(true), 'Eliminar la Categoria ?')
+  }
+
+  useEffect(() => {
+    if (deleteCategory) {
+    dispatch(deleteCategories(category.id))
+  }
+  }, [deleteCategory])
+
+  useEffect(() => {
+    if (isError)  alertToast('error',message)
+    if (deleteCategory && isSuccess) alertToast('success','Categoria Eliminada correctamente')
+    setDeleteCategory(false)
+  }, [isError, dispatch, deleteCategory])
+
+
+
+  return (
+    <Card>
+      <Row>
+        <div className='name' >{category.name}</div>
+        {/* <div className='description'>{category.description}</div> */}
+        <div className='actions'>
+          <button
+            onClick={() => handleEdit(category.id)}
+          >
+            <FaEdit />
+          </button>
+          <button 
+            onClick={()=>handleDelete()}
+          >
+            <FaTrash />
+          </button>
+        </div>
+      </Row>
+
+
+    </Card>
+  )
+}
