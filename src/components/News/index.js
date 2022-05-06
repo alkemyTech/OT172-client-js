@@ -35,8 +35,7 @@ export default function News({qty = 'all', title = ''}) {
           <div key={i} onClick={() => handleShowNew(n)}>
           <CardNew 
             key={i} 
-            element={n} 
-             
+            data={n} 
           /> </div>)
         : <p>No hay noticias</p>
       }
