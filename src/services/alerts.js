@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 // For simple alert call alert
 export const alertToast = (type, msg) => {
-  return toast[type](msg)
+  return toast[type](msg,{id:'unasola'})
 }
 
 // Forconfirm action call confirm
@@ -26,7 +26,8 @@ export const alertToast = (type, msg) => {
     </Container>
   ),
   {
-    duration: "2000"
+    duration: "2000",
+    id: 'uniqueToast'
   });
 
   const Container = styled.div`
