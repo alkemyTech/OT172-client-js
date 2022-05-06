@@ -19,7 +19,11 @@ function New() {
       setIsLoading(true)
       if (params.id) {
         const response = await getService(ENDPOINT_NEWS, params.id)
-        setData(response.data)
+        if (response.data?.id) {
+          setData(response.data)
+        } else {
+          setData()
+        }
         setIsLoading(false)
       }
     })();
