@@ -22,7 +22,7 @@
   "scripts": {
     "lint": "./node_modules/.bin/standard",
     "lint-fix": "./node_modules/.bin/standard --fix",
-    "start": "react-scripts --openssl-legacy-provider start",
+    "start": "react-scripts start",
     "start-linux": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
