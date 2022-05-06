@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
-import { getService } from 'services/apiService'
+import { deleteService, getService } from 'services/apiService'
 import { ENDPOINT_CATEGORIES } from "services/settings"
 
 const initialState = {
@@ -38,22 +38,26 @@ export const categorySlice = createSlice({
                 state.message = action.payload
                 state.categories = []
             })
-            // .addCase(deleteUser.pending, (state) => {
-            //     state.isLoading = true
-            // })
-            // .addCase(deleteUser.fulfilled, (state, action) => {
-            //     console.log('id: ', action.payload);
-            //     const filteredUsers = state.users.filter(e => e.id !== action.payload)
-            //     state.isLoading = false
-            //     state.isSuccess = true
-            //     state.users = filteredUsers
-            // })
-            // .addCase(deleteUser.rejected, (state, action) => {
-            //     state.isLoading = false
-            //     state.isError = true
-            //     state.message = action.payload
-            //     state.users = []
-            // })
+            .addCase(deleteCategories.pending, (state) => {
+                state.isLoading = true
+                state.isSuccess = false
+                state.isError = false
+            })
+            .addCase(deleteCategories.fulfilled, (state, action) => {
+                console.log('id: ', action.payload);
+                const filteredCategories = state.categories.filter(e => e.id !== action.payload)
+                state.isLoading = false
+                state.isSuccess = true
+                state.isError = false
+                state.categories = filteredCategories
+            })
+            .addCase(deleteCategories.rejected, (state, action) => {
+                state.isLoading = false
+                state.isSuccess = false
+                state.isError = true
+                state.message = action.payload
+                // state.categories = []
+            })
     },
 })
 
@@ -65,6 +69,16 @@ export const fetchAllCategories = createAsyncThunk('categories', async (thunkAPI
     try {
         const data = await getService(ENDPOINT_CATEGORIES)
         return data.data
+    } catch (error) {
+        const message = (error.response && error.response.data && error.response.data.message) || error.message || error.toString()
+        return thunkAPI.rejectWithValue(message)
+    }
+})
+
+export const deleteCategories = createAsyncThunk('delete/categories', async (id, thunkAPI) => {
+    try {
+         const response = await deleteService(ENDPOINT_CATEGORIES, id)
+        return id
     } catch (error) {
         const message = (error.response && error.response.data && error.response.data.message) || error.message || error.toString()
         return thunkAPI.rejectWithValue(message)
