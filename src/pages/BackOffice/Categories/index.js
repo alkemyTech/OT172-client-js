@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { fetchAllCategories } from '../../../store/slices/categories'
+import { fetchAllCategories } from 'store/slices/categories'
 
 
 function Categories () {
-  const { list: categories } = useSelector(state => state.categories)
+  const { categories } = useSelector(state => state.categories)
   const dispatch = useDispatch()
   useEffect(() => {
     dispatch(fetchAllCategories())
