@@ -9,7 +9,7 @@ export default function CardNew({ data, detail = false }) {
       <Image src={data.image} alt={data.name} />
       {detail &&
         <>
-          <Category>{data.categoryId}</Category>
+          <Category>{data.categoryName}</Category>
           <Content>{data.content}</Content>
         </>
       }
