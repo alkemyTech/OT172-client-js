@@ -7,6 +7,7 @@ function Categories () {
   const { categories } = useSelector(state => state.categories)
   const dispatch = useDispatch()
   useEffect(() => {
+
     dispatch(fetchAllCategories())
   }, [dispatch])
 
@@ -14,7 +15,7 @@ function Categories () {
       <>
     <div>
          Ruta Categories
-      <h1>Redux Test: </h1>{categories.nameCategories?.map((c) => <h2>{c}</h2>)}
+      <h1>Redux Test: </h1>{categories.map((c) => <h2>{c.name}</h2>)}
     </div></>
   )
 }

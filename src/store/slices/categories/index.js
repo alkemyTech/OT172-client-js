@@ -64,7 +64,6 @@ export default categorySlice.reducer
 export const fetchAllCategories = createAsyncThunk('categories', async (thunkAPI) => {
     try {
         const data = await getService(ENDPOINT_CATEGORIES)
-        console.log(data.data);
         return data.data
     } catch (error) {
         const message = (error.response && error.response.data && error.response.data.message) || error.message || error.toString()
