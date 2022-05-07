@@ -8,7 +8,6 @@ function Categories () {
   const { categories } = useSelector(state => state.categories)
   const dispatch = useDispatch()
   useEffect(() => {
-
     dispatch(fetchAllCategories())
   }, [dispatch])
 
