@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
-import { deleteService, getService } from 'services/apiService'
+import { deleteService, getService, postService } from 'services/apiService'
 import { ENDPOINT_CATEGORIES } from "services/settings"
 
 const initialState = {
@@ -38,6 +38,19 @@ export const categorySlice = createSlice({
                 state.message = action.payload
                 state.categories = []
             })
+            .addCase(createCategories.pending, (state) => {
+                state.isLoading = true
+            })
+            .addCase(createCategories.fulfilled, (state, action) => {
+                state.isLoading = false
+                state.isSuccess = true
+                state.categories = [...state.categories, action.payload] 
+            })
+            .addCase(createCategories.rejected, (state, action) => {
+                state.isLoading = false
+                state.isError = true
+                state.message = action.payload
+            })
             .addCase(deleteCategories.pending, (state) => {
                 state.isLoading = true
                 state.isSuccess = false
@@ -56,7 +69,6 @@ export const categorySlice = createSlice({
                 state.isSuccess = false
                 state.isError = true
                 state.message = action.payload
-                // state.categories = []
             })
     },
 })
@@ -64,6 +76,16 @@ export const categorySlice = createSlice({
 export const { reset } = categorySlice.actions
 
 export default categorySlice.reducer
+
+export const createCategories = createAsyncThunk('create/categories', async (data, thunkAPI) => {
+    try {
+         const response = await postService(ENDPOINT_CATEGORIES, data)
+        return data
+    } catch (error) {
+        const message = (error.response && error.response.data && error.response.data.message) || error.message || error.toString()
+        return thunkAPI.rejectWithValue(message)
+    }
+})
 
 export const fetchAllCategories = createAsyncThunk('categories', async (thunkAPI) => {
     try {
