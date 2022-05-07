@@ -1,16 +1,18 @@
-import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom';
-import { alertToast, confirm } from 'services/alerts';
-import { Card } from './styles';
+import React from 'react'
+import { Card, Category, Content, Image, Titulo } from './styles';
 
-export default function CardNew({ element }) {
-  const [borrar, setBorrar] = useState(false)
-
+export default function CardNew({ data, detail = false }) {
+  
   return (
-    <Card    >
-      {element.name}
-      <img src={element.image} alt={element.name} height='100px' width='auto' />
-
+    <Card>
+      <Titulo>{data.name}</Titulo>
+      <Image src={data.image} alt={data.name} />
+      {detail &&
+        <>
+          <Category>{data.categoryName}</Category>
+          <Content>{data.content}</Content>
+        </>
+      }
     </Card>
   )
 }
