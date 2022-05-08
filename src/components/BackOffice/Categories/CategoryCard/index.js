@@ -17,7 +17,6 @@ export default function CategoryCard({ category }) {
 const navigate = useNavigate()
 
   const handleEdit = (id) => {
-    console.log(`el category id es: ${id}`);
     navigate(`${id}`)
   }
 

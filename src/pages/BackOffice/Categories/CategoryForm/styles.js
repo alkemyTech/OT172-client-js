@@ -4,11 +4,26 @@ export const FormContainer = styled.div`
   display: flex;
   justify-content: center;
   flex-direction: column;
-  width: 30%;
+  margin-bottom: .5rem;
+  width: 70%;
+  height: 2rem;
+  input {
+    border: 1px solid #dadde1;
+    height: 100% ;
+  }
+  input:hover {
+    border-color: #764abc ;
+  }
 `
-
+export const Button = styled.button`
+    background-color: #eae7fe;
+    border-color: transparent ;
+    border-radius: 5rem ;
+    cursor: pointer;
+    display: block ;
+    width: 70%;
+`
 export const Container = styled.div`
-  border: 1px solid red;
   width: 400px;
   margin: auto ;
   color: black;

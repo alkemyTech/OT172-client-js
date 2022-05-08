@@ -2,17 +2,20 @@ import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { Container, FormContainer } from "./styles";
+import { Button, Container, FormContainer } from "./styles";
 import { categorySchema } from "components/Forms/schemas";
 import { FormikForm } from "components/Forms";
 import { FormField } from "components/Forms/formField";
 import { getService } from "services/apiService";
 import { ENDPOINT_CATEGORIES } from "services/settings";
 import { TiArrowBack } from "react-icons/ti";
-import { createCategories } from "store/slices/categories";
+import { createCategories, updateCategories } from "store/slices/categories";
+import { useSelector } from "react-redux";
+import { alertToast } from "services/alerts";
+import Loader from "components/utils/Loader";
 
 
-const FormFields = () => {
+const FormFields = (editar=false) => {
   return (
     <>
       <FormField
@@ -27,12 +30,13 @@ const FormFields = () => {
         placeholder="Descripcion"
         FormContainer={FormContainer}
       />
-      <button type="submit">Aceptar</button>
+      <Button type="submit">{editar ? 'Editar' : 'Agregar'}</Button>
     </>
   )
 }
 
 export const CategoryForm = () => {
+  const {isError, isSuccess, isLoading, message } = useSelector(state => state.categories)
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
@@ -56,38 +60,25 @@ export const CategoryForm = () => {
           description,
         });
       }
-    })();
+    })()
   }, [params.id, getService]);
 
-  // //Login req
   const handleSubmit = (values,actions) => {
-    console.log('···submiting',  category);
     if (params.id) {
-      console.log('updatePost', values)
-
+      dispatch(updateCategories({...values, id:params.id}))
     } else {
       dispatch(createCategories(values))
     }
-    actions.resetForm();
+    if (isSuccess) alertToast('success',params.id ?'Categoria editada correctamente!':'Categoria agregada correctamente!')
+    if (isError) alertToast('error',message)
+
     actions.setSubmitting(false);
-    navigate("/backoffice/categories");
+    actions.resetForm();
+    navigate("/backoffice/categories")
   }
 
-  // //Effects/notifications 
-  // useEffect(() => {
-  //     if(isError){
-  //         alertToast('error',message)
-  //     }
-  //     if(isSuccess || user){
-  //         alertToast('success','Inicio de sesión exitoso!')
-  //         navigate('/home')
-  //     }
-  //     dispatch(reset())
-  // }, [user, isError, isSuccess, message, navigate, dispatch])
-
-  /*if(isLoading) {
-    //Loading screen, check preserve the state of the fields for not write all again after re-render
-  }*/
+  
+  if(isLoading) return <Loader />
 
   return (
     <Container>
@@ -95,11 +86,11 @@ export const CategoryForm = () => {
       <FormikForm
         title="Back Office"
         subtitle="Administracion de categorias"
-        operationName="Agregar/Editar" /*Delete for delete Iniciar sesion text*/
+        operationName= {params.id ? 'Editar' : 'Agregar'}
         values={category}
         schema={categorySchema}
         onSubmit={handleSubmit}
-        FormFields={() => FormFields()}
+        FormFields={() => FormFields(params.id ? true : false)}
       />
     </Container>
   )
