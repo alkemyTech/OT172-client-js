@@ -8,7 +8,7 @@ const Slider = ({title=''}) => {
 		<Container>
 			<Titulo>{title}</Titulo>
 			<Slideshow controles={true} autoplay={true} velocidad="1000" intervalo="2000">
-				{images.map(img => <Slide>
+				{images.map((img, index) => <Slide key={index}>
           <a href={img.link}>
 						<img src={img.img} alt=""/>
 					</a>
