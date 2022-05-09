@@ -10,8 +10,6 @@ function HeroSection() {
     const handleClick = () => {
       navigate('/aboutus')
     }
-
-
     return (
         <HeroContainer>
         <HeroContent>

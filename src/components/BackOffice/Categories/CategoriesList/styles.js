@@ -8,6 +8,17 @@ export const Container = styled.section`
   &>h1 {
     text-align: center ;
   }
+  a {
+    text-align: center ;
+    font-size: 1rem;
+    text-decoration: none;
+    &:hover {
+      color: #0000FF
+    }
+    svg {
+      padding-left: 2rem ;
+    }
+  }
 
   ${screenLittle} {
     width: 500px ;

@@ -18,6 +18,7 @@ export const FormikForm = ({
       <OperationName>{operationName}</OperationName>
       <Formik
         initialValues={values}
+        enableReinitialize
         validationSchema={schema}
         onSubmit={onSubmit}
       >
