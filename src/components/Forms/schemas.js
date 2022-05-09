@@ -91,5 +91,9 @@ export const newsSchema= Yup.object().shape({
     .max(30, 'El máximo de caracteres es 30')
     .required('Es requerida una categoria'),
 
+  content: Yup.string()
+    .min(10, 'El mínimo de caracteres es 8')
+    .max(255, 'El máximo de caracteres es 255')
+    .required('Es requerido un contenido'),
 })
 

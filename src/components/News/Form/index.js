@@ -31,7 +31,7 @@ const FormFields = response => {
           placeholder='Categoria'
           FormContainer={FormContainer}
         />
-        <CKEditorField
+        <FormField
           name='content'
           type='text'
           placeholder='Contenido de la categoria'
@@ -43,7 +43,17 @@ const FormFields = response => {
       </>
     ) 
   }
-
+ 
+  export const Test = () => {
+      const { values, setFieldValue } = useFormikContext();
+    
+      React.useEffect(() => {
+        console.log(values)
+      
+      }, [values, setFieldValue]);
+      return null;
+  }
+  
   export const NewsForm = () =>{
     const dispatch = useDispatch()
     const navigate = useNavigate()
@@ -51,7 +61,7 @@ const FormFields = response => {
     
     const values = {
         title: '',
-        image: "",
+        image: '',
         category: '',
         content: ''
       }
@@ -60,16 +70,10 @@ const FormFields = response => {
     const handleSubmit = values => {
         console.log(values)
     }
-
-
-    const Test = () => {
-      const { values, setFieldValue } = useFormikContext();
     
-      React.useEffect(() => {
-        console.log(values)
-      }, [values, setFieldValue]);
-      return null;
-    }
+
+
+    
     
     return(
           <FormikForm

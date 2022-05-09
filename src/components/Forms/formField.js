@@ -33,26 +33,3 @@ export const ImageField = ({ name, type, placeholder, FormContainer, as}) => {
   )
 }
 
-export const CKEditorField = ({ name, type, placeholder, FormContainer, as}) => {
-  const { setFieldValue} = useFormikContext();
-  return (
-    <FormContainer >
-      <Field 
-        as= {as} 
-        name={name} 
-        type={type} 
-        placeholder={placeholder} 
-        value={undefined}
-        onChange={(e)=>{
-          
-          console.log(e)
-          //setFieldValue("content",e.target.value)
-        }}
-      />
-
-      <ErrorMessage name={name}>
-        {msg=><ErrorMessageFormik>{msg}</ErrorMessageFormik> }
-      </ErrorMessage> 
-    </FormContainer>
-  )
-}
