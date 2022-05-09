@@ -7,7 +7,7 @@ export default function AboutUs() {
     <div class="container">
 
    <Wrapper>
-      <div class="hr">
+      <div >
         <hr/>
         <h2>Misión</h2>
         <hr/>
@@ -17,7 +17,7 @@ export default function AboutUs() {
 
     </Wrapper>
     <Wrapper>
-      <div class="hr">
+      <div >
         <hr/>
         <h2>Visión</h2>
         <hr/>
@@ -28,7 +28,11 @@ export default function AboutUs() {
     </Wrapper>
 
     <Wrapper>
-      <h2>Sobre nosotros</h2>
+    <div>
+        <hr/>
+        <h2>Sobre nosotros</h2>
+        <hr/>
+      </div>
       <div>
         <img src="https://vidyasheela.com/web-contents/website-components/About-Us-Pages/responsive-about-us-page-html/teaching.png" alt="img"/>
         <p>
@@ -39,7 +43,11 @@ Desde 1997 en Somos Más trabajamos con los chicos y chicas, mamás y papás, ab
       </Wrapper>
 
   <Wrapper>
-      <h2>Fundadores</h2>
+  <div >
+        <hr/>
+        <h2>Fundadores</h2>
+        <hr/>
+      </div>
       <Faculties>
         <Unit>
           <UnitImg src="https://vidyasheela.com/web-contents/website-components/About-Us-Pages/responsive-about-us-page-html/Director.jpg" alt=""/>
