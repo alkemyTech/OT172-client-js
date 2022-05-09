@@ -9,7 +9,8 @@ export const FormikForm = ({
   values,
   schema,
   onSubmit,
-  FormFields
+  FormFields,
+  Test
 }) => {
   return (
     <Container>
@@ -23,6 +24,7 @@ export const FormikForm = ({
       >
         <Form>
           <FormFields />
+          <Test />
         </Form>
       </Formik>
     </Container>

@@ -1,10 +1,13 @@
 import React, { useEffect } from 'react'
 import { FormikForm } from 'components/Forms'
-import { FormContainer } from './styles'
-import { createUserSchema } from 'components/Forms/schemas'
-import { FormField } from 'components/Forms/formField'
+import { CustomInput, FormContainer } from './styles'
+import { newsSchema } from 'components/Forms/schemas'
+import { CKEditorField, FormField, ImageField } from 'components/Forms/formField'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
+import CKEditor from 'components/Forms/CKEditor/CreateCKEditor'
+import { useFormikContext } from 'formik'
+
 
 const FormFields = response => {
     return (
@@ -15,23 +18,25 @@ const FormFields = response => {
           placeholder='Titulo de la novedad'
           FormContainer={FormContainer}
         />
-        <FormField
-          name='photo'
+        <ImageField
+          name='image'
           type='file'
           placeholder='Foto de la novedad'
           FormContainer={FormContainer}
-        />
-        <FormField
-          name='content'
-          type='text'
-          placeholder='Ingrese el contenido de la novedad'
-          FormContainer={FormContainer}
+          as= {CustomInput}
         />
         <FormField
           name='category'
-          type='select'
+          type='text'
           placeholder='Categoria'
           FormContainer={FormContainer}
+        />
+        <CKEditorField
+          name='content'
+          type='text'
+          placeholder='Contenido de la categoria'
+          FormContainer={FormContainer}
+          as ={CKEditor}
         />
         <button type='submit'>Crear</button>
         <div> {response} </div>
@@ -45,23 +50,35 @@ const FormFields = response => {
     const {user, isLoading, isError, isSuccess, message} = useSelector((state) => state.auth) 
     
     const values = {
-        firstName: '',
-        lastName: '',
-        email: '',
-        password: ''
-      }  
+        title: '',
+        image: "",
+        category: '',
+        content: ''
+      }
 
     //Send form
     const handleSubmit = values => {
-        console.log("SUBMIT!")
+        console.log(values)
     }
+
+
+    const Test = () => {
+      const { values, setFieldValue } = useFormikContext();
+    
+      React.useEffect(() => {
+        console.log(values)
+      }, [values, setFieldValue]);
+      return null;
+    }
+    
     return(
           <FormikForm
             title='FORMULARIO NOVEDADES'
             values={values}
-            schema={createUserSchema}
+            schema={newsSchema}
             onSubmit={handleSubmit}
             FormFields={() => FormFields()}
+            Test={Test}
             />
         )
   }

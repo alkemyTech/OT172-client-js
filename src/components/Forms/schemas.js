@@ -61,3 +61,35 @@ export const contactSchema= Yup.object().shape({
     .required('El mensaje es requerido')
 })
 
+export const newsSchema= Yup.object().shape({
+  title: Yup.string()
+    .matches(/^[aA-zZ\s]+$/, 'Solo se admiten letras')
+    .min(5, 'El mínimo de caracteres es 5')
+    .max(30, 'El máximo de caracteres es 30')
+    .required('Es requerido un titulo'),
+  image: Yup.mixed()
+    .nullable()
+    .required('Es requerida una foto')
+    .test(
+      "type", 
+      "Tipo de archivo no soportado", 
+      value=>{
+        const SUPPORTED_FORMATS = ["image/jpg", "image/jpeg", "image/png"]
+        return !value || (value && SUPPORTED_FORMATS.includes(value.type))
+      })
+    
+    .test(
+      "fileSize",
+      "Tamaño del archivo muy grande", 
+      value=>{
+        const sizeInBytes= 500000//0.5MB
+        return value?.size <= sizeInBytes
+      }),
+  category: Yup.string()
+    .matches(/^[aA-zZ\s]+$/, 'Solo se admiten letras')
+    .min(2, 'El mínimo de caracteres es 2')
+    .max(30, 'El máximo de caracteres es 30')
+    .required('Es requerida una categoria'),
+
+})
+

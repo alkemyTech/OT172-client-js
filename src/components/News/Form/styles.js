@@ -6,3 +6,8 @@ export const FormContainer = styled.div`
   flex-direction: column;
   width: 30%;
 `
+
+export const CustomInput= styled.input`
+  width:100%;
+`
+
