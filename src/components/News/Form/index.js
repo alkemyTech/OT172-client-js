@@ -1,12 +1,14 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { FormikForm } from 'components/Forms'
 import { CustomInput, FormContainer } from './styles'
 import { newsSchema } from 'components/Forms/schemas'
-import { CKEditorField, FormField, ImageField } from 'components/Forms/formField'
+import { FormField, ImageField } from 'components/Forms/formField'
 import { useDispatch, useSelector } from 'react-redux'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import CKEditor from 'components/Forms/CKEditor/CreateCKEditor'
-import { useFormikContext } from 'formik'
+import { getService } from 'services/apiService'
+import { ENDPOINT_NEWS } from 'services/settings'
+import { alertToast } from 'services/alerts'
 
 
 const FormFields = response => {
@@ -55,25 +57,55 @@ const FormFields = response => {
   }*/
   
   export const NewsForm = () =>{
+    const {isLoading, isError, isSuccess, message} = useSelector((state) => state.auth) 
     const dispatch = useDispatch()
     const navigate = useNavigate()
-    const {user, isLoading, isError, isSuccess, message} = useSelector((state) => state.auth) 
-    
-    const values = {
+    const params= useParams()
+    /*const values = {
         title: '',
         image: '',
         category: '',
         content: ''
-      }
+      }*/
+
+
+    const [values, setValues]= useState({
+      title: '',
+      image: '',
+      category: '',
+      content: ''
+    })
+
+    useEffect(()=>{
+      (async() =>{
+        if(params.id){
+          const response = await getService(ENDPOINT_NEWS, params.id)
+          const { title, image, category, content }= response.data
+
+          setValues({
+            title,
+            image,
+            category,
+            content
+          })
+        }
+      })()
+    },[params.id, getService])
 
     //Send form
-    const handleSubmit = values => {
-        console.log(values)
+    const handleSubmit = (values, actions) => {
+       if(params.id){
+         dispatch(updateNew({...values, id:params.id}))
+       }else{
+         dispatch(createNew(values))
+       }
+
+       if(isSuccess) alertToast("success", params.id?'Novedad editada correctamente!':"Novedad agregada correctamente!")
+       if(isError) alertToast("error", message)
+       actions.setSubmitting(false)
+       actions.resetForm()
+       //navigate("/news")
     }
-    
-
-
-    
     
     return(
           <FormikForm
