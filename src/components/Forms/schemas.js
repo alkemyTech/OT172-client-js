@@ -60,7 +60,6 @@ export const contactSchema= Yup.object().shape({
     .max(255)
     .required('El mensaje es requerido')
 })
-
 export const newsSchema= Yup.object().shape({
   title: Yup.string()
     .matches(/^[aA-zZ\s]+$/, 'Solo se admiten letras')
@@ -96,4 +95,14 @@ export const newsSchema= Yup.object().shape({
     .max(255, 'El máximo de caracteres es 255')
     .required('Es requerido un contenido'),
 })
-
+export const categorySchema= Yup.object().shape({
+  name: Yup.string()
+    .matches(/^[aA-zZ\s]+$/, 'Solo se admiten letras')
+    .min(3, 'El mínimo de caracteres es 3')
+    .max(30, 'El máximo de caracteres es 30')
+    .required('El nombre es requerido'),
+  description: Yup.string()
+    .matches(/^[aA-zZ\s]+$/, 'Solo se admiten letras')
+    .max(250, 'El máximo de caracteres es 250'),
+    // .required('El apellido es requerido'),
+})

@@ -8,9 +8,11 @@ import Activities from 'pages/Activities'
 import Login from 'pages/Auth/Login'
 import Register from 'pages/Auth/Register'
 import Categories from 'pages/BackOffice/Categories'
+import AboutUs from 'pages/AboutUs'
 import {  useSelector } from 'react-redux'
 import Users from 'pages/BackOffice/Users'
 import New from 'pages/New'
+import { CategoryForm } from 'pages/BackOffice/Categories/CategoryForm'
 
 export default function RoutesWeb () {
   
@@ -27,12 +29,15 @@ export default function RoutesWeb () {
       <Route path='/news' element={<NewsPage />} />
       <Route path='/news/:id' element={<New />} />
       <Route path='/testimonials' element={<Testimonials />} />
+      <Route path='/aboutus' element={<AboutUs />} />
 
       {/* BackOffice */}
       {user?.user?.roleId === 1 &&
         <>
           <Route path='/backoffice/users' element={<Users />} />
           <Route path='/backoffice/categories' element={<Categories />} />
+          <Route path='/backoffice/categories/new' element={<CategoryForm />} />
+          <Route path='/backoffice/categories/:id' element={<CategoryForm />} />
         </>
       }
     </Routes>
