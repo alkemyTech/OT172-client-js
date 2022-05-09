@@ -8,7 +8,7 @@ const Slider = ({title=''}) => {
 		<Container>
 			<Titulo>{title}</Titulo>
 			<Slideshow controles={true} autoplay={true} velocidad="1000" intervalo="2000">
-				{images.map(img => <Slide>
+				{images.map((img, index) => <Slide key={index}>
           <a href={img.link}>
 						<img src={img.img} alt=""/>
 					</a>
@@ -23,15 +23,16 @@ const Slider = ({title=''}) => {
 }
 
 const Container = styled.section`
-	max-width: 1000px;
+	max-width: 1600px;
 	margin: auto;
+	max-height: 430px;
 	overflow: hidden;
 `
 const Titulo = styled.p`
 	font-size: 18px;
 	font-weight: 700;
 	text-transform: uppercase;
-	margin-bottom: 10px;
+	
 `;
  
 export default Slider;
