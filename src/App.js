@@ -5,6 +5,7 @@ import Footer from './components/Footer'
 import { useDispatch } from 'react-redux'
 import { Toaster } from 'react-hot-toast'
 import { fetchOrganizationDataPublic } from 'store/slices/organization'
+import { GlobalStyle } from 'globalStyles'
 
 
 
@@ -17,13 +18,12 @@ function App () {
   
   return (
     <>
-
+      <GlobalStyle/>   
       <Header/>
       {/* <ToastContainer/> */}
       <Toaster />
       <RoutesWeb />
       <Footer />
-      
     </>
   )
 }
