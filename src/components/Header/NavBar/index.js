@@ -49,6 +49,7 @@ const onLogout = () => {
        <>
         <Link to='/backoffice/users'> Users </Link> 
         <Link to='/backoffice/categories'> Categories </Link> 
+        <Link to='/backoffice/activities'> Activities </Link> 
       </>
        : null                 // IF NOT 
         }

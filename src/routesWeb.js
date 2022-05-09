@@ -13,6 +13,8 @@ import {  useSelector } from 'react-redux'
 import Users from 'pages/BackOffice/Users'
 import New from 'pages/New'
 import { CategoryForm } from 'pages/BackOffice/Categories/CategoryForm'
+import { ActivityForm } from 'pages/BackOffice/Activities/ActivityForm'
+import ActivitiesScreen from 'pages/BackOffice/Activities'
 
 export default function RoutesWeb () {
   
@@ -38,6 +40,9 @@ export default function RoutesWeb () {
           <Route path='/backoffice/categories' element={<Categories />} />
           <Route path='/backoffice/categories/new' element={<CategoryForm />} />
           <Route path='/backoffice/categories/:id' element={<CategoryForm />} />
+          <Route path='/backoffice/activities' element={<ActivitiesScreen />} />
+          <Route path='/backoffice/activities/new' element={<ActivityForm />} />
+          <Route path='/backoffice/activities/:id' element={<ActivityForm />} />
         </>
       }
     </Routes>
