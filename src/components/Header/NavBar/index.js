@@ -15,6 +15,10 @@ const links = [
     path: 'news'
   },
   {
+    name: 'Activities',
+    path: 'activities'
+  },
+  {
     name: 'Testimonials',
     path: 'testimonials'
   },

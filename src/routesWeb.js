@@ -4,7 +4,6 @@ import Home from 'pages/Home'
 import Testimonials from 'pages/Testimonials'
 import NewsPage from 'pages/NewsPage'
 import Members from 'pages/Members'
-import Activities from 'pages/Activities'
 import Login from 'pages/Auth/Login'
 import Register from 'pages/Auth/Register'
 import Categories from 'pages/BackOffice/Categories'
@@ -15,6 +14,7 @@ import New from 'pages/New'
 import { CategoryForm } from 'pages/BackOffice/Categories/CategoryForm'
 import { ActivityForm } from 'pages/BackOffice/Activities/ActivityForm'
 import ActivitiesScreen from 'pages/BackOffice/Activities'
+import ActivitiesPage from 'pages/Activities/ActivitiesPage'
 
 export default function RoutesWeb () {
   
@@ -26,7 +26,7 @@ export default function RoutesWeb () {
       <Route path='/login' element={<Login/>} />
       <Route path='/register' element={<Register/>} />
       <Route path='/home' element={<Home/>} />
-      <Route path='/activities' element={<Activities />} />
+      <Route path='/activities' element={<ActivitiesPage />} />
       <Route path='/members' element={<Members />} />
       <Route path='/news' element={<NewsPage />} />
       <Route path='/news/:id' element={<New />} />
