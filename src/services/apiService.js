@@ -24,21 +24,12 @@ export const deleteService = (apiEndpoint, id) => {
   return fetcher('delete', apiServiceUrl)
 }
 
+export const updateService = (apiEndpoint, id, data) => {
+  const apiServiceUrl = `${apiEndpoint}/${id}`
+  return fetcher('patch', apiServiceUrl, data)
+}
+
 export const postService = (apiEndpoint, data) => {
   const apiServiceUrl = `${apiEndpoint}`
   return fetcher('post', apiServiceUrl, data)
 }
-
-// TODO con fetcher
-// export const deleteService = (apiEndpoint, id) => {
-//   if (!id) return 'error'
-//   const apiServiceUrl = `${apiEndpoint}/${id}`
-//   return apiService.delete(apiServiceUrl).catch((err) => {
-//     console.log(err)
-//     const error = {
-//       error: true,
-//       message: err.message
-//     }
-//     return error
-//   })
-// }
