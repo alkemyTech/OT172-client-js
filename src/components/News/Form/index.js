@@ -44,7 +44,7 @@ const FormFields = response => {
     ) 
   }
  
-  export const Test = () => {
+  /*export const Test = () => {
       const { values, setFieldValue } = useFormikContext();
     
       React.useEffect(() => {
@@ -52,7 +52,7 @@ const FormFields = response => {
       
       }, [values, setFieldValue]);
       return null;
-  }
+  }*/
   
   export const NewsForm = () =>{
     const dispatch = useDispatch()
@@ -82,7 +82,7 @@ const FormFields = response => {
             schema={newsSchema}
             onSubmit={handleSubmit}
             FormFields={() => FormFields()}
-            Test={Test}
+            
             />
         )
   }
