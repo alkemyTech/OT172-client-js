@@ -1,14 +1,22 @@
 import React from 'react'
 import { HeroContainer, HeroContent, HeroItems, HeroH1, HeroP, HeroBtn } from './styles'
+import { useNavigate } from 'react-router-dom'
+
+
 
 function HeroSection() {
+    const navigate = useNavigate()
+
+    const handleClick = () => {
+      navigate('/aboutus')
+    }
     return (
         <HeroContainer>
         <HeroContent>
             <HeroItems>
-                <HeroH1>SOMOS MAS ONG</HeroH1>
-                <HeroP>Siempre a tu lado</HeroP>
-                <HeroBtn>Más información</HeroBtn>
+                <HeroH1>SOMOS MÁS </HeroH1>
+                <HeroP>Diseñamos e implementamos procesos innovadores de construcción colectiva</HeroP>
+                <HeroBtn onClick={handleClick}>Más información</HeroBtn>
             </HeroItems>
         </HeroContent>
     </HeroContainer>

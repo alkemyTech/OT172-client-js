@@ -23,15 +23,16 @@ const Slider = ({title=''}) => {
 }
 
 const Container = styled.section`
-	max-width: 1000px;
+	max-width: 1600px;
 	margin: auto;
+	max-height: 430px;
 	overflow: hidden;
 `
 const Titulo = styled.p`
 	font-size: 18px;
 	font-weight: 700;
 	text-transform: uppercase;
-	margin-bottom: 10px;
+	
 `;
  
 export default Slider;
