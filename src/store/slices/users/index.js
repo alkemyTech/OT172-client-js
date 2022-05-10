@@ -42,7 +42,6 @@ export const usersSlice = createSlice({
                 state.isLoading = true
             })
             .addCase(deleteUser.fulfilled, (state, action) => {
-                console.log('id: ', action.payload);
                 const filteredUsers = state.users.filter(e => e.id !== action.payload)
                 state.isLoading = false
                 state.isSuccess = true
@@ -73,9 +72,7 @@ export const fetchAllUsers = createAsyncThunk('users', async (thunkAPI) => {
 
 export const deleteUser = createAsyncThunk('delete/user', async (id, thunkAPI) => {
     try {
-        console.log('id', id);
         const response = await deleteService(ENDPOINT_USERS, id)
-        console.log(response.data);
         return id
     } catch (error) {
         const message = (error.response && error.response.data && error.response.data.message) || error.message || error.toString()

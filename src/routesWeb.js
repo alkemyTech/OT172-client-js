@@ -4,7 +4,6 @@ import Home from 'pages/Home'
 import Testimonials from 'pages/Testimonials'
 import NewsPage from 'pages/NewsPage'
 import Members from 'pages/Members'
-import Activities from 'pages/Activities'
 import Login from 'pages/Auth/Login'
 import Register from 'pages/Auth/Register'
 import Categories from 'pages/BackOffice/Categories'
@@ -13,6 +12,10 @@ import {  useSelector } from 'react-redux'
 import Users from 'pages/BackOffice/Users'
 import New from 'pages/New'
 import { CategoryForm } from 'pages/BackOffice/Categories/CategoryForm'
+import { ActivityForm } from 'pages/BackOffice/Activities/ActivityForm'
+import ActivitiesScreen from 'pages/BackOffice/Activities'
+import ActivitiesPage from 'pages/Activities/ActivitiesPage'
+import Activity from 'pages/Activities/Activity'
 
 export default function RoutesWeb () {
   
@@ -24,7 +27,8 @@ export default function RoutesWeb () {
       <Route path='/login' element={<Login/>} />
       <Route path='/register' element={<Register/>} />
       <Route path='/home' element={<Home/>} />
-      <Route path='/activities' element={<Activities />} />
+      <Route path='/activities' element={<ActivitiesPage />} />
+      <Route path='/activities/:id' element={<Activity />} />
       <Route path='/members' element={<Members />} />
       <Route path='/news' element={<NewsPage />} />
       <Route path='/news/:id' element={<New />} />
@@ -38,6 +42,9 @@ export default function RoutesWeb () {
           <Route path='/backoffice/categories' element={<Categories />} />
           <Route path='/backoffice/categories/new' element={<CategoryForm />} />
           <Route path='/backoffice/categories/:id' element={<CategoryForm />} />
+          <Route path='/backoffice/activities' element={<ActivitiesScreen />} />
+          <Route path='/backoffice/activities/new' element={<ActivityForm />} />
+          <Route path='/backoffice/activities/:id' element={<ActivityForm />} />
         </>
       }
     </Routes>
