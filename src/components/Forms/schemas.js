@@ -106,3 +106,15 @@ export const categorySchema= Yup.object().shape({
     .max(250, 'El máximo de caracteres es 250'),
     // .required('El apellido es requerido'),
 })
+export const activitySchema= Yup.object().shape({
+  name: Yup.string()
+    .matches(/^[aA-zZ\s]+$/, 'Solo se admiten letras')
+    .min(3, 'El mínimo de caracteres es 3')
+    .max(30, 'El máximo de caracteres es 30')
+    .required('El nombre es requerido'),
+  content: Yup.string()
+    .matches(/^[aA-zZ\s]+$/, 'Solo se admiten letras')
+    .max(250, 'El máximo de caracteres es 250'),
+    // .required('El apellido es requerido'),
+})
+

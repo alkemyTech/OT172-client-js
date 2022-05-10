@@ -109,7 +109,6 @@ const FormFields = response => {
        //actions.resetForm()
        //navigate("/news")
     }
-    
     return(
           <FormikForm
             title='FORMULARIO NOVEDADES'

@@ -1,5 +1,7 @@
 const BASE_API_URL = process.env.REACT_APP_API_URL || 'http://localhost:3000'
 
+export const ENDPOINT_ACTIVITIES = `${BASE_API_URL}/activities`
+
 export const ENDPOINT_REGISTER = `${BASE_API_URL}/auth/register`
 
 export const ENDPOINT_LOGIN = `${BASE_API_URL}/auth/login`

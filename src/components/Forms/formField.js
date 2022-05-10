@@ -2,6 +2,7 @@ import React from 'react'
 import { Field, ErrorMessage, useFormikContext } from 'formik'
 import { ErrorMessageFormik } from './styles'
 export const FormField = ({ name, type, placeholder, FormContainer, as}) => {
+  const { values, submitForm, setFieldValue} = useFormikContext();
   return (
     <FormContainer >
       <Field as= {as} name={name} type={type} placeholder={placeholder}/>
