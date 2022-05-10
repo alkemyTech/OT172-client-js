@@ -13,6 +13,7 @@ import {  useSelector } from 'react-redux'
 import Users from 'pages/BackOffice/Users'
 import New from 'pages/New'
 import { CategoryForm } from 'pages/BackOffice/Categories/CategoryForm'
+import ProfilePage from 'pages/Profile'
 
 export default function RoutesWeb () {
   
@@ -30,6 +31,7 @@ export default function RoutesWeb () {
       <Route path='/news/:id' element={<New />} />
       <Route path='/testimonials' element={<Testimonials />} />
       <Route path='/aboutus' element={<AboutUs />} />
+      <Route path='/profile' element={<ProfilePage />} />
 
       {/* BackOffice */}
       {user?.user?.roleId === 1 &&
