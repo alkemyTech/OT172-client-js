@@ -1,11 +1,15 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { FormikForm } from 'components/Forms'
 import { CustomInput, FormContainer } from './styles'
 import { newsSchema } from 'components/Forms/schemas'
-import { CKEditorField, FormField, ImageField } from 'components/Forms/formField'
+import { FormField, ImageField } from 'components/Forms/formField'
 import { useDispatch, useSelector } from 'react-redux'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import CKEditor from 'components/Forms/CKEditor/CreateCKEditor'
+import { getService } from 'services/apiService'
+import { ENDPOINT_NEWS } from 'services/settings'
+import { alertToast } from 'services/alerts'
+import { createNews, updateNews } from 'store/slices/news'
 import { useFormikContext } from 'formik'
 
 
@@ -13,7 +17,7 @@ const FormFields = response => {
     return (
       <>
         <FormField
-          name='title'
+          name='name'
           type='text'
           placeholder='Titulo de la novedad'
           FormContainer={FormContainer}
@@ -55,26 +59,56 @@ const FormFields = response => {
   }*/
   
   export const NewsForm = () =>{
+    const {isLoading, isError, isSuccess, message} = useSelector((state) => state.auth) 
     const dispatch = useDispatch()
     const navigate = useNavigate()
-    const {user, isLoading, isError, isSuccess, message} = useSelector((state) => state.auth) 
-    
-    const values = {
-        title: '',
+    const params= useParams()
+    /*const values = {
+        name: '',
         image: '',
         category: '',
         content: ''
-      }
+      }*/
+
+
+    const [values, setValues]= useState({
+      name: '',
+      image: '',
+      category: '',
+      content: ''
+    })
+
+    useEffect(()=>{
+      (async() =>{
+        if(params.id){
+          const response = await getService(ENDPOINT_NEWS, params.id)
+          const { name, image, category, content }= response.data
+
+          setValues({
+            name,
+            image,
+            category,
+            content
+          })
+        }
+      })()
+    },[params.id, getService])
 
     //Send form
-    const handleSubmit = values => {
-        console.log(values)
+    const handleSubmit = (values, actions) => {
+       if(params.id){
+         dispatch(updateNews({...values, id:params.id}))
+       }else{
+         //console.log(values)
+         dispatch(createNews(values))
+       }
+
+       if(isSuccess) alertToast("success", params.id?'Novedad editada correctamente!':"Novedad agregada correctamente!")
+       if(isError) alertToast("error", message)
+       actions.setSubmitting(false)
+       //actions.resetForm()
+       //navigate("/news")
     }
-    
-
-
-    
-    
     return(
           <FormikForm
             title='FORMULARIO NOVEDADES'
