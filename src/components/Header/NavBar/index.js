@@ -15,6 +15,10 @@ const links = [
     path: 'news'
   },
   {
+    name: 'Activities',
+    path: 'activities'
+  },
+  {
     name: 'Testimonials',
     path: 'testimonials'
   },
@@ -49,6 +53,7 @@ const onLogout = () => {
        <>
         <Link to='/backoffice/users'> Users </Link> 
         <Link to='/backoffice/categories'> Categories </Link> 
+        <Link to='/backoffice/activities'> Activities </Link> 
       </>
        : null                 // IF NOT 
         }

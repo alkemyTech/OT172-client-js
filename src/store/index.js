@@ -1,4 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit'
+import activities from './slices/activities'
 import categories from './slices/categories'
 import organization from './slices/organization'
 import news from './slices/news'
@@ -9,6 +10,7 @@ import auth from './slices/auth'
 
 export default configureStore({
   reducer: {
+    activities,
     categories,
     users,
     news,
