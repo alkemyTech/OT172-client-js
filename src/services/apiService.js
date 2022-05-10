@@ -2,8 +2,21 @@ import axios from 'axios'
 import { getToken } from 'services/token'
 
 const fetcher = (verb, endPoint, body=null) => {
+  /*console.log(typeof(body))
+  let formdata= new FormData()
+
+  
+  for(let value in body){
+    console.log("carga en: ",value," elem", body[value])
+    formdata.append(value,body[value])
+  }
+  console.log(formdata)*/
+
   const apiService = axios.create({
-    baseURL: process.env.REACT_APP_API_URL
+    baseURL: process.env.REACT_APP_API_URL,
+   /*headers: {
+      'Content-Type': 'multipart/form-data'
+    }*/
   })
 
   const token = getToken()

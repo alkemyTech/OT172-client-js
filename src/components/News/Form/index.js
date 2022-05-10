@@ -9,13 +9,15 @@ import CKEditor from 'components/Forms/CKEditor/CreateCKEditor'
 import { getService } from 'services/apiService'
 import { ENDPOINT_NEWS } from 'services/settings'
 import { alertToast } from 'services/alerts'
+import { createNews, updateNews } from 'store/slices/news'
+import { useFormikContext } from 'formik'
 
 
 const FormFields = response => {
     return (
       <>
         <FormField
-          name='title'
+          name='name'
           type='text'
           placeholder='Titulo de la novedad'
           FormContainer={FormContainer}
@@ -62,7 +64,7 @@ const FormFields = response => {
     const navigate = useNavigate()
     const params= useParams()
     /*const values = {
-        title: '',
+        name: '',
         image: '',
         category: '',
         content: ''
@@ -70,7 +72,7 @@ const FormFields = response => {
 
 
     const [values, setValues]= useState({
-      title: '',
+      name: '',
       image: '',
       category: '',
       content: ''
@@ -80,10 +82,10 @@ const FormFields = response => {
       (async() =>{
         if(params.id){
           const response = await getService(ENDPOINT_NEWS, params.id)
-          const { title, image, category, content }= response.data
+          const { name, image, category, content }= response.data
 
           setValues({
-            title,
+            name,
             image,
             category,
             content
@@ -95,15 +97,16 @@ const FormFields = response => {
     //Send form
     const handleSubmit = (values, actions) => {
        if(params.id){
-         dispatch(updateNew({...values, id:params.id}))
+         dispatch(updateNews({...values, id:params.id}))
        }else{
-         dispatch(createNew(values))
+         //console.log(values)
+         dispatch(createNews(values))
        }
 
        if(isSuccess) alertToast("success", params.id?'Novedad editada correctamente!':"Novedad agregada correctamente!")
        if(isError) alertToast("error", message)
        actions.setSubmitting(false)
-       actions.resetForm()
+       //actions.resetForm()
        //navigate("/news")
     }
     

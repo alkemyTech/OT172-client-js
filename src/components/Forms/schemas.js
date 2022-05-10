@@ -61,7 +61,7 @@ export const contactSchema= Yup.object().shape({
     .required('El mensaje es requerido')
 })
 export const newsSchema= Yup.object().shape({
-  title: Yup.string()
+  name: Yup.string()
     .matches(/^[aA-zZ\s]+$/, 'Solo se admiten letras')
     .min(5, 'El mínimo de caracteres es 5')
     .max(30, 'El máximo de caracteres es 30')
