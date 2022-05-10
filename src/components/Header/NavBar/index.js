@@ -22,6 +22,10 @@ const links = [
     name: 'Members',
     path: 'members'
   },
+  {
+    name: 'Profile',
+    path: 'profile'
+  }
 ]
 
 export default function NavBar() {
