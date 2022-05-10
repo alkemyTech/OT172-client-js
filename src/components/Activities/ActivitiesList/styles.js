@@ -13,3 +13,10 @@ export const Container = styled.section`
     width: 500px ;
   }
 `
+export const ContainerClikeable = styled.div`
+border: 1px solid transparent ;
+  cursor: pointer;
+  &:hover {
+    border: 1px solid red ;
+  }
+`

@@ -8,7 +8,7 @@ import { Container } from "./styles"
 import { TiArrowBack } from "react-icons/ti";
 import Card from 'components/Activities/Card'
 
-function Activities() {
+function Activity() {
   const params = useParams()
   const  [isLoading, setIsLoading] = useState(false)
   const  [data, setData] = useState({})
@@ -45,4 +45,4 @@ function Activities() {
   )
 }
 
-export default Activities
+export default Activity

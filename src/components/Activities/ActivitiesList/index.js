@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux'
 import { useNavigate } from "react-router-dom";
 import { fetchAllActivities, reset } from "store/slices/activities";
 import Card from "../Card";
-import { Container } from "./styles";
+import { Container, ContainerClikeable } from "./styles";
 
 export default function ActivitiesList({qty = 'all', title = ''}) {
   const { activities } = useSelector(state => state.activities)
@@ -32,11 +32,11 @@ export default function ActivitiesList({qty = 'all', title = ''}) {
       <h1>{title}</h1>
       {activities?.length > 0 
         ? activities.slice(0,totalShowActivities).map( (n, i) => 
-          <div key={i} onClick={() => handleShowActivity(n)}>
+          <ContainerClikeable key={i} onClick={() => handleShowActivity(n)}>
           <Card 
             key={i} 
             data={n} 
-          /> </div>)
+          /> </ContainerClikeable>)
         : <p>No hay actividades</p>
       }
     </Container>

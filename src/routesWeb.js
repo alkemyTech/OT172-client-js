@@ -15,6 +15,7 @@ import { CategoryForm } from 'pages/BackOffice/Categories/CategoryForm'
 import { ActivityForm } from 'pages/BackOffice/Activities/ActivityForm'
 import ActivitiesScreen from 'pages/BackOffice/Activities'
 import ActivitiesPage from 'pages/Activities/ActivitiesPage'
+import Activity from 'pages/Activities/Activity'
 
 export default function RoutesWeb () {
   
@@ -27,6 +28,7 @@ export default function RoutesWeb () {
       <Route path='/register' element={<Register/>} />
       <Route path='/home' element={<Home/>} />
       <Route path='/activities' element={<ActivitiesPage />} />
+      <Route path='/activities/:id' element={<Activity />} />
       <Route path='/members' element={<Members />} />
       <Route path='/news' element={<NewsPage />} />
       <Route path='/news/:id' element={<New />} />
