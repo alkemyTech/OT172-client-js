@@ -13,6 +13,7 @@ import {  useSelector } from 'react-redux'
 import Users from 'pages/BackOffice/Users'
 import New from 'pages/New'
 import { CategoryForm } from 'pages/BackOffice/Categories/CategoryForm'
+import Contacts from 'pages/BackOffice/Contacts'
 
 export default function RoutesWeb () {
   
@@ -38,6 +39,7 @@ export default function RoutesWeb () {
           <Route path='/backoffice/categories' element={<Categories />} />
           <Route path='/backoffice/categories/new' element={<CategoryForm />} />
           <Route path='/backoffice/categories/:id' element={<CategoryForm />} />
+          <Route path='/backoffice/contacts' element={<Contacts />} />
         </>
       }
     </Routes>

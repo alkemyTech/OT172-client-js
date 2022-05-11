@@ -4,7 +4,7 @@ import organization from './slices/organization'
 import news from './slices/news'
 import users from './slices/users'
 import auth from './slices/auth'
-
+import contacts from './slices/contact'
 
 
 export default configureStore({
@@ -13,6 +13,7 @@ export default configureStore({
     users,
     news,
     organization,
-    auth
+    auth,
+    contacts
   }
 })
