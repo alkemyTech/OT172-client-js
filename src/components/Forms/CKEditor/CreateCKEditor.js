@@ -6,28 +6,31 @@ import { useFormikContext } from 'formik';
 
 export default function CKEditorComponent(props){
         const {setFieldValue} = useFormikContext();
-        console.log('props', props.value);
         return (
             <CKEditor
             config={
                 {
                     placeholder: props.placeholder,
-                    value: props.value
                 }
             } 
+            data= {props.value}
             editor={ ClassicEditor }
-            // value= { props.}
-            // onReady={ editor => {
-            //     // You can store the "editor" and use when it is needed.
-            //     console.log( 'Editor is ready to use!', editor );
-            // } }
+
+            onReady={(editor) => {
+                editor.editing.view.change((writer) => {
+                writer.setStyle(
+                    "min-height",
+                    "25rem",
+                    editor.editing.view.document.getRoot()
+                );
+                });
+            }}
             onChange={ ( event, editor ) => {
                 let data = editor.getData();
-                data=data.slice(3,-4)//this delete html code <p> </p>
-                setFieldValue("content",data)
-                
-                
+                //data=data.slice(3,-4)//this delete html code <p> </p>
+                setFieldValue(`${props.name}`,data)
             } }
+
             /*onBlur={ ( event, editor ) => {
                 console.log( 'Blur.', editor );
             } }
