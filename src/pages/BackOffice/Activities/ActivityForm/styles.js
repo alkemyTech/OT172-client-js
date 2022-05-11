@@ -5,8 +5,7 @@ export const FormContainer = styled.div`
   justify-content: center;
   flex-direction: column;
   margin-bottom: .5rem;
-  width: 70%;
-  height: 2rem;
+  width: 20rem;
   input {
     border: 1px solid #dadde1;
     height: 100% ;
@@ -15,17 +14,32 @@ export const FormContainer = styled.div`
     border-color: #764abc ;
   }
 `
+
+export const FormContainerCKE = styled(FormContainer)`
+  width: 100%;
+  min-height: 15rem;
+  justify-content: 100% ;
+  /* .ck-editor__editable {
+    min-height: 20rem;
+} */
+  input {
+    border: 2px solid #dadde1 !important ;
+    height: 100% ;
+  }
+`
 export const Button = styled.button`
     background-color: #eae7fe;
     border-color: transparent ;
     border-radius: 5rem ;
     cursor: pointer;
     display: block ;
-    width: 70%;
+    width: 10rem;
+    margin: auto ;
 `
 export const Container = styled.div`
-  width: 400px;
-  margin: auto ;
+border: 1px solid red ;
+  width: 100%;
+  margin: auto;
   color: black;
   padding: 1rem;
 
@@ -40,5 +54,8 @@ export const Container = styled.div`
       padding-left: 2rem ;
     }
   }
-  
+`
+
+export const CustomInput= styled.input`
+  width:100%;
 `

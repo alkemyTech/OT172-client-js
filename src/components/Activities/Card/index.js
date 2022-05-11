@@ -9,7 +9,8 @@ export default function Card({ data, detail = false }) {
       <Image src={data.image} alt={data.name} />
       {detail &&
         <>
-          <Content>{data.content}</Content>
+          {/* <Content>{data.content}</Content> */}
+          <Content dangerouslySetInnerHTML={{ __html: data.content }} />
         </>
       }
     </Container>

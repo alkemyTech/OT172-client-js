@@ -41,4 +41,6 @@ export const Category = styled.article`
 
 export const Content = styled.article`
   font-size: 1rem;
+  align-self: center;
+  padding: 1rem;
 `

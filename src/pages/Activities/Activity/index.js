@@ -27,7 +27,7 @@ function Activity() {
         setIsLoading(false)
       }
     })();
-  }, [params.id, getService]);
+  }, [params.id]);
 
   if (isLoading) return <Loader />
 

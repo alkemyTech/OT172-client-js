@@ -2,10 +2,10 @@ import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { Button, Container, FormContainer } from "./styles";
+import { Button, Container, CustomInput, FormContainer, FormContainerCKE } from "./styles";
 import { activitySchema } from "components/Forms/schemas";
 import { FormikForm } from "components/Forms";
-import { FormField } from "components/Forms/formField";
+import { FormField, ImageField } from "components/Forms/formField";
 import { getService } from "services/apiService";
 import { ENDPOINT_ACTIVITIES } from "services/settings";
 import { TiArrowBack } from "react-icons/ti";
@@ -13,9 +13,11 @@ import { createActivities, updateActivities } from "store/slices/activities";
 import { useSelector } from "react-redux";
 import { alertToast } from "services/alerts";
 import Loader from "components/utils/Loader";
+import CKEditor from 'components/Forms/CKEditor/CreateCKEditor'
 
 
-const FormFields = (editar=false) => {
+
+const FormFields = (editar=false, temp) => {
   return (
     <>
       <FormField
@@ -24,13 +26,22 @@ const FormFields = (editar=false) => {
         placeholder="Nombre"
         FormContainer={FormContainer}
       />
+       <ImageField
+          name='image'
+          type='file'
+          placeholder='Foto de la actividad'
+          FormContainer={FormContainer}
+          as= {CustomInput}
+        />
       <FormField
         name="content"
         type="text"
         placeholder="Descripcion"
-        FormContainer={FormContainer}
+        FormContainer={FormContainerCKE}
+        as ={CKEditor}
       />
       <Button type="submit">{editar ? 'Editar' : 'Agregar'}</Button>
+      <Button onClick={()=>console.log('hola', temp)}>{editar ? 'pro' : 'pre'}</Button>
     </>
   )
 }
@@ -44,7 +55,8 @@ export const ActivityForm = () => {
 
   const values = {
     name: '',
-    content: ''
+    content: '',
+    image:null
   }
 
   const [activity, setActivity] = useState(values);
@@ -53,19 +65,21 @@ export const ActivityForm = () => {
     (async () => {
       if (params.id) {
         const response = await getService(ENDPOINT_ACTIVITIES, params.id);
-        const { name, content } = response.data
+        const { name, content, image } = response.data
 
         setActivity({
           name,
           content,
+          image
         });
       }
     })()
-  }, [params.id, getService]);
+  }, [params.id, dispatch]);
 
   const handleSubmit = (values,actions) => {
     if (params.id) {
       dispatch(updateActivities({...values, id:params.id}))
+
     } else {
       dispatch(createActivities(values))
     }
@@ -90,7 +104,7 @@ export const ActivityForm = () => {
         values={activity}
         schema={activitySchema}
         onSubmit={handleSubmit}
-        FormFields={() => FormFields(params.id ? true : false)}
+        FormFields={() => FormFields(params.id ? true : false, activity)}
       />
     </Container>
   )

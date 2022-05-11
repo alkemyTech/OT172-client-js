@@ -28,7 +28,7 @@ export default function ActivityCard({ activity }) {
     if (deleteActivity) {
     dispatch(deleteActivities(activity.id))
   }
-  }, [deleteActivity])
+  }, [deleteActivity,activity.id,dispatch])
 
   useEffect(() => {
     if (isError)  alertToast('error',message)

@@ -23,7 +23,7 @@ export const ImageField = ({ name, type, placeholder, FormContainer, as}) => {
         type={type} 
         placeholder={placeholder} 
         value={undefined}
-        onChange={(e)=>{setFieldValue("image",e.target.files[0])}}
+        onChange={(e)=>{ setFieldValue("image",e.target.files[0]) }}
       />
 
       <ErrorMessage name={name}>

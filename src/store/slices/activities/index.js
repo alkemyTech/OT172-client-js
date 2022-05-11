@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
-import { deleteService, getService, postService, updateService } from 'services/apiService'
+import { deleteService, getService, postService, updateService, updateServiceImg } from 'services/apiService'
 import { ENDPOINT_ACTIVITIES } from "services/settings"
 
 const initialState = {
@@ -75,7 +75,8 @@ export const activitySlice = createSlice({
                 state.isError = false
             })
             .addCase(updateActivities.fulfilled, (state, action) => {
-                const updatedActivities = state.activities.map(e => e.id === action.payload.id ? action.payload.data : e )
+                console.log('payload: ',action.payload);
+                const updatedActivities = state.activities.map(e => e.id === action.payload.id ? action.payload : e )
                 state.isLoading = false
                 state.isSuccess = true
                 state.isError = false
@@ -127,10 +128,12 @@ export const deleteActivities = createAsyncThunk('delete/activities', async (id,
 export const updateActivities = createAsyncThunk('update/activities', async (data, thunkAPI) => {
     try {
         const {id, ...activity} = data
-         const response = await updateService(ENDPOINT_ACTIVITIES, id, activity)
-        return {data}
+        //  const response = await updateService(ENDPOINT_ACTIVITIES, id, activity)
+         const response = await updateService(ENDPOINT_ACTIVITIES, id, activity, activity.image !== null)
+        return response.data
     } catch (error) {
         const message = (error.response.data?.msg || error.response.data) || (error.response && error.response.data && error.response.data.message) || error.message || error.toString()
         return thunkAPI.rejectWithValue(message)
     }
 })
+
