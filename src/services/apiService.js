@@ -1,22 +1,10 @@
 import axios from 'axios'
 import { getToken } from 'services/token'
 
-const fetcher = (verb, endPoint, body=null) => {
-  /*console.log(typeof(body))
-  let formdata= new FormData()
-
+const fetcher = (verb, endPoint, body=null, isForm=false) => {
   
-  for(let value in body){
-    console.log("carga en: ",value," elem", body[value])
-    formdata.append(value,body[value])
-  }
-  console.log(formdata)*/
-
   const apiService = axios.create({
     baseURL: process.env.REACT_APP_API_URL,
-   /*headers: {
-      'Content-Type': 'multipart/form-data'
-    }*/
   })
 
   const token = getToken()
@@ -24,7 +12,15 @@ const fetcher = (verb, endPoint, body=null) => {
   if (token) {
     apiService.defaults.headers.common = { 'x-access-token': `${token}` }
   }
-  return apiService[verb](endPoint,body)
+  if (isForm) {
+    const form = new FormData();
+  for (let key in body) {
+    form.append(key, body[key]);
+  }
+  body = form
+  apiService.defaults.headers.common = { 'Content-Type': 'multipart/form-data' }
+  }
+  return apiService[verb](endPoint, body)
 }
 
 export const getService = (apiEndpoint, id) => {
@@ -37,12 +33,12 @@ export const deleteService = (apiEndpoint, id) => {
   return fetcher('delete', apiServiceUrl)
 }
 
-export const updateService = (apiEndpoint, id, data) => {
+export const updateService = (apiEndpoint, id, data, isForm=false) => {
   const apiServiceUrl = `${apiEndpoint}/${id}`
-  return fetcher('patch', apiServiceUrl, data)
+  return fetcher('patch', apiServiceUrl, data, isForm)
 }
 
-export const postService = (apiEndpoint, data) => {
+export const postService = (apiEndpoint, data, isForm=false) => {
   const apiServiceUrl = `${apiEndpoint}`
-  return fetcher('post', apiServiceUrl, data)
+  return fetcher('post', apiServiceUrl, data, isForm)
 }
