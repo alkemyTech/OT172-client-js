@@ -112,9 +112,9 @@ export const activitySchema= Yup.object().shape({
     .min(3, 'El mínimo de caracteres es 3')
     .max(30, 'El máximo de caracteres es 30')
     .required('El nombre es requerido'),
-  content: Yup.string()
-    .matches(/^[aA-zZ\s]+$/, 'Solo se admiten letras')
-    .max(250, 'El máximo de caracteres es 250'),
+  // content: Yup.string()
+  //   .matches(/^[aA-zZ\s]+$/, 'Solo se admiten letras')
+  //   .max(1250, 'El máximo de caracteres es 250'),
     // .required('El apellido es requerido'),
 })
 

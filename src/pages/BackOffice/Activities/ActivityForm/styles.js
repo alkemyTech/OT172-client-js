@@ -6,7 +6,6 @@ export const FormContainer = styled.div`
   flex-direction: column;
   margin-bottom: .5rem;
   width: 70%;
-  height: 2rem;
   input {
     border: 1px solid #dadde1;
     height: 100% ;

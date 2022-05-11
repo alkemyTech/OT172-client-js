@@ -13,9 +13,11 @@ import { createActivities, updateActivities } from "store/slices/activities";
 import { useSelector } from "react-redux";
 import { alertToast } from "services/alerts";
 import Loader from "components/utils/Loader";
+import CKEditor from 'components/Forms/CKEditor/CreateCKEditor'
 
 
-const FormFields = (editar=false) => {
+
+const FormFields = (editar=false, ckeditorContent) => {
   return (
     <>
       <FormField
@@ -29,6 +31,8 @@ const FormFields = (editar=false) => {
         type="text"
         placeholder="Descripcion"
         FormContainer={FormContainer}
+        value={ckeditorContent}
+        as ={CKEditor}
       />
       <Button type="submit">{editar ? 'Editar' : 'Agregar'}</Button>
     </>
@@ -61,7 +65,7 @@ export const ActivityForm = () => {
         });
       }
     })()
-  }, [params.id, getService]);
+  }, [params.id]);
 
   const handleSubmit = (values,actions) => {
     if (params.id) {
@@ -90,7 +94,7 @@ export const ActivityForm = () => {
         values={activity}
         schema={activitySchema}
         onSubmit={handleSubmit}
-        FormFields={() => FormFields(params.id ? true : false)}
+        FormFields={() => FormFields(params.id ? true : false, activity.content)}
       />
     </Container>
   )

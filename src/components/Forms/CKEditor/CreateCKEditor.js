@@ -5,18 +5,22 @@ import { useFormikContext } from 'formik';
 
 
 export default function CKEditorComponent(props){
-        const { setFieldValue} = useFormikContext();
+        const {setFieldValue} = useFormikContext();
+        console.log('props', props.value);
         return (
             <CKEditor
             config={
-                {placeholder: props.placeholder}
+                {
+                    placeholder: props.placeholder,
+                    value: props.value
+                }
             } 
             editor={ ClassicEditor }
-            
-            /*onReady={ editor => {
-                // You can store the "editor" and use when it is needed.
-                //console.log( 'Editor is ready to use!', editor );
-            } }*/
+            // value= { props.}
+            // onReady={ editor => {
+            //     // You can store the "editor" and use when it is needed.
+            //     console.log( 'Editor is ready to use!', editor );
+            // } }
             onChange={ ( event, editor ) => {
                 let data = editor.getData();
                 data=data.slice(3,-4)//this delete html code <p> </p>
