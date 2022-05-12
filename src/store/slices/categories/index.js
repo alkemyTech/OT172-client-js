@@ -47,7 +47,6 @@ export const categorySlice = createSlice({
                 state.categories = [...state.categories, action.payload] 
             })
             .addCase(createCategories.rejected, (state, action) => {
-                console.log('puto',action.payload);
                 state.isLoading = false
                 state.isError = true
                 state.message = action.payload
