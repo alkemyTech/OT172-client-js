@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { FormikForm } from 'components/Forms'
 import { CustomInput, FormContainer } from './styles'
-import { newsSchema } from 'components/Forms/schemas'
+import { newsSchema, createUserSchema } from 'components/Forms/schemas'
 import { FormField, ImageField } from 'components/Forms/formField'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate, useParams } from 'react-router-dom'
