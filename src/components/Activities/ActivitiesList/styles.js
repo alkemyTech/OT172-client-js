@@ -4,7 +4,7 @@ const { screenLittle } = mediaQueries
 
 export const Container = styled.section`
   margin: auto ;
-  color: #000;
+  color: ${({ theme }) => theme.primaryLight};
   &>h1 {
     text-align: center ;
   }
@@ -14,9 +14,10 @@ export const Container = styled.section`
   }
 `
 export const ContainerClikeable = styled.div`
-border: 1px solid transparent ;
+border-bottom: 3px solid #000066 ;
+
   cursor: pointer;
   &:hover {
-    border: 1px solid red ;
+    border-bottom: 3px solid #0000FF;
   }
 `

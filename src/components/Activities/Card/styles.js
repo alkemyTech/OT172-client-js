@@ -4,9 +4,9 @@ export const Container = styled.article`
   display: flex;
   flex-direction: column;
   gap:.7rem;
-  border-bottom: 2px solid #000066;
   margin: 1rem;
   padding: 1rem ;
+ 
 `
 export const Titulo = styled.h1`
   font-size:2rem;
