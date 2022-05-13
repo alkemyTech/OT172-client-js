@@ -14,7 +14,7 @@ export const Container = styled.nav`
       margin-left: 0;
     }
     &>a {
-          font-size: 1rem;
+          /* font-size: 1rem; */
           font-weight: 500;
           text-decoration: none;
           color: var(--white-01);

@@ -3,7 +3,9 @@ import { createGlobalStyle } from 'styled-components'
 export const GlobalStyles = createGlobalStyle`
   :root {
     --white-01: #FFFFFF;
+    --white-02: #EFFFFA;
     --black-01: #000000;
+    --black-02: #0D0C1D;
   }
   html, body {
     margin: 0;

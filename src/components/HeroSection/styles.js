@@ -29,6 +29,7 @@ export const HeroItems = styled.div`
   text-transform: uppercase;
   line-height: 1;
   font-weight: bold;
+  width: 100%;
   @media screen and (max-width: 650px) {
     width: 100%;
   }

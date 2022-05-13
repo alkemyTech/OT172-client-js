@@ -1,20 +1,20 @@
 export const links = [
   {
-    name: 'Home',
+    name: 'Inicio',
     path: 'home'
   },
   {
-    name: 'News',
+    name: 'Novedades',
     path: 'news'
   },
   {
-    name: 'Activities',
+    name: 'Actividades',
     path: 'activities'
   },
-  {
-    name: 'Testimonials',
-    path: 'testimonials'
-  },
+  // {
+  //   name: 'Testimonios',
+  //   path: 'testimonials'
+  // },
   {
     name: 'Members',
     path: 'members'
