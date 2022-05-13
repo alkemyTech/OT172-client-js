@@ -20,3 +20,5 @@ export const ENDPOINT_USERS = `${BASE_API_URL}/users`
 
 export const ENDPOINT_MEMBERS = `${BASE_API_URL}/members`
 
+export const ENDPOINT_MAIL = `${BASE_API_URL}/mail`
+
