@@ -2,8 +2,9 @@ import React, { useRef, useState } from 'react'
 import { Container } from './styles'
 
 import FocusLock from 'react-focus-lock'
-import { Burger, Menu } from 'components/utils'
 import { useOnClickOutside } from 'hooks'
+import Menu from 'components/Header/MenuHamburg/Menu'
+import Burger from 'components/Header/MenuHamburg/Burger'
 
 export default function MenuHamburg() {
 

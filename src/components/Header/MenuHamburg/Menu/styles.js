@@ -5,7 +5,7 @@ export const StyledMenu = styled.nav`
   flex-direction: column;
   justify-content: center;
   /* background: ${({ theme }) => theme.primaryLight}; */
-  background: var(--white-01) ;
+  background: var(--black-02) ;
   transform: ${({ open }) => open ? 'translateX(0)' : 'translateX(-100%)'};
   height: 100vh;
   text-align: left;
@@ -14,10 +14,7 @@ export const StyledMenu = styled.nav`
   top: 0;
   left: 0;
   transition: transform 0.3s ease-in-out;
-
-  @media (max-width: ${({ theme }) => theme.mobile}) {
-      width: 100%;
-    }
+  width: 80% ;
 
   a {
     font-size: 2rem;
@@ -26,14 +23,10 @@ export const StyledMenu = styled.nav`
     font-weight: bold;
     letter-spacing: 0.5rem;
     /* color: ${({ theme }) => theme.primaryDark}; */
-    color: var(--black-01);
     text-decoration: none;
     transition: color 0.3s linear;
-
-    @media (max-width: ${({ theme }) => theme.mobile}) {
-      font-size: 1.5rem;
-      text-align: center;
-    }
+    font-size: 1.5rem;
+    text-align: center;
 
     &:hover {
       color: ${({ theme }) => theme.primaryHover};
@@ -44,6 +37,6 @@ export const StyledMenu = styled.nav`
 export const navLinkStyles = ({ isActive }) => {
   return {
     fontWeight: isActive ? "bold" : "normal",
-    color: isActive ? '#0000ff' : 'var(--black-01)'
+    color: isActive ? '#0000ff' : 'var(--white-02)'
   };
 };
