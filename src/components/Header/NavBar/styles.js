@@ -18,6 +18,13 @@ export const Container = styled.nav`
       color: #0000ff;
     }
 `
+export const navLinkStyles = ({ isActive }) => {
+  return {
+    fontWeight: isActive ? "bold" : "normal",
+    color: isActive ? '#0000ff' : '#000'
+
+  };
+};
 
 export const Logo = styled.img`
     width: 5rem;
