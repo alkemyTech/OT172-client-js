@@ -92,14 +92,13 @@ const FormFields = response => {
           })
         }
       })()
-    },[params.id, getService])
+    },[params.id, dispatch])
 
     //Send form
     const handleSubmit = (values, actions) => {
        if(params.id){
          dispatch(updateNews({...values, id:params.id}))
        }else{
-         //console.log(values)
          dispatch(createNews(values))
        }
 
