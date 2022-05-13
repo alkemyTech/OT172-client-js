@@ -17,6 +17,7 @@ import ActivitiesPage from 'pages/Activities/ActivitiesPage'
 import Activity from 'pages/Activities/Activity'
 import { PrivatedRoute } from 'routes/PrivatedRoute'
 import { ProtectedRoute } from 'routes/ProtectedRoute'
+import Page404 from './404'
 
 export default function RoutesWeb() {
 
@@ -48,6 +49,7 @@ export default function RoutesWeb() {
       <Route path='/backoffice/activities' element={<PrivatedRoute><ActivitiesScreen /></PrivatedRoute>} />
       <Route path='/backoffice/activities/new' element={<PrivatedRoute><ActivityForm /></PrivatedRoute>} />
       <Route path='/backoffice/activities/:id' element={<PrivatedRoute><ActivityForm /></PrivatedRoute>} />
+      <Route path="*" element={<Page404 />} />
     </Routes>
   )
 }
