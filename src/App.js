@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import RoutesWeb from './routesWeb'
+import RoutesWeb from './routes/routesWeb'
 import Header from 'components/Header'
 import Footer from './components/Footer'
 import { useDispatch } from 'react-redux'
