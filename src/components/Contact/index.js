@@ -1,7 +1,7 @@
-import React, { useState } from "react"
-import { Wrapper, ContactText}from "./styles"
+import React from 'react'
+import { Wrapper, ContactText, Head, Container}from "./styles"
 import { ContactForm } from "./Form"
-
+import ContactCard from "./ContactCard"
 export const ContactScreen=()=>{
     return(
         <Wrapper>
@@ -13,3 +13,16 @@ export const ContactScreen=()=>{
         </Wrapper>
     )
 }
+export default function ContactsList({ contacts }) {
+    return (
+      <Container>
+        <h1>Contactos recibidos( {contacts.length} )</h1>
+        <Head>
+            <div className='contactsList_name'>Nombre</div>
+            <div className='contactsList_email' >Email</div>
+            <div className='contactsList_phone'>Phone</div>
+        </Head>
+        {contacts?.map((cont, index) => <ContactCard key={index} contact={cont} />)}
+      </Container>
+    )
+  }

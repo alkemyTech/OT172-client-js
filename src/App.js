@@ -1,12 +1,15 @@
 import React, { useEffect } from 'react'
-import RoutesWeb from './routesWeb'
 import Header from 'components/Header'
 import Footer from './components/Footer'
 import { useDispatch } from 'react-redux'
 import { Toaster } from 'react-hot-toast'
 import { fetchOrganizationDataPublic } from 'store/slices/organization'
 import { GlobalStyle } from 'globalStyles'
+import RoutesWeb from 'routes/routesWeb'
 
+import { ThemeProvider } from 'styled-components';
+import { GlobalStyles } from './global';
+import { theme } from './theme';
 
 
 function App () {
@@ -17,14 +20,15 @@ function App () {
   }, [dispatch])
   
   return (
+    <ThemeProvider theme={theme}>
     <>
-      <GlobalStyle/>   
+      <GlobalStyles />  
       <Header/>
-      {/* <ToastContainer/> */}
       <Toaster />
       <RoutesWeb />
       <Footer />
     </>
+    </ThemeProvider>
   )
 }
 

@@ -1,34 +1,16 @@
 import React from 'react'
-import { Link, useNavigate } from 'react-router-dom'
-import { Container } from './styles'
+import { Link, NavLink, useNavigate, useParams } from 'react-router-dom'
+import { Container, navLinkStyles } from './styles'
 import { useSelector, useDispatch } from 'react-redux'
 import { logout, reset } from '../../../store/slices/auth/index'
 import { alertToast } from 'services/alerts'
+import { links } from 'config/const'
 
-const links = [
-  {
-    name: 'Home',
-    path: 'home'
-  },
-  {
-    name: 'News',
-    path: 'news'
-  },
-  {
-    name: 'Activities',
-    path: 'activities'
-  },
-  {
-    name: 'Testimonials',
-    path: 'testimonials'
-  },
-  {
-    name: 'Members',
-    path: 'members'
-  },
-]
+
+
 
 export default function NavBar() {
+
   const navigate = useNavigate()
   const dispatch = useDispatch()
   const { user } = useSelector((state) => state.auth)
@@ -42,22 +24,21 @@ const onLogout = () => {
 
   return (
     <Container>
-      {links.map(link => <Link key={link.path} to={link.path}>{link.name}</Link>)}
+      {links.map(link => <NavLink style={navLinkStyles} key={link.path} to={link.path}>{link.name}</NavLink>)}
       {user ? // IF USER IS LOGGED IN
       (<> <button onClick={onLogout}>Logout</button>  </>) 
       :      //  IF NOT 
-      (<> <Link to='/login'> Login </Link> <Link to='/register'> Register </Link>  </>)}
+      (<> <NavLink style={navLinkStyles} to='/login'> Login </NavLink> <NavLink style={navLinkStyles} to='/register'> Register </NavLink>  </>)}
 
       {/*  BACKOFFICE */}
       {user?.user?.roleId === 1 ?  // IF USER IS ADMIN
        <>
-        <Link to='/backoffice/users'> Users </Link> 
-        <Link to='/backoffice/categories'> Categories </Link> 
-        <Link to='/backoffice/activities'> Activities </Link> 
+        <NavLink style={navLinkStyles} to='/backoffice/users'> Users </NavLink> 
+        <NavLink style={navLinkStyles} to='/backoffice/categories'> Categories </NavLink> 
+        <NavLink style={navLinkStyles} to='/backoffice/activities'> Activities </NavLink> 
       </>
        : null                 // IF NOT 
         }
-        
     </Container>
   )
 }

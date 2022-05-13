@@ -1,7 +1,8 @@
 import styled from 'styled-components'
 
 export const Container = styled.div`
-  color: black;
+  /* color: ${({ theme }) => theme.primaryLight}; */
+  color: var(--white-02);
   padding-top: 1rem;
 
   a {
