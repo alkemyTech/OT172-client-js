@@ -3,12 +3,13 @@ import { mediaQueries } from 'config/responsive'
 const { screenLittle } = mediaQueries
 
 export const Container = styled.header`
-  display: grid;
+  /* display: grid;
   grid-template-rows: 2rem;
-  grid-template-columns: 6rem 1fr 1fr ;
+  grid-template-columns: 6rem 1fr 1fr ; */
+  display: flex ;
   justify-content: space-between;
   align-items: center;
-  height: 2rem;
+  height: 3rem;
 
   ${screenLittle} {
   border: 1px solid blue;
