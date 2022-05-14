@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 
-export const StyledBurger = styled.button`
+export const StyledSettingIcon = styled.button`
   position: absolute;
   top: 15%;
-  left: 1rem;
+  right: 1rem;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -15,7 +15,13 @@ export const StyledBurger = styled.button`
   padding: 0;
   z-index: 10;
 
+  svg {
+    display: ${({ open }) => open && 'none'};
+    font-size: 2rem;
+  }
   span {
+    /* display: none; */
+    display: ${({ open }) => !open && 'none'};
     width: 2rem;
     height: 0.25rem;
     background: ${({ theme, open }) => open ? theme.primaryDark : theme.primaryDark};

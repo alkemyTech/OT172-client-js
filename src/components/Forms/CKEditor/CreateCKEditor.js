@@ -17,6 +17,7 @@ export default function CKEditorComponent(props){
             editor={ ClassicEditor }
 
             onReady={(editor) => {
+                if (editor)
                 editor.editing.view.change((writer) => {
                 writer.setStyle(
                     "min-height",

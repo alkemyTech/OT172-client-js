@@ -1,7 +1,7 @@
 import React from 'react';
 import { bool } from 'prop-types';
 import { StyledMenu } from './styles';
-import { links } from 'config/const';
+import { linksBackOffice } from 'config/const';
 import { NavLink } from 'react-router-dom';
 import { navLinkStyles } from 'components/Header/styles';
 
@@ -9,10 +9,10 @@ const Menu = ({ open, ...props }) => {
   
   const isHidden = open ? true : false;
   const tabIndex = isHidden ? 0 : -1;
-
+console.log(linksBackOffice);
   return (
     <StyledMenu open={open} aria-hidden={!isHidden} {...props}>
-      {links.map(link => <NavLink style={navLinkStyles} tabIndex={tabIndex} key={link.path} to={link.path} onClick={()=>props.setOpen(false)}>
+      {linksBackOffice.map(link => <NavLink style={navLinkStyles} tabIndex={tabIndex} key={link.path} to={link.path} onClick={()=>props.setOpen(false)}>
         {link.name}
       </NavLink>)}
     </StyledMenu>

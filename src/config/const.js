@@ -20,3 +20,23 @@ export const links = [
     path: 'members'
   },
 ]
+
+const backOffice = '/backoffice'
+export const linksBackOffice = [
+  {
+    name: 'Usuarios',
+    path: `${backOffice}/users`
+  },
+  {
+    name: 'Actividades',
+    path: `${backOffice}/activities`
+  },
+  {
+    name: 'Novedades',
+    path: `${backOffice}/news`
+  },
+  {
+    name: 'Categorias',
+    path: `${backOffice}/categories`
+  },
+]

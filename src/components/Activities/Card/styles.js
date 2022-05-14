@@ -1,42 +1,37 @@
 import styled from 'styled-components'
+import { mediaQueries } from 'config/responsive'
+const { screenLittle, screenBig } = mediaQueries
 
 export const Container = styled.article`
   display: flex;
-  flex-direction: column;
+  
+  flex-direction: ${props => props.isDetail ? 'column' : 'row-reverse'};
   gap:.7rem;
   margin: 1rem;
-  padding: 1rem ;
- 
+  padding: 1rem;
+  color: ${({ theme }) => theme.primaryDark};
+`
+export const Image = styled.div`
+  min-height: 200px;
+  height: ${props => props.isDetail ? '400px' : '200px'};
+  width: ${props => props.isDetail ? '100%' : '50%'};
+  background-image: url(${props => props.image});background-repeat: no-repeat;
+  background-size: cover;
+  ${screenLittle} {
+    height: ${props => props.isDetail ? '500px' : '200px'};
+  }
+  ${screenBig} {
+    height: ${props => props.isDetail ? '100vh' : '200px'};
+  }
 `
 export const Titulo = styled.h1`
-  font-size:2rem;
+  font-size: 1.2rem;
   margin: auto ;
 `
-
-export const Image = styled.img`
-  height: 100px;
-  width: fit-content;
+export const Detail = styled.div`
+  display: flex;
+  font-size: 1.5rem;
   margin: auto ;
-`
-
-export const Category = styled.article`
-  font-size: 1rem;
-  width: fit-content ;
-  background: #329378;
-  color: #fff;
-  border-radius: 5rem;
-  font-size: 0.75em;
-  border-color: transparent;
-  box-shadow: 0 0 0 2px transparent;
-  box-sizing: border-box;
-  font-weight: 700;
-  line-height: 1;
-  overflow: hidden;
-  padding: 0.5rem 0.4rem 0.5rem 0.4rem;
-  text-align: center;
-  text-decoration: none;
-  text-indent: 0;
-  vertical-align: middle;
 `
 
 export const Content = styled.article`

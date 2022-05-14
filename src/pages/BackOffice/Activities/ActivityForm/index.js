@@ -76,14 +76,14 @@ export const ActivityForm = () => {
     })()
   }, [params.id, dispatch]);
 
-  const handleSubmit = (values,actions) => {
+  const handleSubmit = async (values,actions) => {
     if (params.id) {
-      console.log(values)
-      dispatch(updateActivities({...values, id:params.id}))
+      await dispatch(updateActivities({...values, id:params.id}))
 
     } else {
-      dispatch(createActivities(values))
+      await dispatch(createActivities(values))
     }
+    
     if (isSuccess) alertToast('success',params.id ?'Actividad editada correctamente!':'Actividad agregada correctamente!')
     if (isError) alertToast('error',message)
 
