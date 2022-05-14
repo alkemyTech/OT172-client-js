@@ -78,6 +78,7 @@ export const ActivityForm = () => {
 
   const handleSubmit = (values,actions) => {
     if (params.id) {
+      console.log(values)
       dispatch(updateActivities({...values, id:params.id}))
 
     } else {
