@@ -1,8 +1,9 @@
 import styled from 'styled-components'
 
 export const Container = styled.div`
-  color: red,
+
   fontWeight: 80px;
+  /* width: 500px ; */
 `
 
 export const Title = styled.h2`
@@ -10,7 +11,7 @@ export const Title = styled.h2`
 `
 
 export const SubTitle = styled.h4`
-  color: purple;
+  color: blue;
 `
 
 export const OperationName= styled.h3`
