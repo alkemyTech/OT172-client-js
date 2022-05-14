@@ -4,7 +4,6 @@ const { screenLittle } = mediaQueries
 
 export const Container = styled.section`
   margin: auto ;
-  margin-top: var(--header-height);
   &>h1 {
     text-align: center ;
   }
