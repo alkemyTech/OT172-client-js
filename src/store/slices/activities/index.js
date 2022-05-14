@@ -75,7 +75,6 @@ export const activitySlice = createSlice({
                 state.isError = false
             })
             .addCase(updateActivities.fulfilled, (state, action) => {
-                console.log('payload: ',action.payload);
                 const updatedActivities = state.activities.map(e => e.id === action.payload.id ? action.payload : e )
                 state.isLoading = false
                 state.isSuccess = true

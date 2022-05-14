@@ -3,6 +3,7 @@ import { mediaQueries } from 'config/responsive'
 const { screenLittle, screenMiddle } = mediaQueries
 
 export const Container = styled.section`
+  background-color: #FFF ;
   margin: auto ;
   color: #000;
   &>h1 {
