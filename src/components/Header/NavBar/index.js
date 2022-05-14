@@ -1,10 +1,11 @@
 import React from 'react'
 import { Link, NavLink, useNavigate, useParams } from 'react-router-dom'
-import { Container, navLinkStyles } from './styles'
+import { Container } from './styles'
 import { useSelector, useDispatch } from 'react-redux'
 import { logout, reset } from '../../../store/slices/auth/index'
 import { alertToast } from 'services/alerts'
 import { links } from 'config/const'
+import { navLinkStyles } from '../styles'
 
 
 

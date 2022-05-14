@@ -6,6 +6,10 @@ export const GlobalStyles = createGlobalStyle`
     --white-02: #EFFFFA;
     --black-01: #000000;
     --black-02: #0D0C1D;
+    --blue-01: #000066;
+    --blue-02: #0000FF;
+    --gray-01: #EAEAEA;
+    --header-height: 3rem;
   }
   html, body {
     margin: 0;
@@ -20,8 +24,8 @@ export const GlobalStyles = createGlobalStyle`
     /* display: flex; */
     justify-content: center;
     align-items: center;
-    background: ${({ theme }) => theme.primaryDark};
-    color: ${({ theme }) => theme.primaryLight};
+    background: ${({ theme }) => theme.primaryLight};
+    color: ${({ theme }) => theme.primaryDark};
     height: 100vh;
     text-rendering: optimizeLegibility;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
@@ -48,7 +52,7 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   a {
-    color: ${({ theme }) => theme.primaryHover};
+    color: ${({ theme }) => theme.link};
     text-decoration: none;
   }
 `

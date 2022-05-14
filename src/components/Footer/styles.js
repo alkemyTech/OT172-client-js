@@ -11,6 +11,7 @@ export const Container = styled(center)`
   bottom: 0;
   width: 100%;
   height: 25vh;
+  z-index: -1;
 `
 
 export const Grid = styled.div`

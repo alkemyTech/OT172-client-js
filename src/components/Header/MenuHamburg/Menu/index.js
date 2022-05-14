@@ -1,8 +1,9 @@
 import React from 'react';
 import { bool } from 'prop-types';
-import { navLinkStyles, StyledMenu } from './styles';
+import { StyledMenu } from './styles';
 import { links } from 'config/const';
 import { NavLink } from 'react-router-dom';
+import { navLinkStyles } from 'components/Header/styles';
 
 const Menu = ({ open, ...props }) => {
   

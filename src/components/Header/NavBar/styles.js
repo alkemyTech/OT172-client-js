@@ -14,20 +14,12 @@ export const Container = styled.nav`
       margin-left: 0;
     }
     &>a {
-          /* font-size: 1rem; */
           font-weight: 500;
           text-decoration: none;
-          color: var(--white-01);
           cursor: pointer;    
           margin-left: .3rem;
         }
     &>a:hover {
-      color: #0000ff;
+      color: ${({ theme }) => theme.primaryHover};
     }
 `
-export const navLinkStyles = ({ isActive }) => {
-  return {
-    fontWeight: isActive ? "bold" : "normal",
-    color: isActive ? '#0000ff' : 'var(--white-01)'
-  };
-};

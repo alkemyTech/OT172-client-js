@@ -1,17 +1,16 @@
 import React from 'react'
-import { Container, Content, Image, Titulo } from './styles';
+import { Container, Content, Detail, Image, Titulo } from './styles';
 
 export default function Card({ data, detail = false }) {
-  
+
   return (
-    <Container>
+    <Container isDetail={detail}>
       <Titulo>{data.name}</Titulo>
-      <Image src={data.image} alt={data.name} />
+      <Image image={data.image} isDetail={detail}/>
       {detail &&
-        <>
-          {/* <Content>{data.content}</Content> */}
+        <Detail>
           <Content dangerouslySetInnerHTML={{ __html: data.content }} />
-        </>
+        </Detail>
       }
     </Container>
   )
