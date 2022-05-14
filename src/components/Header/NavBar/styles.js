@@ -15,10 +15,11 @@ export const Container = styled.nav`
       margin-left: 0;
     }
     &>a {
-          font-weight: 500;
-          text-decoration: none;
-          cursor: pointer;    
-          margin-left: .3rem;
+      text-transform: uppercase;
+      font-weight: 500;
+      text-decoration: none;
+      cursor: pointer;    
+      margin-left: .5rem;
         }
     &>a:hover {
       color: ${({ theme }) => theme.primaryHover};
