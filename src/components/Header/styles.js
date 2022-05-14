@@ -31,7 +31,6 @@ export const Logo = styled.img`
 
 export const navLinkStyles = ({ isActive }) => {
   const active = 'var(--blue-02)'
-  const normal = 'var(--black-01)'
   return {
     fontWeight: isActive ? "bold" : "normal",
     color: isActive && active 
