@@ -6,13 +6,13 @@ export const StyledMenu = styled.nav`
   justify-content: center;
   background: ${({ theme }) => theme.primaryLightNavBar};
   /* transform: ${({ open }) => open ? 'translateX(0)' : 'translateX(-100%)'}; */
-  transform: ${({ open }) => open ? 'translateX(calc(-1*(80% + 70vw)))' : 'translateX(0)'};
+  transform: ${({ open }) => open ? 'translateX(calc(-1*((80vw - 1rem) + 80vw)))' : 'translateX(0)'};
   height: 100vh;
   text-align: left;
   padding: 2rem;
   position: absolute;
   top: 0;
-  right: calc(-1*(80% + 70vw));
+  right: calc(-1*(80% + 80vw));
   transition: transform 0.3s ease-in-out;
   width: 80% ;
   z-index: 0;
