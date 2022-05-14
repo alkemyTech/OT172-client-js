@@ -18,10 +18,14 @@ import Activity from 'pages/Activities/Activity'
 import { PrivatedRoute } from 'routes/PrivatedRoute'
 import { ProtectedRoute } from 'routes/ProtectedRoute'
 import Page404 from './404'
+import styled from 'styled-components'
 
 export default function RoutesWeb() {
 
   return (
+    <Container>
+
+    
     <Routes>
       {/* Public routes */}
 
@@ -51,5 +55,11 @@ export default function RoutesWeb() {
       <Route path='/backoffice/activities/:id' element={<PrivatedRoute><ActivityForm /></PrivatedRoute>} />
       <Route path="*" element={<Page404 />} />
     </Routes>
+    </Container>
   )
 }
+
+const Container = styled.div`
+  margin-top: var(--header-height);
+`
+

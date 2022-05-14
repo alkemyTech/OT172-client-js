@@ -5,6 +5,7 @@ const { screenLittle } = mediaQueries
 export const Container = styled.nav`
     display: none;
     align-items: center;
+    padding-right: 2rem;
   
     ${screenLittle} {
       display: flex ;

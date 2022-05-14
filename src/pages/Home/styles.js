@@ -7,6 +7,7 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column ;
   margin: auto;
+  margin-top: var(--header-height);
   &>h1 {
     text-align: center ;
   }

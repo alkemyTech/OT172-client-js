@@ -15,7 +15,7 @@ export const Container = styled.header`
   font-size: .8rem;
 
   ${screenLittle} {
-  font-size: 1.1rem;
+  font-size: .9rem;
   }
 `
 
