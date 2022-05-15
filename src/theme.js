@@ -6,6 +6,7 @@ export const theme = {
   primaryLightNavBar: 'var(--gray-01)',
   primaryHover: 'var(--blue-02)',
   link: 'var(--black-02)',
+  linkHover: 'var(--blue-02)',
   linkActive: 'primaryHover',
   linkBorderColor: 'var(--blue-01)',
   linkBorderColorHover: 'var(--blue-02)',

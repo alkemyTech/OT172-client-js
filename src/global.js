@@ -58,4 +58,8 @@ export const GlobalStyles = createGlobalStyle`
     color: ${({ theme }) => theme.link};
     text-decoration: none;
   }
+  a:hover {
+    color: ${({ theme }) => theme.linkHover};
+    text-decoration: none;
+  }
 `
