@@ -10,7 +10,7 @@ const fetcher = (verb, endPoint, body=null, isForm=false) => {
   const token = getToken()
 
   if (token) {
-    apiService.defaults.headers.common = { 'x-access-token': `${token}` }
+    apiService.defaults.headers = { 'x-access-token': `${token}` }
   }
   if (isForm) {
     const form = new FormData();
