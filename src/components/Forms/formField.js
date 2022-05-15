@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react'
 import { Field, ErrorMessage, useFormikContext } from 'formik'
 import { CustomInput, CustomInputImage, ErrorContainer } from './styles'
+import { useDispatch, useSelector } from 'react-redux'
+import { fetchAllCategories } from 'store/slices/categories'
 
 export const FormField = ({ name, type, placeholder, FormContainer = CustomInput, as }) => {
   return (
@@ -56,7 +58,7 @@ export const CategorySelectField= ({ name, type, placeholder, FormContainer}) =>
         {categories?.map((categorie,index)=><option key={categorie.id} value={categorie.id}>{categorie.name}</option>)}
       </Field>
       <ErrorMessage name={name}>
-        {msg=><ErrorMessageFormik>{msg}</ErrorMessageFormik> }
+        {msg=><ErrorMessage>{msg}</ErrorMessage> }
       </ErrorMessage> 
     </FormContainer>
   )

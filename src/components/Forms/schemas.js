@@ -73,18 +73,25 @@ export const newsSchema= Yup.object().shape({
       "type", 
       "Tipo de archivo no soportado", 
       value=>{
-        const SUPPORTED_FORMATS = ["image/jpg", "image/jpeg", "image/png"]
-        return !value || (value && SUPPORTED_FORMATS.includes(value.type))
+        if(typeof(value)=="object"){
+          const SUPPORTED_FORMATS = ["image/jpg", "image/jpeg", "image/png"]
+          return !value || (value && SUPPORTED_FORMATS.includes(value.type))
+        }else{
+          return true
+        }
       })
-    
     .test(
       "fileSize",
       "Tamaño del archivo muy grande", 
       value=>{
-        const sizeInBytes= 500000//0.5MB
-        return value?.size <= sizeInBytes
+        if(typeof(value)=="object"){
+          const sizeInBytes= 500000//0.5MB
+          return value?.size <= sizeInBytes
+        }else{
+          return true;
+        }
       }),
-  category: Yup.number()
+  categoryId: Yup.number()
     .required('Seleccione una categoria'),
 
   content: Yup.string()

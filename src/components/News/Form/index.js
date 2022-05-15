@@ -9,9 +9,10 @@ import { getService } from 'services/apiService'
 import { ENDPOINT_NEWS } from 'services/settings'
 import { alertToast } from 'services/alerts'
 import { createNews, updateNews } from 'store/slices/news'
-import { Button, Container, CustomInput, FormContainer, FormContainerCKE } from "./styles";
+import {CustomInput, FormContainer, FormContainerCKE } from "./styles";
 import { TiArrowBack } from "react-icons/ti";
-
+import Loader from 'components/utils/Loader'
+import { Button, Container } from "components/Forms/styles";
 
 
 const FormFields = (editar=false, temp) => {
@@ -21,20 +22,19 @@ const FormFields = (editar=false, temp) => {
           name='name'
           type='text'
           placeholder='Titulo de la novedad'
-          FormContainer={FormContainer}
         />
         <ImageField
           name='image'
           type='file'
           placeholder='Foto de la novedad'
-          FormContainer={FormContainer}
           as= {CustomInput}
         />
         <CategorySelectField
-          name='category'
+          name='categoryId'
           type='text'
           placeholder='Categoria'
           FormContainer={FormContainer}
+          value={temp.categoryId}
         />
         <FormField
           name='content'
@@ -50,7 +50,7 @@ const FormFields = (editar=false, temp) => {
   }
   
   export const NewsForm = () =>{
-    const {isLoading, isError, isSuccess, message} = useSelector((state) => state.auth) 
+    const {isLoading, isError, isSuccess, message} = useSelector((state) => state.news) 
     const dispatch = useDispatch()
     const navigate = useNavigate()
     const params= useParams()
@@ -58,7 +58,7 @@ const FormFields = (editar=false, temp) => {
     const [values, setValues]= useState({
       name: '',
       image: '',
-      category: '',
+      categoryId: '',
       content: ''
     })
 
@@ -66,12 +66,11 @@ const FormFields = (editar=false, temp) => {
       (async() =>{
         if(params.id){
           const response = await getService(ENDPOINT_NEWS, params.id)
-          const { name, image, category, content }= response.data
-
+          const { name, image, categoryId, content }= response.data
           setValues({
             name,
             image,
-            category,
+            categoryId,
             content
           })
         }
@@ -79,21 +78,21 @@ const FormFields = (editar=false, temp) => {
     },[params.id, dispatch])
 
     //Send form
-    const handleSubmit = (values, actions) => {
-      console.log(values)
+    const handleSubmit = async (values, actions) => {
        if(params.id){
-         dispatch(updateNews({...values, id:params.id}))
+         await dispatch(updateNews({...values, id:params.id}))
        }else{
-         dispatch(createNews(values))
+         await dispatch(createNews(values))
        }
-
+       console.log(isError)
        if(isSuccess) alertToast("success", params.id?'Novedad editada correctamente!':"Novedad agregada correctamente!")
        if(isError) alertToast("error", message)
        actions.setSubmitting(false)
        actions.resetForm()
        navigate("/backoffice/news")
     }
-   
+    
+    if(isLoading) return <Loader />
     return(
         <Container>
           <Link to={`/backoffice/news`}><TiArrowBack /> Volver a news</Link>
