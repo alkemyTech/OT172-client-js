@@ -33,7 +33,7 @@ const FormFields = () => {
         type='password'
         placeholder='Contraseña'
       />
-      <Button type='submit'>Crear</Button>
+      <Button type='submit'>Registrarse</Button>
     </>
   )
 }
