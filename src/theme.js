@@ -7,6 +7,9 @@ export const theme = {
   linkActive: 'primaryHover',
   linkBorderColor: 'var(--blue-01)',
   linkBorderColorHover: 'var(--blue-02)',
+  primaryLightBorderInputHover: 'var(--blue-02)',
+  primaryLightBorderInput: 'var(--gray-01)',
+
 
   mobile: '576px',
 }
