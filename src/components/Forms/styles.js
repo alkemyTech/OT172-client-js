@@ -4,6 +4,7 @@ export const Container = styled.div`
   width: 100%;
   margin: auto;
   padding: 1rem;
+  text-align: left;
 `
 
 export const ContainerFormik = styled.div`
@@ -13,11 +14,13 @@ export const ContainerFormik = styled.div`
 export const Title = styled.h2`
   color: ${({theme}) => theme.primaryDark};
   margin-bottom: .1rem ;
+  text-align: center;
 `
 
 export const SubTitle = styled.span`
   color: ${({theme}) => theme.secondaryDark};
   margin-top: .4rem ;
+  text-align: center;
 `
 
 export const OperationName= styled.h3`
@@ -50,7 +53,7 @@ export const Button = styled.button`
 `
 
 export const CustomInput = styled.div`
-  input {
+  input, textarea {
     border: 1px solid ${({ theme }) => theme.primaryLightBorderInput};
     font-size: 1.2rem;
     padding: .5rem 1rem;

@@ -4,9 +4,10 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { getService } from 'services/apiService'
 import { ENDPOINT_ACTIVITIES } from 'services/settings'
-import { Container, LinkStyled } from "./styles"
+import { Container } from "./styles"
 import { TiArrowBack } from "react-icons/ti";
 import Card from 'components/Activities/Card'
+import { LinkStyled } from 'common/styles'
 
 function Activity() {
   const params = useParams()
