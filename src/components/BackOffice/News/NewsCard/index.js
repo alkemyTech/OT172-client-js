@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { alertToast, confirm } from 'services/alerts';
 import { deleteNews } from 'store/slices/news';
-import { Card, Row } from './styles';
+import Card from 'components/CardConstructor';
 
 
 
@@ -35,22 +35,12 @@ export default function NewsCard({myNew}){
     }, [isError, dispatch, deleteNew])
     
     return(
-      <Card>
-        <Row>
-        <div className='name' >{myNew.name}</div>
-        <div className='actions'>
-          <button
-            onClick={() => handleEdit(myNew.id)}
-          >
-            <FaEdit />
-          </button>
-          <button 
-            onClick={()=>handleDelete()}
-          >
-            <FaTrash />
-          </button>
-        </div>
-        </Row>
-      </Card>
+      <Card
+        data={myNew}
+        backOffice={true}
+        handleEdit={() => handleEdit(myNew.id)}
+        handleDelete={()=>handleDelete()}
+      />
+      
     )
 }

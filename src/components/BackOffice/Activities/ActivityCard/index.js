@@ -1,4 +1,5 @@
 import { CardBackOffice } from 'common/styles';
+import Card from 'components/CardConstructor';
 import React, { useEffect, useState } from 'react'
 import { FaTrash, FaEdit } from 'react-icons/fa'
 import { useSelector } from 'react-redux';
@@ -38,23 +39,11 @@ export default function ActivityCard({ activity }) {
   }, [isError, dispatch, deleteActivity])
 
   return (
-    <CardBackOffice>
-      <Row>
-        <div className='name' >{activity.name}</div>
-        {/* <div className='description'>{activity.description}</div> */}
-        <div className='actions'>
-          <button
-            onClick={() => handleEdit(activity.id)}
-          >
-            <FaEdit />
-          </button>
-          <button 
-            onClick={()=>handleDelete()}
-          >
-            <FaTrash />
-          </button>
-        </div>
-      </Row>
-    </CardBackOffice>
+    <Card 
+      data={activity}
+      backOffice={true}
+      handleEdit={() => handleEdit(activity.id)}
+      handleDelete={()=>handleDelete()}
+      />
   )
 }

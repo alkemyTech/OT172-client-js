@@ -3,9 +3,9 @@ import { useDispatch } from "react-redux";
 import { useSelector } from 'react-redux'
 import { useNavigate } from "react-router-dom";
 import { fetchAllNews, reset } from "store/slices/news";
-import CardNew from "./CardNew";
-import { Container } from "./styles";
 
+import { Container } from "./styles";
+import Card from "components/CardConstructor";
 export default function News({qty = 'all', title = ''}) {
   const { news } = useSelector(state => state.news)
   const { user } = useSelector(state => state.auth)
@@ -33,7 +33,8 @@ export default function News({qty = 'all', title = ''}) {
       {news?.length > 0 
         ? news.slice(0,totalShowNews).map( (n, i) => 
           <div key={i} onClick={() => handleShowNew(n)}>
-          <CardNew 
+          
+          <Card
             key={i} 
             data={n} 
           /> </div>)
