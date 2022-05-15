@@ -24,10 +24,14 @@ export default function NavBar() {
   return (
     <Container>
       {links.map(link => <NavLink style={navLinkStyles} key={link.path} to={link.path}>{link.name}</NavLink>)}
+      <>
       {user ? // IF USER IS LOGGED IN
-        (<NavLink style={navLinkStyles} to='/' onClick={onLogout}> Logout </NavLink>)
+        (<NavLink style={navLinkStyles} to='/' onClick={onLogout} > Logout </NavLink>)
         :      //  IF NOT 
-        (<> <NavLink style={navLinkStyles} to='/login'> Login </NavLink> <NavLink style={navLinkStyles} to='/register'> Register </NavLink>  </>)}
+        (<> 
+        <NavLink style={navLinkStyles} to='/login'> Login </NavLink> 
+        <NavLink style={navLinkStyles} to='/register' > Register </NavLink>  </>)}
+    </>
     </Container>
   )
 }

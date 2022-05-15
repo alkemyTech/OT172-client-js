@@ -8,7 +8,7 @@ export const StyledMenu = styled.nav`
   transform: ${({ open }) => open ? 'translateX(0)' : 'translateX(-100%)'};
   height: 100vh;
   text-align: left;
-  padding: 2rem;
+  padding: 1rem;
   position: absolute;
   top: 0;
   left: 0;
@@ -16,7 +16,7 @@ export const StyledMenu = styled.nav`
   width: 80% ;
   z-index: 0;
 
-  a {
+  a,span {
     font-size: 2rem;
     text-transform: uppercase;
     padding: 2rem 0;
@@ -33,3 +33,16 @@ export const StyledMenu = styled.nav`
     }
   }
 `;
+
+export const CardLoginOrRegister = styled.nav`
+  display: flex;
+  flex-direction: column;
+  margin-bottom: .3rem;
+  margin: 1rem 3rem;
+  border-top: 3px solid var(--gray-02);
+  padding-top: 2rem;
+  a, span {
+    padding: .2rem 0;
+  }
+`
+

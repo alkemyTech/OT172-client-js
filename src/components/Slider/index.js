@@ -29,7 +29,7 @@ const Container = styled.section`
 	overflow: hidden;
 `
 const Titulo = styled.p`
-	font-size: 18px;
+	font-size: 1.2rem;
 	font-weight: 700;
 	text-transform: uppercase;
 	

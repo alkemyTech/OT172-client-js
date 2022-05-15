@@ -124,17 +124,15 @@ const Slide = styled.div`
 `;
 
 const TextoSlide = styled.div`
-	background: ${props => props.colorFondo ? props.colorFondo : 'rgba(0,0,0,.3)'};
-	color: ${props => props.colorTexto ? props.colorTexto : '#fff'};
+	background: ${props => props.colorFondo ? props.colorFondo : 'rgba(0,0,0,.5)'};
+	color: ${props => props.colorTexto ? props.colorTexto : ({theme}) => theme.primaryLight};
 	width: 100%;
+	font-size: 1.2rem;
+	font-weight: 700;
 	padding: 10px 60px;
 	text-align: center;
 	position: absolute;
 	bottom: 0;
-	/* @media screen and (max-width: 700px) {
-		position: relative;
-		background: #000;
-	} */
 `;
 
 const Controles = styled.div`
@@ -157,12 +155,12 @@ const Boton = styled.button`
 	text-align: center;
 	position: absolute;
 	transition: .3s ease all;
-	/* &:hover {
+	&:hover {
 		background: rgba(0,0,0,.2);
 		path {
 			fill: #fff;
 		}
-	} */
+	}
 	path {
 		filter: ${props => props.derecho ? 'drop-shadow(-2px 0px 0px #fff)' : 'drop-shadow(2px 0px 0px #fff)'};
 	}

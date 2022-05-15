@@ -9,6 +9,7 @@ export const GlobalStyles = createGlobalStyle`
     --blue-01: #000066;
     --blue-02: #0000FF;
     --gray-01: #EAEAEA;
+    --gray-02: #413E3D;
     --header-height: 3rem;
   }
   html, body {
