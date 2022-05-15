@@ -2,12 +2,12 @@ import { RowBackOffice } from 'common/styles'
 import styled from 'styled-components'
 
 export const Row = styled(RowBackOffice)`
-  &>div.name {
+  &>div.email {
     display:flex;
     width: 45%;
     justify-content:left;
   }
-  &>div.description {
+  &>div.names {
     display:flex;
     width: 40%;
     justify-content:left;

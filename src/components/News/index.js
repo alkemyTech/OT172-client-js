@@ -12,7 +12,7 @@ export default function News({qty = 'all', title = ''}) {
   const dispatch = useDispatch()
   
   useEffect(() => {
-    dispatch(fetchAllNews())
+    if (user) dispatch(fetchAllNews())
     if (!user) {
     dispatch(reset())
   }

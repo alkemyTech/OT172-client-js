@@ -4,36 +4,27 @@ export const Container = styled.div`
   width: 100%;
   margin: auto;
   padding: 1rem;
-  border: 1px solid red;
+  text-align: left;
+`
 
-  a {
-    text-align: center ;
-    font-size: 1rem;
-    text-decoration: none;
-    &:hover {
-      color: #0000FF
-    }
-    svg {
-      padding-left: 2rem ;
-    }
-  }
+export const ContainerFormik = styled.div`
+  padding-top: 2rem;
 `
 
 export const Title = styled.h2`
-  color: green;
+  color: ${({theme}) => theme.primaryDark};
+  margin-bottom: .1rem ;
+  text-align: center;
 `
 
-export const SubTitle = styled.h4`
-  color: blue;
+export const SubTitle = styled.span`
+  color: ${({theme}) => theme.secondaryDark};
+  margin-top: .4rem ;
+  text-align: center;
 `
 
 export const OperationName= styled.h3`
   color: black;
-`
-
-export const ErrorMessageFormik= styled.div`
-  color:red;
-  font-size:15px;
 `
 
 export const Button = styled.button`
@@ -48,7 +39,7 @@ export const Button = styled.button`
   cursor: pointer;
   display: block ;
   width: auto;
-  margin: auto ;
+  margin: 1rem auto ;
   padding: .6rem 1.2rem;
   
   &:hover {
@@ -62,11 +53,11 @@ export const Button = styled.button`
 `
 
 export const CustomInput = styled.div`
-  input {
+  input, textarea {
     border: 1px solid ${({ theme }) => theme.primaryLightBorderInput};
     font-size: 1.2rem;
     padding: .5rem 1rem;
-    margin-bottom: 1rem;
+    margin-bottom: 0;
     width: ${props => props.width || '20rem' };
 
     color: ${({ theme }) => theme.primaryDark};
@@ -75,5 +66,40 @@ export const CustomInput = styled.div`
     &:hover {
       border: 1px solid ${({ theme }) => theme.primaryLightBorderInputHover};
     }
+  }
+  
+`
+export const CustomInputImage = styled.div`
+  input {
+    /* border: 1px solid ${({ theme }) => theme.primaryLightBorderInput}; */
+    border: none;
+    padding: .5rem 1rem;
+    margin-bottom: 0;
+    width: ${props => props.width || '20rem' };
+
+    color: ${({ theme }) => theme.primaryDark};
+    background-color: ${({ theme }) => theme.primaryLight};
+    :first-child {
+        font-size: .7rem ;
+      }
+    &:hover {
+      :first-child {
+        color: ${({ theme }) => theme.linkHover};
+      }
+    }
+  }
+  
+`
+
+export const ErrorContainer = styled.div`
+  height: 1.4rem ;
+  font-size: .9rem;
+  text-align: left;
+  p {
+    color: var(--red-01);
+
+    position: relative;
+    top: -0.8rem;
+    z-index: -1 ;
   }
 `

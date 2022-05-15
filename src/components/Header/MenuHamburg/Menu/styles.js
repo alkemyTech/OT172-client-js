@@ -17,15 +17,14 @@ export const StyledMenu = styled.nav`
   z-index: 0;
 
   a,span {
-    font-size: 2rem;
     text-transform: uppercase;
-    padding: 2rem 0;
+    padding: 1rem 0;
     font-weight: bold;
-    letter-spacing: 0.5rem;
-    /* color: ${({ theme }) => theme.primaryDark}; */
+    letter-spacing: 0.25rem;
+    color: ${({ theme }) => theme.primaryDark};
     text-decoration: none;
     transition: color 0.3s linear;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     text-align: center;
 
     &:hover {

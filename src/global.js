@@ -10,6 +10,8 @@ export const GlobalStyles = createGlobalStyle`
     --blue-02: #0000FF;
     --gray-01: #EAEAEA;
     --gray-02: #413E3D;
+    --red-01: #F91506;
+
     --header-height: 3rem;
   }
   html, body {
@@ -54,6 +56,10 @@ export const GlobalStyles = createGlobalStyle`
 
   a {
     color: ${({ theme }) => theme.link};
+    text-decoration: none;
+  }
+  a:hover {
+    color: ${({ theme }) => theme.linkHover};
     text-decoration: none;
   }
 `

@@ -60,7 +60,6 @@ export const LoginUserForm = () => {
         <FormikForm
             title="Bienvenid@ a Somos Más"
             subtitle="Desde 1997 generando procesos de crecimiento y de inserción social"
-            operationName="Iniciar sesión" /*Delete for delete Iniciar sesion text*/
             values={values}
             schema={loginUserSchema}
             onSubmit={handleSubmit}

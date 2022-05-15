@@ -13,12 +13,14 @@ export const Container = styled.article`
 `
 export const Image = styled.div`
   min-height: 200px;
-  height: ${props => props.isDetail ? '400px' : '200px'};
+  height: ${props => props.isDetail ? '100%' : '200px'};
   width: ${props => props.isDetail ? '100%' : '50%'};
-  background-image: url(${props => props.image});background-repeat: no-repeat;
-  background-size: cover;
+  background-image: url(${props => props.image});
+  background-repeat: no-repeat;
+  background-size: ${props => props.isDetail ? 'contain' : 'cover'};
   ${screenLittle} {
-    height: ${props => props.isDetail ? '500px' : '200px'};
+    height: ${props => props.isDetail ? '400px' : '200px'};
+    background-size: cover;
   }
   ${screenBig} {
     height: ${props => props.isDetail ? '100vh' : '200px'};
