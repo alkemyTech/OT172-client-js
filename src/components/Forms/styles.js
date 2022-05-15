@@ -4,35 +4,24 @@ export const Container = styled.div`
   width: 100%;
   margin: auto;
   padding: 1rem;
+`
 
-  a {
-    text-align: center ;
-    font-size: 1rem;
-    text-decoration: none;
-    &:hover {
-      color: #0000FF
-    }
-    svg {
-      padding-left: 2rem ;
-    }
-  }
+export const ContainerFormik = styled.div`
+  padding-top: 2rem;
 `
 
 export const Title = styled.h2`
-  color: green;
+  color: ${({theme}) => theme.primaryDark};
+  margin-bottom: .1rem ;
 `
 
-export const SubTitle = styled.h4`
-  color: blue;
+export const SubTitle = styled.span`
+  color: ${({theme}) => theme.secondaryDark};
+  margin-top: .4rem ;
 `
 
 export const OperationName= styled.h3`
   color: black;
-`
-
-export const ErrorMessageFormik= styled.div`
-  color:red;
-  font-size:15px;
 `
 
 export const Button = styled.button`
@@ -47,7 +36,7 @@ export const Button = styled.button`
   cursor: pointer;
   display: block ;
   width: auto;
-  margin: auto ;
+  margin: 1rem auto ;
   padding: .6rem 1.2rem;
   
   &:hover {
@@ -65,7 +54,7 @@ export const CustomInput = styled.div`
     border: 1px solid ${({ theme }) => theme.primaryLightBorderInput};
     font-size: 1.2rem;
     padding: .5rem 1rem;
-    margin-bottom: 1rem;
+    margin-bottom: 0;
     width: ${props => props.width || '20rem' };
 
     color: ${({ theme }) => theme.primaryDark};
@@ -74,5 +63,17 @@ export const CustomInput = styled.div`
     &:hover {
       border: 1px solid ${({ theme }) => theme.primaryLightBorderInputHover};
     }
+  }
+`
+export const ErrorContainer = styled.div`
+  height: 1.4rem ;
+  font-size: .9rem;
+  text-align: left;
+  p {
+    color: var(--red-01);
+
+    position: relative;
+    top: -0.8rem;
+    z-index: -1 ;
   }
 `
