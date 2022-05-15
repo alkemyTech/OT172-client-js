@@ -67,7 +67,30 @@ export const CustomInput = styled.div`
       border: 1px solid ${({ theme }) => theme.primaryLightBorderInputHover};
     }
   }
+  
 `
+export const CustomInputImage = styled.div`
+  input {
+    /* border: 1px solid ${({ theme }) => theme.primaryLightBorderInput}; */
+    border: none;
+    padding: .5rem 1rem;
+    margin-bottom: 0;
+    width: ${props => props.width || '20rem' };
+
+    color: ${({ theme }) => theme.primaryDark};
+    background-color: ${({ theme }) => theme.primaryLight};
+    :first-child {
+        font-size: .7rem ;
+      }
+    &:hover {
+      :first-child {
+        color: ${({ theme }) => theme.linkHover};
+      }
+    }
+  }
+  
+`
+
 export const ErrorContainer = styled.div`
   height: 1.4rem ;
   font-size: .9rem;

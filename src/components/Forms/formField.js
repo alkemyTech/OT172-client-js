@@ -1,6 +1,6 @@
 import React from 'react'
 import { Field, ErrorMessage, useFormikContext } from 'formik'
-import { CustomInput, ErrorContainer } from './styles'
+import { CustomInput, CustomInputImage, ErrorContainer } from './styles'
 
 export const FormField = ({ name, type, placeholder, FormContainer = CustomInput, as }) => {
   return (
@@ -16,7 +16,7 @@ export const FormField = ({ name, type, placeholder, FormContainer = CustomInput
   )
 }
 
-export const ImageField = ({ name, type, placeholder, FormContainer, as }) => {
+export const ImageField = ({ name, type, placeholder, FormContainer = CustomInputImage, as }) => {
   const { setFieldValue } = useFormikContext();
   return (
     <FormContainer >
