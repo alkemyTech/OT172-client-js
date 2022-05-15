@@ -1,46 +1,39 @@
 import React, { useEffect } from 'react'
-import { FormikForm } from '../Forms'
-import { FormField } from '../Forms/formField'
-import { createUserSchema } from '../Forms/schemas'
-import { FormContainer } from './styles'
 import { useDispatch, useSelector } from 'react-redux'
-import { register, reset } from '../../store/slices/auth/index'
+import { register, reset } from 'store/slices/auth/index'
 import { alertToast } from 'services/alerts'
 import { useNavigate } from 'react-router-dom'
-import { Form } from 'formik'
-import { getDefaultNormalizer } from '@testing-library/react'
 import { ENDPOINT_MAIL } from 'services/settings'
 import axios from 'axios'
+import { FormField } from 'components/Forms/formField'
+import { FormikForm } from 'components/Forms'
+import { createUserSchema } from 'components/Forms/schemas'
+import { Button } from 'components/Forms/styles'
 
-const FormFields = response => {
+const FormFields = () => {
   return (
     <>
       <FormField
         name='firstName'
         type='text'
         placeholder='Nombre'
-        FormContainer={FormContainer}
       />
       <FormField
         name='lastName'
         type='text'
         placeholder='Apellido'
-        FormContainer={FormContainer}
       />
       <FormField
         name='email'
         type='email'
         placeholder='Email'
-        FormContainer={FormContainer}
       />
       <FormField
         name='password'
         type='password'
         placeholder='Contraseña'
-        FormContainer={FormContainer}
       />
-      <button type='submit'>Crear</button>
-      <div> {response} </div>
+      <Button type='submit'>Crear</Button>
     </>
   )
 }
