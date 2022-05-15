@@ -20,10 +20,14 @@ import { ProtectedRoute } from 'routes/ProtectedRoute'
 import Page404 from './404'
 import NewsScreenBackOffice from 'pages/BackOffice/News'
 import { NewsForm } from 'components/News/Form'
+import styled from 'styled-components'
 
 export default function RoutesWeb() {
 
   return (
+    <Container>
+
+    
     <Routes>
       {/* Public routes */}
 
@@ -56,5 +60,11 @@ export default function RoutesWeb() {
       <Route path='/backoffice/news/:id' element={<PrivatedRoute><NewsForm /></PrivatedRoute>} />
       <Route path="*" element={<Page404 />} />
     </Routes>
+    </Container>
   )
 }
+
+const Container = styled.div`
+  margin-top: var(--header-height);
+`
+

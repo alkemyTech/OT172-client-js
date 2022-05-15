@@ -1,12 +1,13 @@
 import Loader from 'components/utils/Loader'
 import NotFound from 'components/utils/NotFound'
 import React, { useEffect, useState } from 'react'
-import { Link, useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import { getService } from 'services/apiService'
 import { ENDPOINT_ACTIVITIES } from 'services/settings'
 import { Container } from "./styles"
 import { TiArrowBack } from "react-icons/ti";
 import Card from 'components/Activities/Card'
+import { LinkStyled } from 'common/styles'
 
 function Activity() {
   const params = useParams()
@@ -33,7 +34,7 @@ function Activity() {
 
   return (
     <Container>
-      <Link to={`/activities`}><TiArrowBack /> Volver a Actividades</Link>
+      <LinkStyled to={`/activities`}><TiArrowBack />Volver a Actividades</LinkStyled>
       {data
        ? <Card 
             data={data}

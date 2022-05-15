@@ -1,37 +1,39 @@
 import React, { useEffect } from 'react'
 import { Field, ErrorMessage, useFormikContext } from 'formik'
-import { ErrorMessageFormik } from './styles'
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchAllActivities } from 'store/slices/activities';
-import { fetchAllCategories } from 'store/slices/categories';
-export const FormField = ({ name, type, placeholder, FormContainer, as}) => {
-  const { values, submitForm, setFieldValue} = useFormikContext();
+import { CustomInput, CustomInputImage, ErrorContainer } from './styles'
+
+export const FormField = ({ name, type, placeholder, FormContainer = CustomInput, as }) => {
   return (
-    <FormContainer >
-      <Field as= {as} name={name} type={type} placeholder={placeholder}/>
-      <ErrorMessage name={name}>
-        {msg=><ErrorMessageFormik>{msg}</ErrorMessageFormik> }
-      </ErrorMessage> 
+    <FormContainer error={true}>
+      <Field as={as} name={name} type={type} placeholder={placeholder} />
+      <ErrorContainer>
+        <ErrorMessage
+          component="p"
+          name={name}
+        />
+      </ErrorContainer>
     </FormContainer>
   )
 }
 
-export const ImageField = ({ name, type, placeholder, FormContainer, as}) => {
-  const { setFieldValue} = useFormikContext();
+export const ImageField = ({ name, type, placeholder, FormContainer = CustomInputImage, as }) => {
+  const { setFieldValue } = useFormikContext();
   return (
     <FormContainer >
-      <Field 
-        as= {as} 
-        name={name} 
-        type={type} 
-        placeholder={placeholder} 
+      <Field
+        as={as}
+        name={name}
+        type={type}
+        placeholder={placeholder}
         value={undefined}
-        onChange={(e)=>{ setFieldValue("image",e.target.files[0]) }}
+        onChange={(e) => { setFieldValue("image", e.target.files[0]) }}
       />
-
-      <ErrorMessage name={name}>
-        {msg=><ErrorMessageFormik>{msg}</ErrorMessageFormik> }
-      </ErrorMessage> 
+      <ErrorContainer>
+        <ErrorMessage
+          component="p"
+          name={name}
+        />
+      </ErrorContainer>
     </FormContainer>
   )
 }

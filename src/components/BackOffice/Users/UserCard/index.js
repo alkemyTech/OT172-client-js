@@ -1,9 +1,10 @@
+import { CardBackOffice } from 'common/styles';
 import React from 'react'
 import { FaTrash, FaEdit } from 'react-icons/fa'
 import { useDispatch } from 'react-redux';
 import { confirm } from 'services/alerts';
 import { deleteUser } from 'store/slices/users';
-import { Card, Row } from './styles'
+import { Row } from './styles'
 
 
 export default function UserCard({ user }) {
@@ -13,7 +14,7 @@ export default function UserCard({ user }) {
     console.log(`el user id es: ${id}`);
   }
   return (
-    <Card>
+    <CardBackOffice>
       <Row>
         <div className='email' >{user.email}</div>
         <div className='names'>{user.firstName}{' '}{user.lastName}</div>
@@ -30,8 +31,6 @@ export default function UserCard({ user }) {
           </button>
         </div>
       </Row>
-
-
-    </Card>
+    </CardBackOffice>
   )
 }

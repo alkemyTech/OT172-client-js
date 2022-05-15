@@ -1,3 +1,4 @@
+import { CardBackOffice } from 'common/styles';
 import React, { useEffect, useState } from 'react'
 import { FaTrash, FaEdit } from 'react-icons/fa'
 import { useSelector } from 'react-redux';
@@ -5,7 +6,7 @@ import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { alertToast, confirm } from 'services/alerts';
 import { deleteActivities } from 'store/slices/activities';
-import { Card, Row } from './styles'
+import { Row } from './styles'
 
 
 export default function ActivityCard({ activity }) {
@@ -36,10 +37,8 @@ export default function ActivityCard({ activity }) {
     setDeleteActivity(false)
   }, [isError, dispatch, deleteActivity])
 
-
-
   return (
-    <Card>
+    <CardBackOffice>
       <Row>
         <div className='name' >{activity.name}</div>
         {/* <div className='description'>{activity.description}</div> */}
@@ -56,8 +55,6 @@ export default function ActivityCard({ activity }) {
           </button>
         </div>
       </Row>
-
-
-    </Card>
+    </CardBackOffice>
   )
 }

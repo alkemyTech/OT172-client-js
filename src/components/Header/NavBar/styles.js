@@ -5,6 +5,7 @@ const { screenLittle } = mediaQueries
 export const Container = styled.nav`
     display: none;
     align-items: center;
+    padding-right: 2rem;
   
     ${screenLittle} {
       display: flex ;
@@ -14,20 +15,13 @@ export const Container = styled.nav`
       margin-left: 0;
     }
     &>a {
-          /* font-size: 1rem; */
-          font-weight: 500;
-          text-decoration: none;
-          color: var(--white-01);
-          cursor: pointer;    
-          margin-left: .3rem;
+      text-transform: uppercase;
+      font-weight: 500;
+      text-decoration: none;
+      cursor: pointer;    
+      margin-left: .5rem;
         }
     &>a:hover {
-      color: #0000ff;
+      color: ${({ theme }) => theme.primaryHover};
     }
 `
-export const navLinkStyles = ({ isActive }) => {
-  return {
-    fontWeight: isActive ? "bold" : "normal",
-    color: isActive ? '#0000ff' : 'var(--white-01)'
-  };
-};

@@ -1,6 +1,6 @@
 import React from 'react'
 import { Formik, Form } from 'formik'
-import { Container, Title, SubTitle, OperationName } from './styles'
+import { Container, Title, SubTitle, OperationName, CustomInput, ContainerFormik } from './styles'
 
 export const FormikForm = ({
   title,
@@ -17,17 +17,21 @@ export const FormikForm = ({
       <Title> {title} </Title>
       <SubTitle> {subtitle} </SubTitle>
       <OperationName>{operationName}</OperationName>
-      <Formik
-        initialValues={values}
-        enableReinitialize
-        validationSchema={schema}
-        onSubmit={onSubmit}
-      >
-        <Form>
-          <FormFields />
-         
-        </Form>
-      </Formik>
+
+      <ContainerFormik>
+        <Formik
+          initialValues={values}
+          enableReinitialize
+          validationSchema={schema}
+          onSubmit={onSubmit}
+        >
+          <Form>
+            <FormFields />
+
+          </Form>
+        </Formik>
+
+      </ContainerFormik>
     </Container>
   )
 }

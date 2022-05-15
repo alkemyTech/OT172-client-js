@@ -75,7 +75,6 @@ export const activitySlice = createSlice({
                 state.isError = false
             })
             .addCase(updateActivities.fulfilled, (state, action) => {
-                console.log('payload: ',action.payload);
                 const updatedActivities = state.activities.map(e => e.id === action.payload.id ? action.payload : e )
                 state.isLoading = false
                 state.isSuccess = true
@@ -97,7 +96,7 @@ export default activitySlice.reducer
 
 export const createActivities = createAsyncThunk('create/activities', async (data, thunkAPI) => {
     try {
-         const response = await postService(ENDPOINT_ACTIVITIES, data)
+         const response = await postService(ENDPOINT_ACTIVITIES, data, data.image !== null)
         return data
     } catch (error) {
         const message = (error.response.data?.msg || error.response.data) || (error.response && error.response.data && error.response.data.message) || error.message || error.toString()
@@ -128,7 +127,6 @@ export const deleteActivities = createAsyncThunk('delete/activities', async (id,
 export const updateActivities = createAsyncThunk('update/activities', async (data, thunkAPI) => {
     try {
         const {id, ...activity} = data
-        //  const response = await updateService(ENDPOINT_ACTIVITIES, id, activity)
          const response = await updateService(ENDPOINT_ACTIVITIES, id, activity, activity.image !== null)
         return response.data
     } catch (error) {

@@ -1,3 +1,4 @@
+import { CardBackOffice } from 'common/styles';
 import React, { useEffect, useState } from 'react'
 import { FaTrash, FaEdit } from 'react-icons/fa'
 import { useSelector } from 'react-redux';
@@ -5,7 +6,7 @@ import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { alertToast, confirm } from 'services/alerts';
 import { deleteCategories } from 'store/slices/categories';
-import { Card, Row } from './styles'
+import { Row } from './styles'
 
 
 export default function CategoryCard({ category }) {
@@ -39,7 +40,7 @@ const navigate = useNavigate()
 
 
   return (
-    <Card>
+    <CardBackOffice>
       <Row>
         <div className='name' >{category.name}</div>
         {/* <div className='description'>{category.description}</div> */}
@@ -58,6 +59,6 @@ const navigate = useNavigate()
       </Row>
 
 
-    </Card>
+    </CardBackOffice>
   )
 }

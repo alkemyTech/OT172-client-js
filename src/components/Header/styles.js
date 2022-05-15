@@ -5,17 +5,17 @@ const { screenLittle } = mediaQueries
 export const Container = styled.header`
   display: flex ;
   position: fixed;
-  background: black;
+  background: ${({ theme }) => theme.primaryLightNavBar};
   width:100vw ;
   top:0;
   left:0;
   justify-content: space-between;
   align-items: center;
-  height: 3rem;
+  height: var(--header-height);
   font-size: .8rem;
 
   ${screenLittle} {
-  font-size: 1.1rem;
+  font-size: .9rem;
   }
 `
 
@@ -28,3 +28,11 @@ export const Logo = styled.img`
       margin-right: .2rem;
   }
 `
+
+export const navLinkStyles = ({ isActive }) => {
+  const active = 'var(--blue-02)'
+  return {
+    fontWeight: isActive ? "bold" : "normal",
+    color: isActive && active 
+  };
+};

@@ -1,15 +1,15 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import CategoryCard from '../CategoryCard'
 import { Container, Head } from './styles'
 import { FaPlus } from "react-icons/fa"
+import { ContainerListBackOffice, LinkStyled } from 'common/styles'
 
 
 export default function CategoriesList({ categories }) {
   return (
-    <Container>
+    <ContainerListBackOffice>
       <h1>Categorias ( {categories.length} )</h1>
-      <Link to={`new`}><FaPlus /> Agregar Nueva</Link>
+      <LinkStyled to={`new`}><FaPlus /> Agregar Nueva</LinkStyled>
 
       <Head>
         <div className='name' >Nombre</div>
@@ -17,6 +17,6 @@ export default function CategoriesList({ categories }) {
         <div className='actions'></div>
       </Head>
       {categories?.map((c, index) => <CategoryCard key={index} category={c} />)}
-    </Container>
+    </ContainerListBackOffice>
   )
 }
