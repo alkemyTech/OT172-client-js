@@ -47,3 +47,25 @@ export const CardBackOffice = styled.article`
   margin: .2rem;
   padding: .2rem ;
 `
+
+export const RowBackOffice = styled.article`
+  display: flex;
+  justify-content: space-between;
+  div.actions {
+    display:flex;
+    gap: .4rem ;
+    width: 15%;
+    justify-content:right;
+    align-items: center ;
+    &>button {
+      cursor:pointer;
+      background: transparent;
+      border:none;
+      &:hover {
+        &>svg {
+          color: #0000bb;
+        }
+      }
+    }
+  }
+`
