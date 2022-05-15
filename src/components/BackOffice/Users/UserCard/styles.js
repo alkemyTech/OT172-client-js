@@ -1,14 +1,5 @@
 import styled from 'styled-components'
 
-export const Card = styled.article`
-  display: flex;
-  flex-direction: column;
-  gap:.7rem;
-  border: 2px solid #000066;
-  margin: .2rem;
-  padding: .2rem ;
-`
-
 export const Row = styled.article`
   display: flex;
   justify-content: space-between;

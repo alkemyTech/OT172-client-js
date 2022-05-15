@@ -9,7 +9,7 @@ export const ContainerListBackOffice = styled.section`
   text-align: left ;
   &>h1 {
     text-align: center;
-    font-size: 1.5rem ;
+    font-size: 1.2rem ;
   }
 
   ${screenLittle} {
@@ -36,5 +36,14 @@ export const HeadTableBackOffice = styled.div`
   font-weight: 700;
   margin: .2rem;
   margin-top: 1rem ;
+  padding: .2rem ;
+`
+
+export const CardBackOffice = styled.article`
+  display: flex;
+  flex-direction: column;
+  gap:.7rem;
+  border: 2px solid #000066;
+  margin: .2rem;
   padding: .2rem ;
 `

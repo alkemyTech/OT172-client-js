@@ -1,29 +1,7 @@
+import { HeadTableBackOffice } from 'common/styles'
 import styled from 'styled-components'
-import { mediaQueries } from 'config/responsive'
-const { screenLittle, screenMiddle } = mediaQueries
 
-export const Container = styled.section`
-  margin: auto ;
-  color: #000;
-  &>h1 {
-    text-align: center ;
-  }
-
-  ${screenLittle} {
-    width: 500px ;
-  }
-  ${screenMiddle} {
-    width: 700px ;
-  }
-`
-
-export const Head = styled.div`
-  display: flex;
-  justify-content: space-between;
-  border: 2px solid #006600;
-  font-weight: 700;
-  margin: .2rem;
-  padding: .2rem ;
+export const Head = styled(HeadTableBackOffice)`
   &>div.email {
     display:flex;
     width: 45%;
