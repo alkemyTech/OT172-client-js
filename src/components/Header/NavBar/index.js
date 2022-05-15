@@ -36,6 +36,7 @@ const onLogout = () => {
         <NavLink style={navLinkStyles} to='/backoffice/users'> Users </NavLink> 
         <NavLink style={navLinkStyles} to='/backoffice/categories'> Categories </NavLink> 
         <NavLink style={navLinkStyles} to='/backoffice/activities'> Activities </NavLink> 
+        <NavLink style={navLinkStyles} to='/backoffice/news'> News </NavLink> 
       </>
        : null                 // IF NOT 
         }

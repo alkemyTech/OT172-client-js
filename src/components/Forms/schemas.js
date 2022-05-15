@@ -84,11 +84,8 @@ export const newsSchema= Yup.object().shape({
         const sizeInBytes= 500000//0.5MB
         return value?.size <= sizeInBytes
       }),
-  category: Yup.string()
-    .matches(/^[aA-zZ\s]+$/, 'Solo se admiten letras')
-    .min(2, 'El mínimo de caracteres es 2')
-    .max(30, 'El máximo de caracteres es 30')
-    .required('Es requerida una categoria'),
+  category: Yup.number()
+    .required('Seleccione una categoria'),
 
   content: Yup.string()
     .min(10, 'El mínimo de caracteres es 8')
