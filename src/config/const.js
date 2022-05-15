@@ -32,6 +32,10 @@ export const linksBackOffice = [
     path: `${backOffice}/activities`
   },
   {
+    name: 'Miembros',
+    path: `${backOffice}/members`
+  },
+  {
     name: 'Novedades',
     path: `${backOffice}/news`
   },
