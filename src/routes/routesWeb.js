@@ -21,6 +21,8 @@ import Page404 from './404'
 import NewsScreenBackOffice from 'pages/BackOffice/News'
 import { NewsForm } from 'components/News/Form'
 import styled from 'styled-components'
+import MembersScreen from 'pages/BackOffice/Members'
+import { MemberForm } from 'pages/BackOffice/Members/MemberForm'
 
 export default function RoutesWeb() {
 
@@ -53,10 +55,13 @@ export default function RoutesWeb() {
       <Route path='/backoffice/categories/new' element={<PrivatedRoute><CategoryForm /></PrivatedRoute>} />
       <Route path='/backoffice/categories/:id' element={<PrivatedRoute><CategoryForm /></PrivatedRoute>} />
       <Route path='/backoffice/activities' element={<PrivatedRoute><ActivitiesScreen /></PrivatedRoute>} />
-      <Route path='/backoffice/activities/new' element={<PrivatedRoute><ActivityForm /></PrivatedRoute>} />
       <Route path='/backoffice/activities/:id' element={<PrivatedRoute><ActivityForm /></PrivatedRoute>} />
-      
+      <Route path='/backoffice/members' element={<PrivatedRoute><MembersScreen /></PrivatedRoute>} />
+      <Route path='/backoffice/members/new' element={<PrivatedRoute><MemberForm /></PrivatedRoute>} />
+      <Route path='/backoffice/members/:id' element={<PrivatedRoute><MemberForm /></PrivatedRoute>} />
+      <Route path='/backoffice/activities/new' element={<PrivatedRoute><ActivityForm /></PrivatedRoute>} />
       <Route path='/backoffice/news' element={<PrivatedRoute><NewsScreenBackOffice /></PrivatedRoute>} />
+      <Route path='/backoffice/news/new' element={<PrivatedRoute><NewsForm /></PrivatedRoute>} />
       <Route path='/backoffice/news/:id' element={<PrivatedRoute><NewsForm /></PrivatedRoute>} />
       <Route path="*" element={<Page404 />} />
     </Routes>

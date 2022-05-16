@@ -57,11 +57,11 @@ export const newSlice = createSlice({
         state.isError = false
       })
       .addCase(deleteNews.fulfilled, (state, action) => {
-          const filteredNews = state.News.filter(e => e.id !== action.payload)
+          const filteredNews = state.news.filter(e => e.id !== action.payload)
           state.isLoading = false
           state.isSuccess = true
           state.isError = false
-          state.News = filteredNews
+          state.news = filteredNews
       })
       .addCase(deleteNews.rejected, (state, action) => {
           state.isLoading = false
@@ -79,7 +79,7 @@ export const newSlice = createSlice({
           state.isLoading = false
           state.isSuccess = true
           state.isError = false
-          state.News = updatedNews
+          state.news = updatedNews
       })
       .addCase(updateNews.rejected, (state, action) => {
           state.isLoading = false
