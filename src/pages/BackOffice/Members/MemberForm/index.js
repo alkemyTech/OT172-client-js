@@ -83,7 +83,7 @@ export const MemberForm = () => {
       await dispatch(createMembers(values))
     }
     
-    if (isSuccess) alertToast('success',params.id ?'Actividad editada correctamente!':'Actividad agregada correctamente!')
+    if (isSuccess) alertToast('success',params.id ?'Actividad editada correctamente!':'Miembro agregado correctamente!')
     if (isError) alertToast('error',message)
 
     actions.setSubmitting(false);
@@ -93,13 +93,12 @@ export const MemberForm = () => {
 
   
   if(isLoading) return <Loader />
-
   return (
     <Container>
       <LinkStyled to={`/backoffice/members`}><TiArrowBack /> Volver a Miembros</LinkStyled>
       <FormikForm
         title="Back Office"
-        subtitle="Administracion de actividades, puede caragr una imagen y agregar un texto rico"
+        subtitle="Administracion de miembros de la organizacion, puede cargar una imagen y agregar un texto rico"
         values={member}
         schema={memberSchema}
         onSubmit={handleSubmit}

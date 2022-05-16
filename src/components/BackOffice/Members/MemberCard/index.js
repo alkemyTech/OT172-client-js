@@ -33,7 +33,7 @@ export default function MemberCard({ member }) {
 
   useEffect(() => {
     if (isError)  alertToast('error',message)
-    if (deleteMember && isSuccess) alertToast('success','Actividad Eliminada correctamente')
+    if (deleteMember && isSuccess) alertToast('success','Miembro Eliminado correctamente')
     setDeleteMember(false)
   }, [isError, dispatch, deleteMember])
 
@@ -41,7 +41,6 @@ export default function MemberCard({ member }) {
     <CardBackOffice>
       <Row>
         <div className='name' >{member.name}</div>
-        {/* <div className='description'>{member.description}</div> */}
         <div className='actions'>
           <button
             onClick={() => handleEdit(member.id)}
@@ -49,6 +48,7 @@ export default function MemberCard({ member }) {
             <FaEdit />
           </button>
           <button 
+            className='delete'
             onClick={()=>handleDelete()}
           >
             <FaTrash />
