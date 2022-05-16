@@ -75,7 +75,7 @@ export const newSlice = createSlice({
           state.isError = false
       })
       .addCase(updateNews.fulfilled, (state, action) => {
-          const updatedNews = state.News.map(e => e.id === action.payload.id ? action.payload.data : e )
+          const updatedNews = state.news.map(e => e.id === action.payload.id ? action.payload.data : e )
           state.isLoading = false
           state.isSuccess = true
           state.isError = false
@@ -96,7 +96,7 @@ export default newSlice.reducer
 
 export const createNews = createAsyncThunk('create/news', async (data, thunkAPI) => {
   try {
-      const response = await postService(ENDPOINT_NEWS, data)
+      const response = await postService(ENDPOINT_NEWS, data, data.image!=null)
       return data
   } catch (error) {
       const message = (error.response.data?.msg || error.response.data) || (error.response && error.response.data && error.response.data.message) || error.message || error.toString()
@@ -125,8 +125,8 @@ export const deleteNews = createAsyncThunk('delete/news', async (id, thunkAPI) =
 export const updateNews = createAsyncThunk('update/news', async (data, thunkAPI) => {
   try {
       const {id, ...news} = data
-      const response = await updateService(ENDPOINT_NEWS, id, news)
-      return {data}
+      const response = await updateService(ENDPOINT_NEWS, id, news, news.image!=null)
+      return response.data
   } catch (error) {
       const message = (error.response.data?.msg || error.response.data) || (error.response && error.response.data && error.response.data.message) || error.message || error.toString()
       return thunkAPI.rejectWithValue(message)

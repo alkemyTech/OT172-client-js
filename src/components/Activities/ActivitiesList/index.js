@@ -1,9 +1,10 @@
+import Card from "components/CardConstructor";
 import React, { useEffect } from "react"
 import { useDispatch } from "react-redux";
 import { useSelector } from 'react-redux'
 import { useNavigate } from "react-router-dom";
 import { fetchAllActivities, reset } from "store/slices/activities";
-import Card from "../Card";
+
 import { Container, ContainerClikeable } from "./styles";
 
 export default function ActivitiesList({qty = 'all', title = ''}) {
@@ -33,7 +34,7 @@ export default function ActivitiesList({qty = 'all', title = ''}) {
       {activities?.length > 0 
         ? activities.slice(0,totalShowActivities).map( (n, i) => 
           <ContainerClikeable key={i} onClick={() => handleShowActivity(n)}>
-          <Card 
+          <Card
             key={i} 
             data={n} 
           /> </ContainerClikeable>)
