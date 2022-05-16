@@ -61,6 +61,7 @@ export default function RoutesWeb() {
       <Route path='/backoffice/members/:id' element={<PrivatedRoute><MemberForm /></PrivatedRoute>} />
       <Route path='/backoffice/activities/new' element={<PrivatedRoute><ActivityForm /></PrivatedRoute>} />
       <Route path='/backoffice/news' element={<PrivatedRoute><NewsScreenBackOffice /></PrivatedRoute>} />
+      <Route path='/backoffice/news/new' element={<PrivatedRoute><NewsForm /></PrivatedRoute>} />
       <Route path='/backoffice/news/:id' element={<PrivatedRoute><NewsForm /></PrivatedRoute>} />
       <Route path="*" element={<Page404 />} />
     </Routes>
