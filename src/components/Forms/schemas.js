@@ -73,22 +73,26 @@ export const newsSchema= Yup.object().shape({
       "type", 
       "Tipo de archivo no soportado", 
       value=>{
-        const SUPPORTED_FORMATS = ["image/jpg", "image/jpeg", "image/png"]
-        return !value || (value && SUPPORTED_FORMATS.includes(value.type))
+        if(typeof(value)=="object"){
+          const SUPPORTED_FORMATS = ["image/jpg", "image/jpeg", "image/png"]
+          return !value || (value && SUPPORTED_FORMATS.includes(value.type))
+        }else{
+          return true
+        }
       })
-    
     .test(
       "fileSize",
       "Tamaño del archivo muy grande", 
       value=>{
-        const sizeInBytes= 500000//0.5MB
-        return value?.size <= sizeInBytes
+        if(typeof(value)=="object"){
+          const sizeInBytes= 500000//0.5MB
+          return value?.size <= sizeInBytes
+        }else{
+          return true;
+        }
       }),
-  category: Yup.string()
-    .matches(/^[aA-zZ\s]+$/, 'Solo se admiten letras')
-    .min(2, 'El mínimo de caracteres es 2')
-    .max(30, 'El máximo de caracteres es 30')
-    .required('Es requerida una categoria'),
+  categoryId: Yup.number()
+    .required('Seleccione una categoria'),
 
   content: Yup.string()
     .min(10, 'El mínimo de caracteres es 8')

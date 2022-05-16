@@ -2,7 +2,6 @@ import axios from 'axios'
 import { getToken } from 'services/token'
 
 const fetcher = (verb, endPoint, body=null, isForm=false) => {
-  
   const apiService = axios.create({
     baseURL: process.env.REACT_APP_API_URL,
   })
@@ -12,8 +11,8 @@ const fetcher = (verb, endPoint, body=null, isForm=false) => {
   if (token) {
     apiService.defaults.headers.common = { 'x-access-token': `${token}` }
   }
-  if (isForm) {
-    const form = new FormData();
+  if (verb!="get") {//verb!=get and delete
+  const form = new FormData();
   for (let key in body) {
     form.append(key, body[key]);
   }

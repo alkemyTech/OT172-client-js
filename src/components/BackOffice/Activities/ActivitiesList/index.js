@@ -9,11 +9,6 @@ export default function ActivitiesList({ activities }) {
     <ContainerListBackOffice>
       <h1>Actividades ( {activities.length} )</h1>
       <LinkStyled to={`new`}><FaPlus /> Agregar Nueva</LinkStyled>
-
-      <Head>
-        <div className='name' >Nombre</div>
-        <div className='actions'></div>
-      </Head>
       {activities?.map((c, index) => <ActivityCard key={index} activity={c} />)}
     </ContainerListBackOffice>
   )

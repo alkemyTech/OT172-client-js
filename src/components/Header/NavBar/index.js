@@ -25,7 +25,7 @@ export default function NavBar() {
     <Container>
       {links.map(link => <NavLink style={navLinkStyles} key={link.path} to={link.path}>{link.name}</NavLink>)}
       <>
-      {user ? // IF USER IS LOGGED IN
+      {user ?
         (<NavLink style={navLinkStyles} to='/' onClick={onLogout} > Logout </NavLink>)
         :      //  IF NOT 
         (<> 

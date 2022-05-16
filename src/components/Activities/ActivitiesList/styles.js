@@ -9,12 +9,11 @@ export const Container = styled.section`
   }
 
   ${screenLittle} {
-    width: 500px;
+    width: 800px;//Modifica tamaño de carta
   }
 `
 export const ContainerClikeable = styled.div`
   border-bottom: 3px solid ${({ theme }) => theme.linkBorderColor};
-
   cursor: pointer;
   &:hover {
     border-bottom: 3px solid ${({ theme }) => theme.linkBorderColorHover};

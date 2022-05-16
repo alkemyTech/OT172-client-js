@@ -6,7 +6,7 @@ import { getService } from 'services/apiService'
 import { ENDPOINT_ACTIVITIES } from 'services/settings'
 import { Container } from "./styles"
 import { TiArrowBack } from "react-icons/ti";
-import Card from 'components/Activities/Card'
+import Card from "components/CardConstructor";
 import { LinkStyled } from 'common/styles'
 
 function Activity() {
