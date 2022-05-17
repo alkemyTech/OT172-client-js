@@ -7,8 +7,9 @@ const center = styled.div`
 `
 
 export const Container = styled(center)`
-  position: relative;
-  bottom: 0;
+
+  position: absolute;
+  
   width: 100%;
   height: 15vh;
   z-index: -1;
