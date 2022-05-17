@@ -42,7 +42,6 @@ export default function Footer () {
         <Grid>
           <SocialMedia>
             <Organization>
-              <Logo>{organization.imageUrl}</Logo>
               <Name>{organization.name}</Name>
             </Organization>
             <Instagram>
@@ -56,15 +55,12 @@ export default function Footer () {
             </LinkedIn>
           </SocialMedia>
           <OrganizationData>
-            <Separator />
-            <Location>
               <Adress>
                 <h4>{organization.address}</h4>
               </Adress>
               <Phone>
                 <h4>{organization.phone}</h4>
               </Phone>
-            </Location>
           </OrganizationData>
         </Grid>
       ) : (
