@@ -62,6 +62,7 @@ export const ActivityForm = () => {
 
   useEffect(() => {
     (async () => {
+      console.log(params.id)
       if (params.id) {
         const response = await getService(ENDPOINT_ACTIVITIES, params.id);
         const { name, content, image } = response.data

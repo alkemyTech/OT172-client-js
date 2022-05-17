@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { alertToast, confirm } from 'services/alerts';
-import { deleteNews } from 'store/slices/news';
+import { deleteNews, fetchAllNews } from 'store/slices/news';
 import Card from 'components/CardConstructor';
 
 

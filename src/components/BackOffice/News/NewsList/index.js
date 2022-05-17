@@ -6,6 +6,7 @@ import { FaPlus } from "react-icons/fa"
 import { Head } from './styles'
 
 
+
 export default function NewsListBackOffice({news}){
     return(
         <ContainerListBackOffice>
