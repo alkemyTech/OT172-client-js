@@ -4,11 +4,22 @@ const { screenLittle, screenBig } = mediaQueries
 
 export const Container = styled.article`
   display: flex;
+  height: 100%;
+  width: auto;
+  flex-direction: ${props => props.isBackOffice ? 'row-reverse' : 'column'};
+  align-items: center;
+  gap:.7rem;
+  margin: 1.5rem;
+  padding: 1rem;
+  color: ${({ theme }) => theme.primaryDark};
+  border: ${props => props.isBackOffice ? '2px solid var(--gray-02)': 'none'};
+`
+export const Image = styled.div`
+  min-height: 400px;
   height: ${props => props.isDetail ? '100%' : '200px'};
   width: ${props => props.isDetail ? '100%' : '50%'};
   background-image: url(${props => props.image});
   background-repeat: no-repeat;
-
   background-size: contain;
   background-position-x: center;
   background-position-y: center;
@@ -35,10 +46,8 @@ export const Detail = styled.div`
   margin-top: 1.5rem;
   
   color: ${props => (props.isSeeContent) ? 'var(--white-03);' : 'var(--black-03);'};
-
   ${props => (!props.isSeeContent) && 'white-space: nowrap;'}
   ${props => (props.isSeeContent) && 'background-color: var(--black-01);'}
-
   overflow: ${props => (props.isSeeContent) ? 'overlay' : 'hidden'};
   text-overflow: ellipsis;
   transition: all .3s linear;
@@ -63,7 +72,6 @@ export const ButtonsContainer = styled.div`
     border:none;
     font-size: 2rem;
     color: var(--black-03);
-
     &:hover {
       &>svg {
         color: var(--black-03);
@@ -92,5 +100,4 @@ export const ButtonsContainer = styled.div`
         }
       }
     }
-
 `

@@ -1,14 +1,13 @@
 
 import { CardBackOffice } from 'common/styles';
 import Card from 'components/CardConstructor';
-
 import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { alertToast, confirm } from 'services/alerts';
 import { deleteActivities } from 'store/slices/activities';
-import Card from 'components/CardConstructor';
+
 
 
 
