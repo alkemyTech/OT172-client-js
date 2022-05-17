@@ -1,7 +1,10 @@
 import axios from 'axios'
 import { getToken } from 'services/token'
 
+
 const fetcher = (verb, endPoint, body=null, isForm=false, pagination) => {
+
+
   const apiService = axios.create({
     baseURL: process.env.REACT_APP_API_URL,
   })
@@ -9,9 +12,10 @@ const fetcher = (verb, endPoint, body=null, isForm=false, pagination) => {
   const token = getToken()
 
   if (token) {
-    apiService.defaults.headers.common = { 'x-access-token': `${token}` }
+    apiService.defaults.headers = { 'x-access-token': `${token}` }
   }
   if (verb!="get") {//verb!=get and delete
+
     const form = new FormData();
     for (let key in body) {
       form.append(key, body[key]);
@@ -22,6 +26,7 @@ const fetcher = (verb, endPoint, body=null, isForm=false, pagination) => {
       apiService.defaults.params=pagination
     }
   }*/
+
   return apiService[verb](endPoint, body)
 }
 

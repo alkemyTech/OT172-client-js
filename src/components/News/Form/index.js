@@ -88,6 +88,7 @@ const FormFields = (editar=false, temp) => {
       if(isSuccess) alertToast("success", params.id?'Novedad editada correctamente!':"Novedad agregada correctamente!")
       if(isError) alertToast("error", message)
       navigate("/backoffice/news")
+
     }
     
     if(isLoading) return <Loader />

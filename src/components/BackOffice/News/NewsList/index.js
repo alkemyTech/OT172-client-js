@@ -3,7 +3,7 @@ import { ContainerListBackOffice, LinkStyled } from 'common/styles'
 import React from 'react'
 import NewsCard from '../NewsCard'
 import { FaPlus } from "react-icons/fa"
-
+import { Head } from './styles'
 
 
 

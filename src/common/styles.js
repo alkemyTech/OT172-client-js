@@ -57,15 +57,23 @@ export const RowBackOffice = styled.article`
     width: 15%;
     justify-content:right;
     align-items: center ;
-    &>button {
+    button {
       cursor:pointer;
       background: transparent;
       border:none;
       &:hover {
         &>svg {
-          color: #0000bb;
+          color: #00ffbb;
         }
       }
+      
     }
+    button.delete {
+        &:hover {
+          &>svg {
+          color: #bb0000;
+          }
+        }
+      }
   }
 `

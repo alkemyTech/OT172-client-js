@@ -25,6 +25,7 @@ function NewsScreenBackOffice(){
         <NewsListBackOffice news={news} />
         {/*<Button onClick={handleClick}>Cargar mas</Button>*/}
         </div>
+
     )
 }
 

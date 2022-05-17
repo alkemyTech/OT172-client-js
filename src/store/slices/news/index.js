@@ -62,7 +62,7 @@ export const newSlice = createSlice({
           state.isLoading = false
           state.isSuccess = true
           state.isError = false
-          state.News = filteredNews
+          state.news = filteredNews
       })
       .addCase(deleteNews.rejected, (state, action) => {
           state.isLoading = false
@@ -80,7 +80,7 @@ export const newSlice = createSlice({
           state.isLoading = false
           state.isSuccess = true
           state.isError = false
-          state.News = updatedNews
+          state.news = updatedNews
       })
       .addCase(updateNews.rejected, (state, action) => {
           state.isLoading = false
@@ -99,6 +99,7 @@ export const createNews = createAsyncThunk('create/news', async (data, thunkAPI)
   try {
       const response = await postService(ENDPOINT_NEWS, data, data.image!=null)
       return response.data
+
   } catch (error) {
       const message = (error.response.data?.msg || error.response.data) || (error.response && error.response.data && error.response.data.message) || error.message || error.toString()
       return thunkAPI.rejectWithValue(message)

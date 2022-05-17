@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { FaTrash, FaEdit } from 'react-icons/fa'
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
