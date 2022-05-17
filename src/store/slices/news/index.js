@@ -1,5 +1,4 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
-import { useSelector } from 'react-redux'
 import { deleteService, getService, postService, updateService } from 'services/apiService'
 import { ENDPOINT_NEWS } from "services/settings"
 
@@ -98,32 +97,16 @@ export default newSlice.reducer
 export const createNews = createAsyncThunk('create/news', async (data, thunkAPI) => {
   try {
       const response = await postService(ENDPOINT_NEWS, data, data.image!=null)
-      return response.data
-
+      return data
   } catch (error) {
       const message = (error.response.data?.msg || error.response.data) || (error.response && error.response.data && error.response.data.message) || error.message || error.toString()
       return thunkAPI.rejectWithValue(message)
   }
 })
-/*let pagination={
-  offset:0,
-  limit: 2
-}
-let cont=2;*/
-
 export const fetchAllNews = createAsyncThunk('news',async (thunkAPI) => {
     try {
-        const data = await getService(ENDPOINT_NEWS/*,null,pagination*/)
-  
-        /*pagination={
-          ...pagination,
-          offset: pagination.limit*cont
-        }
-        
-        cont++;*/
-    
-        
-        return data.data
+        const data = await getService(ENDPOINT_NEWS)
+        return data.data.newsList
     } catch (error) {
         const message = (error.response && error.response.data && error.response.data.message) || error.message || error.toString()
         return thunkAPI.rejectWithValue(message)

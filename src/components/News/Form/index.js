@@ -84,11 +84,12 @@ const FormFields = (editar=false, temp) => {
        }else{
          await dispatch(createNews(values))
        }
-
-      if(isSuccess) alertToast("success", params.id?'Novedad editada correctamente!':"Novedad agregada correctamente!")
-      if(isError) alertToast("error", message)
-      navigate("/backoffice/news")
-
+       console.log(isError)
+       if(isSuccess) alertToast("success", params.id?'Novedad editada correctamente!':"Novedad agregada correctamente!")
+       if(isError) alertToast("error", message)
+       actions.setSubmitting(false)
+       actions.resetForm()
+       navigate("/backoffice/news")
     }
     
     if(isLoading) return <Loader />

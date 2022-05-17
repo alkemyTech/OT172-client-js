@@ -51,6 +51,7 @@ export default function Card({ data, detail = false, backOffice = false, handleE
           <Content dangerouslySetInnerHTML={{ __html: data.content }} />
         </Detail>
       }
+
     </Container>
   )
 }
