@@ -1,6 +1,5 @@
 import React from 'react'
 import ActivityCard from '../ActivityCard'
-import { Head } from './styles'
 import { FaPlus } from "react-icons/fa"
 import { ContainerListBackOffice, LinkStyled } from 'common/styles'
 

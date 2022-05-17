@@ -1,13 +1,11 @@
-import { CardBackOffice } from 'common/styles';
-import Card from 'components/CardConstructor';
 import React, { useEffect, useState } from 'react'
-import { FaTrash, FaEdit } from 'react-icons/fa'
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { alertToast, confirm } from 'services/alerts';
 import { deleteActivities } from 'store/slices/activities';
-import { Row } from './styles'
+import Card from 'components/CardConstructor';
+
 
 
 export default function ActivityCard({ activity }) {
@@ -15,7 +13,6 @@ export default function ActivityCard({ activity }) {
 
   const [deleteActivity, setDeleteActivity] = useState(false)
   const dispatch = useDispatch()
-
   const navigate = useNavigate()
 
   const handleEdit = (id) => {
