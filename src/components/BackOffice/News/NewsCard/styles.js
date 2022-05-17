@@ -12,12 +12,12 @@ export const Card = styled.article`
 export const Row = styled.article`
   display: flex;
   justify-content: space-between;
-  &>div.email {
+  &>div.name {
     display:flex;
     width: 45%;
     justify-content:left;
   }
-  &>div.names {
+  &>div.description {
     display:flex;
     width: 40%;
     justify-content:left;

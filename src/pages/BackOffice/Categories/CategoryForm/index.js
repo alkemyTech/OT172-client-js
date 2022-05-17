@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { Button, Container, FormContainer } from "./styles";
 import { categorySchema } from "components/Forms/schemas";
 import { FormikForm } from "components/Forms";
 import { FormField } from "components/Forms/formField";
@@ -13,6 +12,8 @@ import { createCategories, updateCategories } from "store/slices/categories";
 import { useSelector } from "react-redux";
 import { alertToast } from "services/alerts";
 import Loader from "components/utils/Loader";
+import { Button, Container } from "components/Forms/styles";
+import { LinkStyled } from "common/styles";
 
 
 const FormFields = (editar=false) => {
@@ -22,13 +23,12 @@ const FormFields = (editar=false) => {
         name="name"
         type="text"
         placeholder="Nombre"
-        FormContainer={FormContainer}
       />
       <FormField
         name="description"
         type="text"
         placeholder="Descripcion"
-        FormContainer={FormContainer}
+        as='textarea'
       />
       <Button type="submit">{editar ? 'Editar' : 'Agregar'}</Button>
     </>
@@ -82,11 +82,10 @@ export const CategoryForm = () => {
 
   return (
     <Container>
-      <Link to={`/backoffice/categories`}><TiArrowBack /> Volver a Categorias</Link>
+      <LinkStyled to={`/backoffice/categories`}><TiArrowBack /> Volver a Categorias</LinkStyled>
       <FormikForm
         title="Back Office"
-        subtitle="Administracion de categorias"
-        operationName= {params.id ? 'Editar' : 'Agregar'}
+        subtitle="Administracion de categorias, editar el nombre o la descripción de una categoría."
         values={category}
         schema={categorySchema}
         onSubmit={handleSubmit}

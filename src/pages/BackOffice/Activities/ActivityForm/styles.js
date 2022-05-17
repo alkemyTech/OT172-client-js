@@ -15,17 +15,10 @@ export const FormContainer = styled.div`
   }
 `
 
-export const FormContainerCKE = styled(FormContainer)`
+export const FormContainerCKE = styled.div`
   width: 100%;
   min-height: 15rem;
   justify-content: 100% ;
-  /* .ck-editor__editable {
-    min-height: 20rem;
-} */
-  input {
-    border: 2px solid #dadde1 !important ;
-    height: 100% ;
-  }
 `
 export const Button = styled.button`
     background-color: #eae7fe;

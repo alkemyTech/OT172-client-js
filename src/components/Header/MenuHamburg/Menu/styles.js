@@ -4,28 +4,27 @@ export const StyledMenu = styled.nav`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  /* background: ${({ theme }) => theme.primaryLight}; */
-  background: var(--black-02) ;
+  background: ${({ theme }) => theme.primaryLightNavBar};
   transform: ${({ open }) => open ? 'translateX(0)' : 'translateX(-100%)'};
   height: 100vh;
   text-align: left;
-  padding: 2rem;
+  padding: 1rem;
   position: absolute;
   top: 0;
   left: 0;
   transition: transform 0.3s ease-in-out;
   width: 80% ;
+  z-index: 0;
 
-  a {
-    font-size: 2rem;
+  a,span {
     text-transform: uppercase;
-    padding: 2rem 0;
+    padding: 1rem 0;
     font-weight: bold;
-    letter-spacing: 0.5rem;
-    /* color: ${({ theme }) => theme.primaryDark}; */
+    letter-spacing: 0.25rem;
+    color: ${({ theme }) => theme.primaryDark};
     text-decoration: none;
     transition: color 0.3s linear;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     text-align: center;
 
     &:hover {
@@ -34,9 +33,15 @@ export const StyledMenu = styled.nav`
   }
 `;
 
-export const navLinkStyles = ({ isActive }) => {
-  return {
-    fontWeight: isActive ? "bold" : "normal",
-    color: isActive ? '#0000ff' : 'var(--white-02)'
-  };
-};
+export const CardLoginOrRegister = styled.nav`
+  display: flex;
+  flex-direction: column;
+  margin-bottom: .3rem;
+  margin: 1rem 3rem;
+  border-top: 3px solid var(--gray-02);
+  padding-top: 2rem;
+  a, span {
+    padding: .2rem 0;
+  }
+`
+

@@ -1,4 +1,5 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
+import { useSelector } from 'react-redux'
 import { deleteService, getService, postService, updateService } from 'services/apiService'
 import { ENDPOINT_NEWS } from "services/settings"
 
@@ -57,11 +58,11 @@ export const newSlice = createSlice({
         state.isError = false
       })
       .addCase(deleteNews.fulfilled, (state, action) => {
-          const filteredNews = state.News.filter(e => e.id !== action.payload)
+          const filteredNews = state.news.filter(e => e.id !== action.payload)
           state.isLoading = false
           state.isSuccess = true
           state.isError = false
-          state.News = filteredNews
+          state.news = filteredNews
       })
       .addCase(deleteNews.rejected, (state, action) => {
           state.isLoading = false
@@ -75,11 +76,11 @@ export const newSlice = createSlice({
           state.isError = false
       })
       .addCase(updateNews.fulfilled, (state, action) => {
-          const updatedNews = state.News.map(e => e.id === action.payload.id ? action.payload.data : e )
+          const updatedNews = state.news.map(e => e.id === action.payload.id ? action.payload.data : e )
           state.isLoading = false
           state.isSuccess = true
           state.isError = false
-          state.News = updatedNews
+          state.news = updatedNews
       })
       .addCase(updateNews.rejected, (state, action) => {
           state.isLoading = false
@@ -96,17 +97,33 @@ export default newSlice.reducer
 
 export const createNews = createAsyncThunk('create/news', async (data, thunkAPI) => {
   try {
-      const response = await postService(ENDPOINT_NEWS, data)
-      return data
+      const response = await postService(ENDPOINT_NEWS, data, data.image!=null)
+      return response.data
+
   } catch (error) {
       const message = (error.response.data?.msg || error.response.data) || (error.response && error.response.data && error.response.data.message) || error.message || error.toString()
       return thunkAPI.rejectWithValue(message)
   }
 })
+/*let pagination={
+  offset:0,
+  limit: 2
+}
+let cont=2;*/
+
 export const fetchAllNews = createAsyncThunk('news',async (thunkAPI) => {
     try {
-        const data = await getService(ENDPOINT_NEWS)
-        return data.data.newsList
+        const data = await getService(ENDPOINT_NEWS/*,null,pagination*/)
+  
+        /*pagination={
+          ...pagination,
+          offset: pagination.limit*cont
+        }
+        
+        cont++;*/
+    
+        
+        return data.data
     } catch (error) {
         const message = (error.response && error.response.data && error.response.data.message) || error.message || error.toString()
         return thunkAPI.rejectWithValue(message)
@@ -125,8 +142,8 @@ export const deleteNews = createAsyncThunk('delete/news', async (id, thunkAPI) =
 export const updateNews = createAsyncThunk('update/news', async (data, thunkAPI) => {
   try {
       const {id, ...news} = data
-      const response = await updateService(ENDPOINT_NEWS, id, news)
-      return {data}
+      const response = await updateService(ENDPOINT_NEWS, id, news, news.image!=null)
+      return response.data
   } catch (error) {
       const message = (error.response.data?.msg || error.response.data) || (error.response && error.response.data && error.response.data.message) || error.message || error.toString()
       return thunkAPI.rejectWithValue(message)

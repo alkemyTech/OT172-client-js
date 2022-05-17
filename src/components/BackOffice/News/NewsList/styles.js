@@ -8,6 +8,17 @@ export const Container = styled.section`
   &>h1 {
     text-align: center ;
   }
+  a {
+    text-align: center ;
+    font-size: 1rem;
+    text-decoration: none;
+    &:hover {
+      color: #0000FF
+    }
+    svg {
+      padding-left: 2rem ;
+    }
+  }
 
   ${screenLittle} {
     width: 500px ;
@@ -24,12 +35,12 @@ export const Head = styled.div`
   font-weight: 700;
   margin: .2rem;
   padding: .2rem ;
-  &>div.email {
+  &>div.name {
     display:flex;
     width: 45%;
     justify-content:left;
   }
-  &>div.names {
+  &>div.description {
     display:flex;
     width: 40%;
     justify-content:left;
