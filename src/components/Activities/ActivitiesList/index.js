@@ -37,6 +37,7 @@ export default function ActivitiesList({qty = 'all', title = ''}) {
           <Card
             key={i} 
             data={n} 
+            detail={false}
           /> </ContainerClikeable>)
         : <p>No hay actividades</p>
       }
