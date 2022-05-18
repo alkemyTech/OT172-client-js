@@ -24,6 +24,7 @@ import styled from 'styled-components'
 import MembersScreen from 'pages/BackOffice/Members'
 import { MemberForm } from 'pages/BackOffice/Members/MemberForm'
 import { UserForm } from 'pages/BackOffice/Users/UserForm'
+import Profile from 'pages/Auth/Profile'
 
 export default function RoutesWeb() {
 
@@ -40,13 +41,13 @@ export default function RoutesWeb() {
       <Route path='/home' element={<Home />} />
       <Route path='/activities' element={<ActivitiesPage />} />
       <Route path='/activities/:id' element={<Activity />} />
-      <Route path='/members' element={<Members />} />
+      {/* <Route path='/members' element={<Members />} /> */}
       
       <Route path='/testimonials' element={<Testimonials />} />
       <Route path='/aboutus' element={<AboutUs />} />
       
       {/* Protected routes */}
-
+      <Route path='/profile/:id' element={<ProtectedRoute><Profile /></ProtectedRoute>} />
       <Route path='/news' element={<ProtectedRoute><NewsPage /></ProtectedRoute>} />
       <Route path='/news/:id' element={<ProtectedRoute><New /></ProtectedRoute>} />
 
