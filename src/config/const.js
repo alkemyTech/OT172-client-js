@@ -43,4 +43,8 @@ export const linksBackOffice = [
     name: 'Categorias',
     path: `${backOffice}/categories`
   },
+  {
+    name: 'Editar Organizacion',
+    path: `${backOffice}/edit-organization`
+  },
 ]

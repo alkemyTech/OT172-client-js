@@ -114,7 +114,7 @@ let cont=2;*/
 export const fetchAllNews = createAsyncThunk('news',async (thunkAPI) => {
     try {
         const data = await getService(ENDPOINT_NEWS/*,null,pagination*/)
-  
+        
         /*pagination={
           ...pagination,
           offset: pagination.limit*cont

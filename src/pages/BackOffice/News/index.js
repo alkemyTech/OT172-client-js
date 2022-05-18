@@ -17,7 +17,7 @@ function NewsScreenBackOffice(){
     }
    // console.log(myNews)
     useEffect(()=>{
-        dispatch(fetchAllNews(5))
+        dispatch(fetchAllNews())
     },[dispatch])
 
     return (

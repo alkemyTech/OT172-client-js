@@ -23,6 +23,7 @@ import { NewsForm } from 'components/News/Form'
 import styled from 'styled-components'
 import MembersScreen from 'pages/BackOffice/Members'
 import { MemberForm } from 'pages/BackOffice/Members/MemberForm'
+import { EditOrganizationForm } from 'components/BackOffice/EditOrganization/formEdit'
 import { UserForm } from 'pages/BackOffice/Users/UserForm'
 import Profile from 'pages/Auth/Profile'
 
@@ -70,6 +71,8 @@ export default function RoutesWeb() {
       <Route path='/backoffice/news/new' element={<PrivatedRoute><NewsForm /></PrivatedRoute>} />
       <Route path='/backoffice/news/:id' element={<PrivatedRoute><NewsForm /></PrivatedRoute>} />
       <Route path="*" element={<Page404 />} />
+
+      <Route path='/backoffice/edit-organization' element={<PrivatedRoute><EditOrganizationForm /></PrivatedRoute>} />
     </Routes>
     </Container>
   )

@@ -28,7 +28,7 @@ export const ImageField = ({ name, type, placeholder, FormContainer = CustomInpu
         type={type}
         placeholder={placeholder}
         value={undefined}
-        onChange={(e) => { setFieldValue("image", e.target.files[0]) }}
+        onChange={(e) => { setFieldValue(name, e.target.files[0]) }}
       />
       <ErrorContainer>
         <ErrorMessage
