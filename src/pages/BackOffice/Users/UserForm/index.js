@@ -39,17 +39,19 @@ const FormFields = (editar=false) => {
   )
 }
 
-export const UserForm = () => {
+export const UserForm = ({profile=false}) => {
   const {isError, isSuccess, isLoading, message } = useSelector(state => state.users)
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
   const params = useParams()
 
+  const actualProfile = JSON.parse(localStorage.getItem('user'))
+
   const values = {
-    email:'',
-    firstName: '',
-    lastName: ''
+    email: profile ? actualProfile.user.email : '',
+    firstName: profile ? actualProfile.user.firstName : '',
+    lastName: profile ? actualProfile.user.lastName : ''
   }
 
   const [user, setUser] = useState(values);
@@ -69,6 +71,10 @@ export const UserForm = () => {
     })()
   }, [params.id, getService]);
 
+  useEffect(() => {
+    setUser(values)
+  },[])
+
   const handleSubmit = (values,actions) => {
     if (params.id) {
       dispatch(updateUsers({...values, id:params.id}))
@@ -80,7 +86,16 @@ export const UserForm = () => {
 
     actions.setSubmitting(false);
     actions.resetForm();
-    navigate("/backoffice/users")
+    if (profile) {
+      const actualProfile = JSON.parse(localStorage.getItem('user'))
+    const updatedProfile = {...actualProfile, user:{...actualProfile.user, values}}
+
+      localStorage.setItem('user', JSON.stringify(updatedProfile))
+      
+      navigate(`/profile/edited`)
+    } else {
+      navigate("/backoffice/users")
+    }
   }
 
   
@@ -88,10 +103,13 @@ export const UserForm = () => {
 
   return (
     <Container>
-      <LinkStyled to={`/backoffice/users`}><TiArrowBack /> Volver a Usuarios</LinkStyled>
-      <FormikForm
-        title="Usuario"
-        subtitle="Administracion de usuarios, editar el nombre, el apellido o mail de un usuario registrado."
+      {!profile &&
+        <LinkStyled to={`/backoffice/users`}><TiArrowBack /> Volver a Usuarios</LinkStyled>
+      }
+  
+        <FormikForm
+        title={profile ? 'Edite su perfil' : 'Usuario'}
+        subtitle={!profile && 'Administracion de usuarios, editar el nombre, el apellido o mail de un usuario registrado.'}
         values={user}
         schema={userSchema}
         onSubmit={handleSubmit}
