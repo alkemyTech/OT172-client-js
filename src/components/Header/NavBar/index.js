@@ -20,13 +20,18 @@ export default function NavBar() {
     dispatch(reset())
     alertToast('success', 'Sesión cerrada con exito!')
   }
-
   return (
     <Container>
       {links.map(link => <NavLink style={navLinkStyles} key={link.path} to={link.path}>{link.name}</NavLink>)}
       <>
-      {user ?
-        (<NavLink style={navLinkStyles} to='/' onClick={onLogout} > Logout </NavLink>)
+      {user 
+        ?
+        (
+          <>
+            <NavLink style={navLinkStyles} to={`/profile/${user.user.id}`} > Perfil </NavLink>
+            <NavLink style={navLinkStyles} to='/' onClick={onLogout} > Logout </NavLink>
+          </>
+        )
         :      //  IF NOT 
         (<> 
         <NavLink style={navLinkStyles} to='/login'> Login </NavLink> 
