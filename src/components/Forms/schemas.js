@@ -148,9 +148,9 @@ export const organizationSchema= Yup.object().shape({
     .min(5, 'El mínimo de caracteres es 5')
     .max(30, 'El máximo de caracteres es 30')
     .required('Es requerido un nombre para la organizacion'),
-  image: Yup.mixed()
+    image: Yup.mixed()
     .nullable()
-    .required('Es requerida una foto para el logo')
+    .required('Es requerida una foto')
     .test(
       "type", 
       "Tipo de archivo no soportado", 

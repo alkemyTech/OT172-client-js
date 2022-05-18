@@ -49,10 +49,10 @@ const FormFields = (editar=false, temp) => {
       (async() =>{
         if(list.id){
           const response = await getService(ENDPOINT_PUBLIC, list.id)
-          const { name, imageUrl }= response.data
+          const { name, image }= response.data
           setValues({
             name,
-            imageUrl
+            image:image
           })
         }else{
           navigate("/home")
@@ -62,7 +62,7 @@ const FormFields = (editar=false, temp) => {
 
     //Send form
     const handleSubmit = async (values, actions) => {
-      await dispatch(updateOrganization({...values, id:params.id}))
+      await dispatch(updateOrganization({...values, id:list.id}))
       if(isSuccess) alertToast("success", 'Informacion de la organizacion editada correctamente!')
       if(isError) alertToast("error", message)
       navigate("/home")
