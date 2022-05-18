@@ -15,9 +15,9 @@ export const Container = styled.article`
   border: ${props => props.isBackOffice ? '2px solid var(--gray-02)': 'none'};
 `
 export const Image = styled.div`
-  min-height: 400px;
+  min-height: ${props => props.isDetail ? '80vh' : '20vh'};
   height: ${props => props.isDetail ? '100%' : '200px'};
-  width: ${props => props.isDetail ? '100%' : '50%'};
+  width: ${props => props.isDetail ? '100%' : '80%'};
   background-image: url(${props => props.image});
   background-repeat: no-repeat;
   background-size: contain;
@@ -34,19 +34,19 @@ export const Data = styled.div`
   font-size: 1.2rem;
   min-height: ${props => (!props.isDetail && props.isBackOffice) ? '400px' : 'auto'};
   height: ${props => (props.isDetail && !props.isBackOffice) ? '100%' : 'auto'};
-  width: 50% ;
+  width: ${props => (props.isDetail && !props.isBackOffice) ? '100%' : '50%'};
   margin: auto ;
   align-items: flex-start;
 `
 export const Detail = styled.div`
-  height: 300px;
+  height: ${props => (props.isBackOffice) ? '300px;' : '100%;'};
   width: 100%;
   font-size: 1rem;
   margin: auto ;
   margin-top: 1.5rem;
   
   color: ${props => (props.isSeeContent) ? 'var(--white-03);' : 'var(--black-03);'};
-  ${props => (!props.isSeeContent) && 'white-space: nowrap;'}
+  ${props => (!props.isSeeContent && props.isBackOffice) && 'white-space: nowrap;'}
   ${props => (props.isSeeContent) && 'background-color: var(--black-01);'}
   overflow: ${props => (props.isSeeContent) ? 'overlay' : 'hidden'};
   text-overflow: ellipsis;
