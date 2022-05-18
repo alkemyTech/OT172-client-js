@@ -45,11 +45,13 @@ export default function UserCard({ user }) {
         <div className='names'>{user.firstName}{' '}{user.lastName}</div>
         <div className='actions'>
           <button
+            className='edit'
             onClick={() => handleEdit(user.id)}
           >
             <FaEdit />
           </button>
           <button
+          className='delete'
             onClick={() => handleDelete()}
           >
             <FaTrash />

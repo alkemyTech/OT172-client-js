@@ -61,19 +61,35 @@ export const RowBackOffice = styled.article`
       cursor:pointer;
       background: transparent;
       border:none;
+      svg {
+        font-size: 1.4rem ;
+      }
       &:hover {
         &>svg {
-          color: #00ffbb;
+          color: var(--black-01);
         }
       }
       
     }
-    button.delete {
-        &:hover {
-          &>svg {
-          color: #bb0000;
-          }
+    button.edit {
+      svg {
+        color: var(--blue-01);
+      }
+      &:hover {
+        &>svg {
+          color: var(--blue-02);
         }
+      }
+      }
+    button.delete {
+      svg {
+        color: var(--red-01);
+      }
+      &:hover {
+        &>svg {
+          color: var(--red-02);
+        }
+      }
       }
   }
 `

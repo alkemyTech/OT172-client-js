@@ -64,7 +64,7 @@ export const CustomInput = styled.div`
     background-color: ${({ theme }) => theme.primaryLight};
     
     &:hover {
-      border: 1px solid ${({ theme }) => theme.primaryLightBorderInputHover};
+      border: 1px solid ${({ theme }) => theme.primaryDark};
     }
   }
   
