@@ -24,6 +24,8 @@ import styled from 'styled-components'
 import MembersScreen from 'pages/BackOffice/Members'
 import { MemberForm } from 'pages/BackOffice/Members/MemberForm'
 import { EditOrganizationForm } from 'components/BackOffice/EditOrganization/formEdit'
+import { UserForm } from 'pages/BackOffice/Users/UserForm'
+import Profile from 'pages/Auth/Profile'
 
 export default function RoutesWeb() {
 
@@ -40,18 +42,20 @@ export default function RoutesWeb() {
       <Route path='/home' element={<Home />} />
       <Route path='/activities' element={<ActivitiesPage />} />
       <Route path='/activities/:id' element={<Activity />} />
-      <Route path='/members' element={<Members />} />
+      {/* <Route path='/members' element={<Members />} /> */}
       
       <Route path='/testimonials' element={<Testimonials />} />
       <Route path='/aboutus' element={<AboutUs />} />
       
       {/* Protected routes */}
-
+      <Route path='/profile/:id' element={<ProtectedRoute><Profile /></ProtectedRoute>} />
       <Route path='/news' element={<ProtectedRoute><NewsPage /></ProtectedRoute>} />
       <Route path='/news/:id' element={<ProtectedRoute><New /></ProtectedRoute>} />
 
       {/* BackOffice */}
       <Route path='/backoffice/users' element={<PrivatedRoute><Users /></PrivatedRoute>} />
+      <Route path='/backoffice/users/new' element={<PrivatedRoute><UserForm /></PrivatedRoute>} />
+      <Route path='/backoffice/users/:id' element={<PrivatedRoute><UserForm /></PrivatedRoute>} />
       <Route path='/backoffice/categories' element={<PrivatedRoute><Categories /></PrivatedRoute>} />
       <Route path='/backoffice/categories/new' element={<PrivatedRoute><CategoryForm /></PrivatedRoute>} />
       <Route path='/backoffice/categories/:id' element={<PrivatedRoute><CategoryForm /></PrivatedRoute>} />

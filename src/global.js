@@ -16,7 +16,8 @@ export const GlobalStyles = createGlobalStyle`
     --gray-02: #413E3D;
     --gray-03: #CACFD2;
     --green-01: #229954;
-    --red-01: #F91506;
+    --red-02: #FF1506;
+    --red-01: #D01506;
 
     --header-height: 3rem;
   }

@@ -41,6 +41,7 @@ export default function ActivityCard({ activity }) {
   return (
     <Card 
       data={activity}
+      detail={true}
       backOffice={true}
       handleEdit={() => handleEdit(activity.id)}
       handleDelete={()=>handleDelete()}

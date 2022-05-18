@@ -73,7 +73,6 @@ export const CreateUserForm = () => {
 
   //Register req
   const handleSubmit = values => {
-    console.log(values)
     dispatch(register(values))
     onComplete(values)
   }

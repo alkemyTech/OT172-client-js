@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react'
-import { FaTrash, FaEdit } from 'react-icons/fa'
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { alertToast, confirm } from 'services/alerts';
-import { deleteNews, fetchAllNews } from 'store/slices/news';
+import { deleteNews } from 'store/slices/news';
 import Card from 'components/CardConstructor';
 
 
@@ -38,6 +37,7 @@ export default function NewsCard({myNew}){
       <Card
         data={myNew}
         backOffice={true}
+        detail={true}
         handleEdit={() => handleEdit(myNew.id)}
         handleDelete={()=>handleDelete()}
       />

@@ -15,10 +15,10 @@ export const links = [
   //   name: 'Testimonios',
   //   path: 'testimonials'
   // },
-  {
-    name: 'Members',
-    path: 'members'
-  },
+  // {
+  //   name: 'Members',
+  //   path: 'members'
+  // },
 ]
 
 const backOffice = '/backoffice'

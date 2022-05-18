@@ -37,6 +37,7 @@ export default function News({qty = 'all', title = ''}) {
           <Card
             key={i} 
             data={n} 
+            detail={false}
           /> </div>)
         : <p>No hay noticias</p>
       }
