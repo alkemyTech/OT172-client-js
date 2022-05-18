@@ -38,19 +38,18 @@ export default function Card({ data, detail = false, backOffice = false, handleE
           </ButtonsContainer>
         }
         <Content>
-        <Titulo>
-          {data.name}
-        </Titulo>
-        <Detail dangerouslySetInnerHTML={{ __html: data.content }} isSeeContent={seeContent} />
-
+          <Titulo>
+            {data.name}
+          </Titulo>
+          {detail &&
+            <Detail 
+              isBackOffice={backOffice}
+              dangerouslySetInnerHTML={{ __html: data.content }} 
+              isSeeContent={seeContent} />
+          }
         </Content>
       </Data>
       <Image image={data.image} isDetail={detail} />
-      {detail &&
-        <Detail>
-          <Content dangerouslySetInnerHTML={{ __html: data.content }} />
-        </Detail>
-      }
     </Container>
   )
 }

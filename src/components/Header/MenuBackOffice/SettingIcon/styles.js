@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const StyledSettingIcon = styled.button`
   position: absolute;
   top: 15%;
-  right: 1rem;
+  right: 2rem;
   display: flex;
   flex-direction: column;
   justify-content: space-around;

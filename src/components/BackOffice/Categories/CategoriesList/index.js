@@ -1,6 +1,6 @@
 import React from 'react'
 import CategoryCard from '../CategoryCard'
-import { Container, Head } from './styles'
+import { Head } from './styles'
 import { FaPlus } from "react-icons/fa"
 import { ContainerListBackOffice, LinkStyled } from 'common/styles'
 

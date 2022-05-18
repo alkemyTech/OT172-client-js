@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import { mediaQueries } from 'config/responsive'
+import { Button } from 'components/Forms/styles'
 const { screenLittle, screenMiddle } = mediaQueries
 
 export const ContainerListBackOffice = styled.section`
@@ -27,6 +28,15 @@ export const LinkStyled = styled(Link)`
    color: var(--blue-02);
    margin-right: .3rem ;
  }
+`
+
+export const LinkButtonStyled = styled(Button)`
+ font-size: 1rem;
+ /* padding-left: 2rem ;
+ svg {
+   color: var(--blue-02);
+   margin-right: .3rem ;
+ } */
 `
 
 export const HeadTableBackOffice = styled.div`
@@ -61,19 +71,35 @@ export const RowBackOffice = styled.article`
       cursor:pointer;
       background: transparent;
       border:none;
+      svg {
+        font-size: 1.4rem ;
+      }
       &:hover {
         &>svg {
-          color: #00ffbb;
+          color: var(--black-01);
         }
       }
       
     }
-    button.delete {
-        &:hover {
-          &>svg {
-          color: #bb0000;
-          }
+    button.edit {
+      svg {
+        color: var(--blue-01);
+      }
+      &:hover {
+        &>svg {
+          color: var(--blue-02);
         }
+      }
+      }
+    button.delete {
+      svg {
+        color: var(--red-01);
+      }
+      &:hover {
+        &>svg {
+          color: var(--red-02);
+        }
+      }
       }
   }
 `

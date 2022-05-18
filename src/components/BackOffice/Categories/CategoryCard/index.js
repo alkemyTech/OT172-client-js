@@ -46,11 +46,13 @@ const navigate = useNavigate()
         {/* <div className='description'>{category.description}</div> */}
         <div className='actions'>
           <button
+            className='edit'
             onClick={() => handleEdit(category.id)}
           >
             <FaEdit />
           </button>
           <button 
+            className='delete'
             onClick={()=>handleDelete()}
           >
             <FaTrash />

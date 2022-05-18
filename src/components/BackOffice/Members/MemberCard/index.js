@@ -43,6 +43,7 @@ export default function MemberCard({ member }) {
         <div className='name' >{member.name}</div>
         <div className='actions'>
           <button
+            className='edit'
             onClick={() => handleEdit(member.id)}
           >
             <FaEdit />
