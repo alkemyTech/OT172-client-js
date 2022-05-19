@@ -2,7 +2,7 @@ import Loader from 'components/utils/Loader';
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchAllMembers } from 'store/slices/members';
-import { Faculties, Unit, Wrapper, UnitImg } from './styles';
+import { Faculties, Unit, Wrapper, UnitImg, Container } from './styles';
 
 export default function AboutUs() {
   const { members, isLoading } = useSelector(state => state.members)
@@ -18,7 +18,7 @@ export default function AboutUs() {
   if (isLoading) return <Loader />
 
   return (
-    <div class="container">
+    <Container>
 
       <Wrapper>
         <div >
@@ -81,6 +81,6 @@ export default function AboutUs() {
         </Wrapper>
         : <Loader />
       }
-    </div>
+    </Container>
   )
 }
