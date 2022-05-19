@@ -49,9 +49,9 @@ export const UserForm = ({profile=false}) => {
   const actualProfile = JSON.parse(localStorage.getItem('user'))
 
   const values = {
-    email: profile ? actualProfile.user.email : '',
-    firstName: profile ? actualProfile.user.firstName : '',
-    lastName: profile ? actualProfile.user.lastName : ''
+    email: profile ? actualProfile.email : '',
+    firstName: profile ? actualProfile.firstName : '',
+    lastName: profile ? actualProfile.lastName : ''
   }
 
   const [user, setUser] = useState(values);
@@ -88,7 +88,7 @@ export const UserForm = ({profile=false}) => {
     actions.resetForm();
     if (profile) {
       const actualProfile = JSON.parse(localStorage.getItem('user'))
-    const updatedProfile = {...actualProfile, user:{...actualProfile.user, values}}
+      const updatedProfile = {...actualProfile, ...values}
 
       localStorage.setItem('user', JSON.stringify(updatedProfile))
       
