@@ -10,8 +10,8 @@ const navigate = useNavigate()
 
  
   useEffect (() => {
-    if (parseInt(params.id) !== user.user.id) {
-      params.id = user.user.id
+    if (parseInt(params.id) !== user.id) {
+      params.id = user.id
       navigate(`/profile/${params.id}`)
     }
   },[params.id])

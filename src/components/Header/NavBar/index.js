@@ -28,7 +28,7 @@ export default function NavBar() {
         ?
         (
           <>
-            <NavLink style={navLinkStyles} to={`/profile/${user.user.id}`} > Perfil </NavLink>
+            <NavLink style={navLinkStyles} to={`/profile/${user.id}`} > Perfil </NavLink>
             <NavLink style={navLinkStyles} to='/' onClick={onLogout} > Logout </NavLink>
           </>
         )
