@@ -2,14 +2,14 @@ import React from 'react'
 import { Routes, Route } from 'react-router-dom'
 import Home from 'pages/Home'
 import Testimonials from 'pages/Testimonials'
-import NewsPage from 'pages/NewsPage'
+import NewsPage from 'pages/News/NewsPage'
 import Members from 'pages/Members'
 import Login from 'pages/Auth/Login'
 import Register from 'pages/Auth/Register'
 import Categories from 'pages/BackOffice/Categories'
 import AboutUs from 'pages/AboutUs'
 import Users from 'pages/BackOffice/Users'
-import New from 'pages/New'
+import New from 'pages/News/New'
 import { CategoryForm } from 'pages/BackOffice/Categories/CategoryForm'
 import { ActivityForm } from 'pages/BackOffice/Activities/ActivityForm'
 import ActivitiesScreen from 'pages/BackOffice/Activities'
@@ -31,8 +31,6 @@ export default function RoutesWeb() {
 
   return (
     <Container>
-
-    
     <Routes>
       {/* Public routes */}
 
