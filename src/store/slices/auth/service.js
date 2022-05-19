@@ -8,9 +8,9 @@ const register = async (userData) => {
 
     if(response.data) {
         setToken(response.data.token)
-        localStorage.setItem('user', JSON.stringify(response.data))
+        localStorage.setItem('user', JSON.stringify(response.data.user))
     }
-    return response.data
+    return response.data.user
 }
 
 // Login user
@@ -19,9 +19,9 @@ const login = async (userData) => {
 
     if(response.data) {
         setToken(response.data.token)
-        localStorage.setItem('user', JSON.stringify(response.data))
+        localStorage.setItem('user', JSON.stringify(response.data.user))
     }
-    return response.data
+    return response.data.user
 }
 
 // Logout

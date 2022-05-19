@@ -14,7 +14,7 @@ export default function Header () {
       <MenuHamburg />
       <Logo src={organization ? organization.image: ''} />
       <NavBar />
-      {user?.user?.roleId === 1 
+      {user?.roleId === 1 
       ? <MenuBackOffice />
       : null}
 

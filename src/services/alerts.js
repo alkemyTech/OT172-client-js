@@ -38,7 +38,7 @@ export const alertToast = (type, msg) => {
     border-radius: 10px;
   `
   const Title = styled.span`
-    align-text: center;
+    text-align: center;
   `
   const ContainerBtns = styled.div`
     margin-top: 1rem;

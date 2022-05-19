@@ -10,52 +10,6 @@ const initialState = {
     message: ''
 }
 
-// export const usersSlice = createSlice({
-//     name: 'users',
-//     initialState,
-//     reducers: {
-//         reset: (state) => {
-//             state.isLoading = false
-//             state.isSuccess = false
-//             state.isError = false
-//             state.message = ''
-//             state.users = []
-//         }
-//     },
-//     extraReducers: (builder) => {
-//         builder
-//             .addCase(fetchAllUsers.pending, (state) => {
-//                 state.isLoading = true
-//             })
-//             .addCase(fetchAllUsers.fulfilled, (state, action) => {
-//                 state.isLoading = false
-//                 state.isSuccess = true
-//                 state.users = action.payload
-//             })
-//             .addCase(fetchAllUsers.rejected, (state, action) => {
-//                 state.isLoading = false
-//                 state.isError = true
-//                 state.message = action.payload
-//                 state.users = []
-//             })
-//             .addCase(deleteUsers.pending, (state) => {
-//                 state.isLoading = true
-//             })
-//             .addCase(deleteUsers.fulfilled, (state, action) => {
-//                 const filteredUsers = state.users.filter(e => e.id !== action.payload)
-//                 state.isLoading = false
-//                 state.isSuccess = true
-//                 state.users = filteredUsers
-//             })
-//             .addCase(deleteUsers.rejected, (state, action) => {
-//                 state.isLoading = false
-//                 state.isError = true
-//                 state.message = action.payload
-//                 state.users = []
-//             })
-//     },
-// })
-
 export const usersSlice = createSlice({
     name: 'users',
     initialState,
@@ -174,7 +128,7 @@ export const deleteUsers = createAsyncThunk('delete/user', async (id, thunkAPI) 
 export const updateUsers = createAsyncThunk('update/users', async (data, thunkAPI) => {
     try {
         const { id, ...user } = data
-        const response = await updateService(ENDPOINT_USERS, id, user)
+        const response = await updateService(ENDPOINT_USERS, parseInt(id), user)
         return { data }
     } catch (error) {
         const message = (error.response.data?.msg || error.response.data) || (error.response && error.response.data && error.response.data.message) || error.message || error.toString()

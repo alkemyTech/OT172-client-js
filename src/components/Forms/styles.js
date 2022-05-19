@@ -26,6 +26,13 @@ export const SubTitle = styled.span`
 export const OperationName= styled.h3`
   color: black;
 `
+export const ConatinerButtons = styled.div`
+  display: flex ;
+  width: 100%;
+  margin: auto;
+  padding: 1rem;
+  text-align: left;
+`
 
 export const Button = styled.button`
   text-transform: uppercase;
@@ -53,7 +60,7 @@ export const Button = styled.button`
 `
 
 export const CustomInput = styled.div`
-  input, textarea {
+  input, textarea, select {
     border: 1px solid ${({ theme }) => theme.primaryLightBorderInput};
     font-size: 1.2rem;
     padding: .5rem 1rem;

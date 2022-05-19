@@ -9,6 +9,7 @@ import { FormField } from 'components/Forms/formField'
 import { FormikForm } from 'components/Forms'
 import { createUserSchema } from 'components/Forms/schemas'
 import { Button } from 'components/Forms/styles'
+import Loader from 'components/utils/Loader'
 
 const FormFields = () => {
   return (
@@ -89,11 +90,7 @@ export const CreateUserForm = () => {
     dispatch(reset())
   }, [user, isError, isSuccess, message, navigate, dispatch])
 
-  
-
-  /*if(isLoading) {
-      //Loading screen, check preserve the state of the fields for not write all again after re-render
-  }*/
+  if (isLoading) return <Loader />
 
   return (
     <FormikForm
