@@ -49,6 +49,7 @@ export default function RoutesWeb() {
       
       {/* Protected routes */}
       <Route path='/profile/:id' element={<ProtectedRoute><Profile /></ProtectedRoute>} />
+      <Route path='/profile/edited' element={<ProtectedRoute><Profile /></ProtectedRoute>} />
       <Route path='/news' element={<ProtectedRoute><NewsPage /></ProtectedRoute>} />
       <Route path='/news/:id' element={<ProtectedRoute><New /></ProtectedRoute>} />
 
