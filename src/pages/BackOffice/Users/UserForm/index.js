@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { userSchema } from "components/Forms/schemas";
 import { FormikForm } from "components/Forms";
-import { FormField } from "components/Forms/formField";
+import { FormField, RoleSelectField } from "components/Forms/formField";
 import { getService } from "services/apiService";
 import { ENDPOINT_USERS } from "services/settings";
 import { TiArrowBack } from "react-icons/ti";
@@ -17,7 +17,7 @@ import { LinkStyled } from "common/styles";
 import { logout, reset } from "store/slices/auth";
 
 
-const FormFields = (editar = false, profile = false, handleDelete) => {
+const FormFields = (editar = false, profile = false, handleDelete, temp) => {
 
   return (
     <>
@@ -36,6 +36,15 @@ const FormFields = (editar = false, profile = false, handleDelete) => {
         type="text"
         placeholder="Apellidos"
       />
+      {!profile && 
+        <RoleSelectField
+          name='roleId'
+          type='text'
+          placeholder='Rol'
+          // FormContainer={FormContainer}
+          value={temp.roleId}
+        />
+        }
       <ConatinerButtons>
         <Button type="submit">{editar ? 'Editar' : 'Agregar'}</Button>
 
@@ -77,6 +86,7 @@ export const UserForm = ({ profile = false }) => {
     email: profile ? actualProfile.email : '',
     firstName: profile ? actualProfile.firstName : '',
     lastName: profile ? actualProfile.lastName : '',
+    roleId: profile ? actualProfile.roleId : '',
   }
 
   const [user, setUser] = useState(values);
@@ -85,12 +95,13 @@ export const UserForm = ({ profile = false }) => {
     (async () => {
       if (params.id) {
         const response = await getService(ENDPOINT_USERS, params.id);
-        const { email, firstName, lastName } = response.data.user
+        const { email, firstName, lastName, roleId } = response.data.user
 
         setUser({
           email,
           firstName,
           lastName,
+          roleId
         });
       }
     })()
@@ -141,7 +152,7 @@ export const UserForm = ({ profile = false }) => {
         values={user}
         schema={userSchema}
         onSubmit={handleSubmit}
-        FormFields={() => FormFields(params.id ? true : false, profile, handleDelete)}
+        FormFields={() => FormFields(params.id ? true : false, profile, handleDelete, values)}
       />
     </Container>
   )

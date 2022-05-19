@@ -60,7 +60,7 @@ export const Button = styled.button`
 `
 
 export const CustomInput = styled.div`
-  input, textarea {
+  input, textarea, select {
     border: 1px solid ${({ theme }) => theme.primaryLightBorderInput};
     font-size: 1.2rem;
     padding: .5rem 1rem;
