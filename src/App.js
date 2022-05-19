@@ -11,6 +11,9 @@ import { ThemeProvider } from 'styled-components';
 import { GlobalStyles } from './global';
 import { theme } from './theme';
 
+const toastOptions= {
+  duration: 900,
+}
 
 function App () {
   const dispatch = useDispatch()
@@ -23,7 +26,9 @@ function App () {
     <>
       <GlobalStyles />  
       <Header/>
-      <Toaster />
+      <Toaster
+        toastOptions={toastOptions}
+/>
       <RoutesWeb />
       <Footer />
     </>
