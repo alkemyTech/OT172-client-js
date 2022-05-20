@@ -1,9 +1,12 @@
 import React from 'react'
 import { bool, func } from 'prop-types'
 import { StyledSettingIcon } from './styles'
-import { FiSettings } from 'react-icons/fi'
+import { FiSettings, FiUser } from 'react-icons/fi'
+import { useSelector } from 'react-redux'
 
-const SettingIcon = ({ open, setOpen, ...props }) => {
+const MenuIcon = ({ isAdmin = false, open, setOpen, ...props }) => {
+  const { user } = useSelector((state) => state.auth)
+
   const isExpanded = !!open
 
   return (
@@ -11,14 +14,14 @@ const SettingIcon = ({ open, setOpen, ...props }) => {
       <span />
       <span />
       <span />
-      <FiSettings />
+      {user?.roleId === 1 ? <FiSettings /> : <FiUser />}
     </StyledSettingIcon>
   )
 }
 
-SettingIcon.propTypes = {
+MenuIcon.propTypes = {
   open: bool.isRequired,
   setOpen: func.isRequired
 }
 
-export default SettingIcon
+export default MenuIcon

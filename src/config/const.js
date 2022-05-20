@@ -28,12 +28,16 @@ export const linksBackOffice = [
     path: `${backOffice}/users`
   },
   {
-    name: 'Actividades',
-    path: `${backOffice}/activities`
+    name: 'Organizacion',
+    path: `${backOffice}/edit-organization`
   },
   {
     name: 'Miembros',
     path: `${backOffice}/members`
+  },
+  {
+    name: 'Actividades',
+    path: `${backOffice}/activities`
   },
   {
     name: 'Novedades',
@@ -42,9 +46,5 @@ export const linksBackOffice = [
   {
     name: 'Categorias',
     path: `${backOffice}/categories`
-  },
-  {
-    name: 'Editar Organizacion',
-    path: `${backOffice}/edit-organization`
   }
 ]
