@@ -11,7 +11,7 @@ function ActivitiesScreen () {
   }, [dispatch])
 
   return (
-    <ActivitiesList activities={activities}/>
+    <ActivitiesList activities={activities} />
   )
 }
 

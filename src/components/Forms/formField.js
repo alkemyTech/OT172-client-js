@@ -6,11 +6,11 @@ import { fetchAllCategories } from 'store/slices/categories'
 
 export const FormField = ({ name, type, placeholder, FormContainer = CustomInput, as }) => {
   return (
-    <FormContainer error={true}>
+    <FormContainer error>
       <Field as={as} name={name} type={type} placeholder={placeholder} />
       <ErrorContainer>
         <ErrorMessage
-          component="p"
+          component='p'
           name={name}
         />
       </ErrorContainer>
@@ -19,9 +19,9 @@ export const FormField = ({ name, type, placeholder, FormContainer = CustomInput
 }
 
 export const ImageField = ({ name, type, placeholder, FormContainer = CustomInputImage, as }) => {
-  const { setFieldValue } = useFormikContext();
+  const { setFieldValue } = useFormikContext()
   return (
-    <FormContainer >
+    <FormContainer>
       <Field
         as={as}
         name={name}
@@ -32,7 +32,7 @@ export const ImageField = ({ name, type, placeholder, FormContainer = CustomInpu
       />
       <ErrorContainer>
         <ErrorMessage
-          component="p"
+          component='p'
           name={name}
         />
       </ErrorContainer>
@@ -40,27 +40,61 @@ export const ImageField = ({ name, type, placeholder, FormContainer = CustomInpu
   )
 }
 
-export const CategorySelectField= ({ name, type, placeholder, FormContainer}) => {
-  const {categories} = useSelector(state => state.categories)
+export const CategorySelectField = ({ name, type, placeholder, FormContainer }) => {
+  const { categories } = useSelector(state => state.categories)
   const dispatch = useDispatch()
-  useEffect(()=>{
+  useEffect(() => {
     dispatch(fetchAllCategories())
-  },[dispatch])
+  }, [dispatch])
   return (
-    <FormContainer >
-      <Field 
-        name={name} 
-        type={type} 
-        placeholder={placeholder} 
-        component={"select"}
-      > 
+    <FormContainer>
+      <Field
+        name={name}
+        type={type}
+        placeholder={placeholder}
+        component='select'
+      >
         <option key={-1} value='' disabled>Selecicone una categoria</option>
-        {categories?.map((categorie,index)=><option key={categorie.id} value={categorie.id}>{categorie.name}</option>)}
+        {categories?.map((categorie, index) => <option key={categorie.id} value={categorie.id}>{categorie.name}</option>)}
       </Field>
       <ErrorMessage name={name}>
-        {msg=><ErrorMessage>{msg}</ErrorMessage> }
-      </ErrorMessage> 
+        {msg => <ErrorMessage>{msg}</ErrorMessage>}
+      </ErrorMessage>
     </FormContainer>
   )
 }
 
+export const RoleSelectField = ({ name, type, placeholder, FormContainer = CustomInput }) => {
+  // const {roles} = useSelector(state => state.categories)
+  // const dispatch = useDispatch()
+  // useEffect(()=>{
+  //   dispatch(fetchAllCategories())
+  // },[dispatch])
+
+  const roles = [
+    {
+      name: 'Admin',
+      id: 1
+    },
+    {
+      name: 'Standard',
+      id: 2
+    }
+  ]
+  return (
+    <FormContainer>
+      <Field
+        name={name}
+        type={type}
+        placeholder={placeholder}
+        component='select'
+      >
+        <option key={-1} value='' disabled>Selecicone un rol</option>
+        {roles?.map((rol, index) => <option key={rol.id} value={rol.id}>{rol.name}</option>)}
+      </Field>
+      <ErrorMessage name={name}>
+        {msg => <ErrorMessage>{msg}</ErrorMessage>}
+      </ErrorMessage>
+    </FormContainer>
+  )
+}

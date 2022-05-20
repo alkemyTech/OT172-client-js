@@ -11,7 +11,7 @@ function MembersScreen () {
   }, [dispatch])
 
   return (
-    <MembersList members={members}/>
+    <MembersList members={members} />
   )
 }
 

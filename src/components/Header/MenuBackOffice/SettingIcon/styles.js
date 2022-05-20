@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 export const StyledSettingIcon = styled.button`
   position: absolute;
@@ -43,4 +43,4 @@ export const StyledSettingIcon = styled.button`
       transform: ${({ open }) => open ? 'rotate(-45deg)' : 'rotate(0)'};
     }
   }
-`;
+`

@@ -22,6 +22,6 @@ export const FormContainerCKE = styled.div`
   
 `
 
-export const CustomInput= styled.input`
+export const CustomInput = styled.input`
   width:100%;
 `

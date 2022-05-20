@@ -5,22 +5,22 @@ import img4 from './img/blog-img-04.jpg'
 
 export const images = [
   {
-    link:'http://localhost:3005/home',
+    link: 'http://localhost:3005/home',
     img: img1,
     text: 'Texto descriptivo para la imagen'
   },
   {
-    link:'http://localhost:3005/home',
+    link: 'http://localhost:3005/home',
     img: img2,
     text: 'Texto descriptivo para la imagen'
   },
   {
-    link:'http://localhost:3005/home',
+    link: 'http://localhost:3005/home',
     img: img3,
     text: 'Texto descriptivo para la imagen'
   },
   {
-    link:'http://localhost:3005/home',
+    link: 'http://localhost:3005/home',
     img: img4,
     text: 'Texto descriptivo para la imagen'
   }

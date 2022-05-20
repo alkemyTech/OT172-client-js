@@ -4,16 +4,15 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { getService } from 'services/apiService'
 import { ENDPOINT_ACTIVITIES } from 'services/settings'
-import { Container } from "./styles"
-import { TiArrowBack } from "react-icons/ti";
-import Card from "components/CardConstructor";
+import { Container } from './styles'
+import { TiArrowBack } from 'react-icons/ti'
+import Card from 'components/CardConstructor'
 import { LinkStyled } from 'common/styles'
 
-function Activity() {
+function Activity () {
   const params = useParams()
-  const  [isLoading, setIsLoading] = useState(false)
-  const  [data, setData] = useState({})
-  
+  const [isLoading, setIsLoading] = useState(false)
+  const [data, setData] = useState({})
 
   useEffect(() => {
     (async () => {
@@ -27,21 +26,20 @@ function Activity() {
         }
         setIsLoading(false)
       }
-    })();
-  }, [params.id]);
+    })()
+  }, [params.id])
 
   if (isLoading) return <Loader />
 
   return (
     <Container>
-      <LinkStyled to={`/activities`}><TiArrowBack />Volver a Actividades</LinkStyled>
+      <LinkStyled to='/activities'><TiArrowBack />Volver a Actividades</LinkStyled>
       {data
-       ? <Card 
+        ? <Card
             data={data}
             detail
           />
-       : <NotFound resource='Activities' msg='Verifique la ruta que intenta acceder'/>
-       }
+        : <NotFound resource='Activities' msg='Verifique la ruta que intenta acceder' />}
     </Container>
   )
 }

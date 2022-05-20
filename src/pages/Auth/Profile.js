@@ -3,22 +3,20 @@ import { UserForm } from 'pages/BackOffice/Users/UserForm'
 import { useNavigate, useParams } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 
-function Profile() {
+function Profile () {
   const { user } = useSelector((state) => state.auth)
-const navigate = useNavigate()
+  const navigate = useNavigate()
   const params = useParams()
 
- 
-  useEffect (() => {
-    if (parseInt(params.id) !== user.user.id) {
-      params.id = user.user.id
+  useEffect(() => {
+    if (parseInt(params.id) !== user.id) {
+      params.id = user.id
       navigate(`/profile/${params.id}`)
     }
-  },[params.id])
+  }, [params.id, navigate, user.id])
 
-  
   return (
-    <UserForm profile={true} />
+    <UserForm profile />
   )
 }
 

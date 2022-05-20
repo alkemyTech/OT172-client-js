@@ -1,15 +1,13 @@
-import { CardBackOffice } from 'common/styles';
+import { CardBackOffice } from 'common/styles'
 import React, { useEffect, useState } from 'react'
 import { FaTrash, FaEdit } from 'react-icons/fa'
-import { useSelector } from 'react-redux';
-import { useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
-import { alertToast, confirm } from 'services/alerts';
-import { deleteUsers } from 'store/slices/users';
+import { useSelector, useDispatch } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
+import { alertToast, confirm } from 'services/alerts'
+import { deleteUsers } from 'store/slices/users'
 import { Row } from './styles'
 
-
-export default function UserCard({ user }) {
+export default function UserCard ({ user }) {
   const { isError, isSuccess, message } = useSelector(state => state.users)
 
   const [deleteUser, setDeleteUser] = useState(false)
@@ -37,11 +35,10 @@ export default function UserCard({ user }) {
     setDeleteUser(false)
   }, [isError, dispatch, deleteUser])
 
-
   return (
     <CardBackOffice>
       <Row>
-        <div className='email' >{user.email}</div>
+        <div className='email'>{user.email}</div>
         <div className='names'>{user.firstName}{' '}{user.lastName}</div>
         <div className='actions'>
           <button
@@ -51,14 +48,13 @@ export default function UserCard({ user }) {
             <FaEdit />
           </button>
           <button
-          className='delete'
+            className='delete'
             onClick={() => handleDelete()}
           >
             <FaTrash />
           </button>
         </div>
       </Row>
-
 
     </CardBackOffice>
   )

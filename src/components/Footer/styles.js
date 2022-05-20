@@ -36,7 +36,6 @@ export const Organization = styled(center)`
   flex-direction: column;
 `
 
-
 export const Name = styled.h2``
 
 export const Href = styled.a`
@@ -72,8 +71,6 @@ export const Separator = styled.hr`
   grid-row: 1/2;
   width: 100%;
 `
-
-
 
 export const Adress = styled(center)`
   grid-column: 1/2;
