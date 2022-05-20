@@ -23,7 +23,7 @@ import { NewsForm } from 'components/News/Form'
 import styled from 'styled-components'
 import MembersScreen from 'pages/BackOffice/Members'
 import { MemberForm } from 'pages/BackOffice/Members/MemberForm'
-import { EditOrganizationForm } from 'components/BackOffice/EditOrganization/formEdit'
+import { EditOrganizationForm } from 'pages/EditOrganization/formEdit'
 import { UserForm } from 'pages/BackOffice/Users/UserForm'
 import Profile from 'pages/Auth/Profile'
 
