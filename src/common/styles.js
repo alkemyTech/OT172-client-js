@@ -103,3 +103,24 @@ export const RowBackOffice = styled.article`
       }
   }
 `
+export const CardContainer = styled.section`
+  margin: auto ;
+  &>h1 {
+    text-align: center ;
+  }
+
+  ${screenLittle} {
+    width: 650px;//Modifica tamaño de carta
+  }
+`
+
+export const ContainerClikeable = styled.div`
+  cursor: pointer;
+`
+
+export const CardH1 = styled.h1`
+  font-size: 1.3rem;
+  margin: auto ;
+  
+  box-shadow: 0 2px gray;
+`

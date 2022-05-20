@@ -2,7 +2,7 @@
 import React, { useState } from 'react'
 import { ButtonsContainer, Container, Content, Data, Detail, Image, Titulo } from './styles'
 import { FaTrash, FaEdit, FaEyeSlash, FaEye } from 'react-icons/fa'
-
+import { CardH1 } from 'common/styles'
 export default function Card ({ data, detail = false, backOffice = false, handleEdit, handleDelete }) {
   const [seeContent, setSeeContent] = useState(false)
 
@@ -37,9 +37,9 @@ export default function Card ({ data, detail = false, backOffice = false, handle
             </ButtonsContainer>
         }
         <Content>
-          <Titulo>
+          <CardH1>
             {data.name}
-          </Titulo>
+          </CardH1>
           {detail &&
             <Detail
               isBackOffice={backOffice}
