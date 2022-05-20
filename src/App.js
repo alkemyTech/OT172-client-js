@@ -18,14 +18,13 @@ function App () {
   const dispatch = useDispatch()
   const { list } = useSelector((state) => state.organization)
   useEffect(() => {
-    //document.title= list.name
     dispatch(fetchOrganizationDataPublic(1))
   }, [dispatch])
 
   useEffect(()=>{ //This change the name of the page when reducer updates
     document.title= list.name
   })
-  
+
   return (
     <ThemeProvider theme={theme}>
       <>
