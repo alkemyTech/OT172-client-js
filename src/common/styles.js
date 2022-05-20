@@ -6,7 +6,7 @@ const { screenLittle, screenMiddle } = mediaQueries
 
 export const ContainerListBackOffice = styled.section`
   margin: auto ;
-  color: ${({theme}) => theme.primaryDark};
+  color: ${({ theme }) => theme.primaryDark};
   text-align: left ;
   &>h1 {
     text-align: center;

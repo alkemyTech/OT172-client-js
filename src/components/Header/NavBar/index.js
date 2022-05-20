@@ -7,11 +7,7 @@ import { alertToast } from 'services/alerts'
 import { links } from 'config/const'
 import { navLinkStyles } from '../styles'
 
-
-
-
-export default function NavBar() {
-
+export default function NavBar () {
   const dispatch = useDispatch()
   const { user } = useSelector((state) => state.auth)
 
@@ -24,19 +20,19 @@ export default function NavBar() {
     <Container>
       {links.map(link => <NavLink style={navLinkStyles} key={link.path} to={link.path}>{link.name}</NavLink>)}
       <>
-      {user 
-        ?
-        (
-          <>
-            <NavLink style={navLinkStyles} to={`/profile/${user.id}`} > Perfil </NavLink>
-            <NavLink style={navLinkStyles} to='/' onClick={onLogout} > Logout </NavLink>
-          </>
-        )
-        :      //  IF NOT 
-        (<> 
-        <NavLink style={navLinkStyles} to='/login'> Login </NavLink> 
-        <NavLink style={navLinkStyles} to='/register' > Register </NavLink>  </>)}
-    </>
+        {user
+          ? (
+            <>
+              <NavLink style={navLinkStyles} to={`/profile/${user.id}`}> Perfil </NavLink>
+              <NavLink style={navLinkStyles} to='/' onClick={onLogout}> Logout </NavLink>
+            </>
+            )
+          : //  IF NOT
+            (<>
+              <NavLink style={navLinkStyles} to='/login'> Login </NavLink>
+              <NavLink style={navLinkStyles} to='/register'> Register </NavLink>
+            </>)}
+      </>
     </Container>
   )
 }

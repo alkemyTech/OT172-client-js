@@ -9,7 +9,7 @@ export const FormikForm = ({
   values,
   schema,
   onSubmit,
-  FormFields,
+  FormFields
 
 }) => {
   return (

@@ -12,7 +12,7 @@ export const Container = styled.article`
   margin: 1.5rem;
   padding: 1rem;
   color: ${({ theme }) => theme.primaryDark};
-  border: ${props => props.isBackOffice ? '2px solid var(--gray-02)': 'none'};
+  border: ${props => props.isBackOffice ? '2px solid var(--gray-02)' : 'none'};
 `
 export const Image = styled.div`
   min-height: ${props => props.isDetail ? '80vh' : '20vh'};
@@ -58,7 +58,6 @@ export const Content = styled.article`
   padding: 1rem;
   width: 100%;
 `
-
 
 export const ButtonsContainer = styled.div`
   display:flex;

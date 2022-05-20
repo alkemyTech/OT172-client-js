@@ -1,7 +1,7 @@
 import React from 'react'
 import { LoginUserForm } from 'components/User/LoginUser'
 
-function Login() {
+function Login () {
   return (
     <LoginUserForm />
   )

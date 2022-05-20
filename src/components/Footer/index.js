@@ -38,34 +38,36 @@ export default function Footer () {
 
   return (
     <Container>
-      {organization ? (
-           <Grid>
-           <SocialMedia>
-             <Organization>
-               <Name>{organization.name}</Name>
-             </Organization>
-             <Instagram>
-               <UrlLogo href={organization.urlInstagram} logo={instaLogo} />
-             </Instagram>
-             <Facebook>
-               <UrlLogo href={organization.urlFacebook} logo={faceLogo} />
-             </Facebook>
-             <LinkedIn>
-               <UrlLogo href={organization.urlLinkedin} logo={linkLogo} />
-             </LinkedIn>
-           </SocialMedia>
-           <OrganizationData>
-               <Adress>
-                 <h4>{organization.address}</h4>
-               </Adress>
-               <Phone>
-                 <h4>{organization.phone}</h4>
-               </Phone>
-           </OrganizationData>
-         </Grid>
-      ) : (
-        <Loader />
-      )}
+      {organization
+        ? (
+          <Grid>
+            <SocialMedia>
+              <Organization>
+                <Name>{organization.name}</Name>
+              </Organization>
+              <Instagram>
+                <UrlLogo href={organization.urlInstagram} logo={instaLogo} />
+              </Instagram>
+              <Facebook>
+                <UrlLogo href={organization.urlFacebook} logo={faceLogo} />
+              </Facebook>
+              <LinkedIn>
+                <UrlLogo href={organization.urlLinkedin} logo={linkLogo} />
+              </LinkedIn>
+            </SocialMedia>
+            <OrganizationData>
+              <Adress>
+                <h4>{organization.address}</h4>
+              </Adress>
+              <Phone>
+                <h4>{organization.phone}</h4>
+              </Phone>
+            </OrganizationData>
+          </Grid>
+          )
+        : (
+          <Loader />
+          )}
     </Container>
   )
 }

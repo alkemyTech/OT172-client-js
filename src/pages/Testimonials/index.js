@@ -1,7 +1,7 @@
 import React from 'react'
-import { Container } from "./styles"
+import { Container } from './styles'
 
-function Testimonials() {
+function Testimonials () {
   return (
     <Container>Ruta Testimonials</Container>
   )

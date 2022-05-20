@@ -42,7 +42,7 @@ const FormFields = () => {
 export const CreateUserForm = () => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
-  const {user, isLoading, isError, isSuccess, message} = useSelector((state) => state.auth) 
+  const { user, isLoading, isError, isSuccess, message } = useSelector((state) => state.auth)
   const values = {
     firstName: '',
     lastName: '',
@@ -58,33 +58,30 @@ export const CreateUserForm = () => {
       to: values.email,
       from: 'n9746ab@gmail',
       subject: 'Registro',
-      text:"Registro completado",
+      text: 'Registro completado',
       html: '<><p>Registro completado, felicitaciones! </p></>'
     }
     await axios.post(ENDPOINT_MAIL, message)
-    .then(() => {
-      console.log('Email send')
-    }).catch((err) => {
-      console.error(err.message)
-    })
+      .then(() => {
+        console.log('Email send')
+      }).catch((err) => {
+        console.error(err.message)
+      })
   }
 
-
-
-
-  //Register req
+  // Register req
   const handleSubmit = values => {
     dispatch(register(values))
     onComplete(values)
   }
 
-  //Effects/notifications 
+  // Effects/notifications
   useEffect(() => {
-    if(isError){
-      alertToast('error',message)
+    if (isError) {
+      alertToast('error', message)
     }
-    if(isSuccess || user){
-      alertToast('success','Registrado exitosamente!')
+    if (isSuccess || user) {
+      alertToast('success', 'Registrado exitosamente!')
       navigate('/home')
     }
     dispatch(reset())

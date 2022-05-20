@@ -13,6 +13,5 @@ export const theme = {
   primaryLightBorderInputHover: 'var(--blue-02)',
   primaryLightBorderInput: 'var(--gray-01)',
 
-
-  mobile: '576px',
+  mobile: '576px'
 }

@@ -5,12 +5,11 @@ import Slider from 'components/Slider'
 import HeroSection from 'components/HeroSection'
 
 function Home () {
- 
   return (
     <Container>
-      <HeroSection/>
+      <HeroSection />
       <Slider />
-      <News qty={4} title='Últimas Noticias'/>
+      <News qty={4} title='Últimas Noticias' />
     </Container>
   )
 }

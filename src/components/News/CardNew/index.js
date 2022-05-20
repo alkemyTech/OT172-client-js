@@ -1,10 +1,9 @@
 
-//PUEDE BORRARSE TODO EL PAQUETE
+// PUEDE BORRARSE TODO EL PAQUETE
 import React from 'react'
-import { Card, Category, Content, Image, Titulo } from './styles';
+import { Card, Category, Content, Image, Titulo } from './styles'
 
-export default function CardNew({ data, detail = false }) {
-  
+export default function CardNew ({ data, detail = false }) {
   return (
     <Card>
       <Titulo>{data.name}</Titulo>
@@ -13,8 +12,7 @@ export default function CardNew({ data, detail = false }) {
         <>
           <Category>{data.categoryName}</Category>
           <Content>{data.content}</Content>
-        </>
-      }
+        </>}
     </Card>
   )
 }

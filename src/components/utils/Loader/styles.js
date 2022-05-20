@@ -7,13 +7,13 @@ export const Container = styled.div`
     justify-content: center;
     .spinner,.spinner:after {
       display: block;
-      width: ${props => props.width || '32px' };
-      height: ${props => props.height || '32px' };
+      width: ${props => props.width || '32px'};
+      height: ${props => props.height || '32px'};
       border-radius: 50%;
     }
-    --line: ${props => props.line || '5px' };
-    --color: ${props => props.color ? `rgb(${props.color.r},${props.color.g},${props.color.b})` : 'rgb(166,139,202)' };
-    --color-left: ${props => props.color ? `rgb(${props.color.r},${props.color.g},${props.color.b}, .2)` : 'rgb(166,139,202, .2)' };
+    --line: ${props => props.line || '5px'};
+    --color: ${props => props.color ? `rgb(${props.color.r},${props.color.g},${props.color.b})` : 'rgb(166,139,202)'};
+    --color-left: ${props => props.color ? `rgb(${props.color.r},${props.color.g},${props.color.b}, .2)` : 'rgb(166,139,202, .2)'};
     .spinner {
       position: absolute;
       background-color: transparent;

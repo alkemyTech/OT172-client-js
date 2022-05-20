@@ -11,7 +11,7 @@ function Categories () {
   }, [dispatch])
 
   return (
-    <CategoriesList categories={categories}/>
+    <CategoriesList categories={categories} />
   )
 }
 

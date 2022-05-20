@@ -1,17 +1,16 @@
-import React from 'react';
-import { bool } from 'prop-types';
-import { StyledMenu } from './styles';
-import { linksBackOffice } from 'config/const';
-import { NavLink } from 'react-router-dom';
-import { navLinkStyles } from 'components/Header/styles';
+import React from 'react'
+import { bool } from 'prop-types'
+import { StyledMenu } from './styles'
+import { linksBackOffice } from 'config/const'
+import { NavLink } from 'react-router-dom'
+import { navLinkStyles } from 'components/Header/styles'
 
 const Menu = ({ open, ...props }) => {
-  
-  const isHidden = open ? true : false;
-  const tabIndex = isHidden ? 0 : -1;
+  const isHidden = !!open
+  const tabIndex = isHidden ? 0 : -1
   return (
     <StyledMenu open={open} aria-hidden={!isHidden} {...props}>
-      {linksBackOffice.map(link => <NavLink style={navLinkStyles} tabIndex={tabIndex} key={link.path} to={link.path} onClick={()=>props.setOpen(false)}>
+      {linksBackOffice.map(link => <NavLink style={navLinkStyles} tabIndex={tabIndex} key={link.path} to={link.path} onClick={() => props.setOpen(false)}>
         {link.name}
       </NavLink>)}
     </StyledMenu>
@@ -19,7 +18,7 @@ const Menu = ({ open, ...props }) => {
 }
 
 Menu.propTypes = {
-  open: bool.isRequired,
+  open: bool.isRequired
 }
 
-export default Menu;
+export default Menu
