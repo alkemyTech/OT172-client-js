@@ -1,5 +1,3 @@
-
-// PUEDE BORRARSE TODO EL PAQUETE
 import React from 'react'
 import { Card, Category, Content, Image, Titulo } from './styles'
 
@@ -15,4 +13,8 @@ export default function CardNew ({ data, detail = false }) {
         </>}
     </Card>
   )
+
+
+  
+
 }
