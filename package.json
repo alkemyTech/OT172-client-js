@@ -32,16 +32,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
-  "eslintConfig": {
-    "extends": [
-      "./node_modules/standard/eslintrc.json"
-    ]
-  },
-  "standard": {
-    "ignore": [
-      "build/*"
-    ]
-  },
+  
   "browserslist": {
     "production": [
       ">0.2%",
