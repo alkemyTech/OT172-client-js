@@ -8,7 +8,6 @@ import users from './slices/users'
 import auth from './slices/auth'
 import contacts from './slices/contact'
 
-
 export default configureStore({
   reducer: {
     activities,
@@ -24,11 +23,11 @@ export default configureStore({
     getDefaultMiddleware({
       serializableCheck: {
         // Ignore these action types
-        ignoredActions: ['create/activities/fulfilled','activities/pending','create/news/fulfilled','create/news/fulfilled','categories/pending','news/pending','categories/fulfilled'],
+        ignoredActions: ['create/activities/fulfilled', 'activities/pending', 'create/news/fulfilled', 'create/news/fulfilled', 'categories/pending', 'news/pending', 'categories/fulfilled'],
         // Ignore these field paths in all actions
         ignoredActionPaths: ['meta.arg', 'payload.timestamp'],
         // Ignore these paths in the state
-        ignoredPaths: ['createActivities.pending','activities.activities.5.image','payload.image','news.news.3.image'],
-      },
-    }),
+        ignoredPaths: ['createActivities.pending', 'activities.activities.5.image', 'payload.image', 'news.news.3.image']
+      }
+    })
 })

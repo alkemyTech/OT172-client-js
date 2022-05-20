@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { fetchAllUsers } from 'store/slices/users'
 import UsersList from 'components/BackOffice/Users/UsersList'
 
-function Users() {
+function Users () {
   const { users } = useSelector(state => state.users)
   const dispatch = useDispatch()
   useEffect(() => {

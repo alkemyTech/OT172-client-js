@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 export const StyledMenu = styled.nav`
   display: flex;
@@ -31,7 +31,7 @@ export const StyledMenu = styled.nav`
       color: ${({ theme }) => theme.primaryHover};
     }
   }
-`;
+`
 
 export const CardLoginOrRegister = styled.nav`
   display: flex;
@@ -44,4 +44,3 @@ export const CardLoginOrRegister = styled.nav`
     padding: .2rem 0;
   }
 `
-

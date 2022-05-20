@@ -5,14 +5,13 @@ import React, { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { getService } from 'services/apiService'
 import { ENDPOINT_NEWS } from 'services/settings'
-import { Container } from "./styles"
-import { TiArrowBack } from "react-icons/ti";
+import { Container } from './styles'
+import { TiArrowBack } from 'react-icons/ti'
 
-function New() {
+function New () {
   const params = useParams()
-  const  [isLoading, setIsLoading] = useState(false)
-  const  [data, setData] = useState({})
-  
+  const [isLoading, setIsLoading] = useState(false)
+  const [data, setData] = useState({})
 
   useEffect(() => {
     (async () => {
@@ -26,21 +25,20 @@ function New() {
         }
         setIsLoading(false)
       }
-    })();
-  }, [params.id, getService]);
+    })()
+  }, [params.id, getService])
 
   if (isLoading) return <Loader />
 
   return (
     <Container>
-      <Link to={`/news`}><TiArrowBack /> Volver a Novedades</Link>
+      <Link to='/news'><TiArrowBack /> Volver a Novedades</Link>
       {data
-       ? <CardNew 
+        ? <CardNew
             data={data}
             detail
           />
-       : <NotFound resource='New' msg='Verifique la ruta que intenta acceder'/>
-       }
+        : <NotFound resource='New' msg='Verifique la ruta que intenta acceder' />}
     </Container>
   )
 }

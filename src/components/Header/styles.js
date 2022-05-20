@@ -20,19 +20,20 @@ export const Container = styled.header`
 `
 
 export const Logo = styled.img`
-    width: 5rem;
-    height: auto;
+    width: 8rem;
+    height: var(--header-height);
     margin: .2rem;
     margin-right: 5rem;
+    object-fit: contain;
     ${screenLittle} {
       margin-right: .2rem;
-  }
+    }
 `
 
 export const navLinkStyles = ({ isActive }) => {
   const active = 'var(--blue-02)'
   return {
-    fontWeight: isActive ? "bold" : "normal",
-    color: isActive && active 
-  };
-};
+    fontWeight: isActive ? 'bold' : 'normal',
+    color: isActive && active
+  }
+}

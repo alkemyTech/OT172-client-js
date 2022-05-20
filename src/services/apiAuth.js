@@ -10,11 +10,7 @@ export const postUserService = async values => {
       if (
         error.response.data &&
         error.response.data.msg === `Email ${values.email} already in use`
-      )
-        return 'El email ingresado ya existe'
-      else if (error.response.data && error.response.data.error)
-        return 'Error interno del servidor, por favor contacte con el servicio técnico'
-      else return error.response.data.msg
+      ) { return 'El email ingresado ya existe' } else if (error.response.data && error.response.data.error) { return 'Error interno del servidor, por favor contacte con el servicio técnico' } else return error.response.data.msg
     })
 
   return response

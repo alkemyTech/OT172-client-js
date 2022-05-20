@@ -9,6 +9,7 @@ import { FormField } from 'components/Forms/formField'
 import { FormikForm } from 'components/Forms'
 import { createUserSchema } from 'components/Forms/schemas'
 import { Button } from 'components/Forms/styles'
+import Loader from 'components/utils/Loader'
 
 const FormFields = () => {
   return (
@@ -41,7 +42,7 @@ const FormFields = () => {
 export const CreateUserForm = () => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
-  const {user, isLoading, isError, isSuccess, message} = useSelector((state) => state.auth) 
+  const { user, isLoading, isError, isSuccess, message } = useSelector((state) => state.auth)
   const values = {
     firstName: '',
     lastName: '',
@@ -57,43 +58,36 @@ export const CreateUserForm = () => {
       to: values.email,
       from: 'n9746ab@gmail',
       subject: 'Registro',
-      text:"Registro completado",
+      text: 'Registro completado',
       html: '<><p>Registro completado, felicitaciones! </p></>'
     }
     await axios.post(ENDPOINT_MAIL, message)
-    .then(() => {
-      console.log('Email send')
-    }).catch((err) => {
-      console.error(err.message)
-    })
+      .then(() => {
+        console.log('Email send')
+      }).catch((err) => {
+        console.error(err.message)
+      })
   }
 
-
-
-
-  //Register req
+  // Register req
   const handleSubmit = values => {
     dispatch(register(values))
     onComplete(values)
   }
 
-  //Effects/notifications 
+  // Effects/notifications
   useEffect(() => {
-    if(isError){
-      alertToast('error',message)
+    if (isError) {
+      alertToast('error', message)
     }
-    if(isSuccess || user){
-      alertToast('success','Registrado exitosamente!')
+    if (isSuccess || user) {
+      alertToast('success', 'Registrado exitosamente!')
       navigate('/home')
     }
     dispatch(reset())
   }, [user, isError, isSuccess, message, navigate, dispatch])
 
-  
-
-  /*if(isLoading) {
-      //Loading screen, check preserve the state of the fields for not write all again after re-render
-  }*/
+  if (isLoading) return <Loader />
 
   return (
     <FormikForm

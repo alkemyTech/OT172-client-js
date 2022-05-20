@@ -1,10 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
 
-export default function Page404() {
+export default function Page404 () {
   return (
     <Container>
-      <img src="/images/404.png" alt="No encontrado" />
+      <img src='/images/404.png' alt='No encontrado' />
     </Container>
   )
 }

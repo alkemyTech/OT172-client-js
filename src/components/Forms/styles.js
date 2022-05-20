@@ -12,19 +12,26 @@ export const ContainerFormik = styled.div`
 `
 
 export const Title = styled.h2`
-  color: ${({theme}) => theme.primaryDark};
+  color: ${({ theme }) => theme.primaryDark};
   margin-bottom: .1rem ;
   text-align: center;
 `
 
 export const SubTitle = styled.span`
-  color: ${({theme}) => theme.secondaryDark};
+  color: ${({ theme }) => theme.secondaryDark};
   margin-top: .4rem ;
   text-align: center;
 `
 
-export const OperationName= styled.h3`
+export const OperationName = styled.h3`
   color: black;
+`
+export const ConatinerButtons = styled.div`
+  display: flex ;
+  width: 100%;
+  margin: auto;
+  padding: 1rem;
+  text-align: left;
 `
 
 export const Button = styled.button`
@@ -53,12 +60,12 @@ export const Button = styled.button`
 `
 
 export const CustomInput = styled.div`
-  input, textarea {
+  input, textarea, select {
     border: 1px solid ${({ theme }) => theme.primaryLightBorderInput};
     font-size: 1.2rem;
     padding: .5rem 1rem;
     margin-bottom: 0;
-    width: ${props => props.width || '20rem' };
+    width: ${props => props.width || '20rem'};
 
     color: ${({ theme }) => theme.primaryDark};
     background-color: ${({ theme }) => theme.primaryLight};
@@ -75,7 +82,7 @@ export const CustomInputImage = styled.div`
     border: none;
     padding: .5rem 1rem;
     margin-bottom: 0;
-    width: ${props => props.width || '20rem' };
+    width: ${props => props.width || '20rem'};
 
     color: ${({ theme }) => theme.primaryDark};
     background-color: ${({ theme }) => theme.primaryLight};
