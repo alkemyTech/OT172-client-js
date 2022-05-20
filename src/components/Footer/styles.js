@@ -1,22 +1,23 @@
 import styled from 'styled-components'
 
 const center = styled.div`
-
   display: flex;
   align-items: center;
   justify-content: center;
 `
 
 export const Container = styled(center)`
-position:fixed;
-bottom:0;
-width:100%;
-height:100px;   
-background: ${({ theme }) => theme.primaryLightNavBar};
+
+
+position: relative;
+bottom:  -355px; // you can adjust the negative value
+
+text-align: center;
+width: 100%;
+  background: ${({ theme }) => theme.primaryLightNavBar};
 `
 
 export const Grid = styled.div`
-
   width: 60%;
   height: 100%;
   display: grid;
@@ -35,6 +36,7 @@ export const Organization = styled(center)`
   grid-column: 1/2;
   flex-direction: column;
 `
+
 
 export const Name = styled.h2``
 
@@ -71,6 +73,8 @@ export const Separator = styled.hr`
   grid-row: 1/2;
   width: 100%;
 `
+
+
 
 export const Adress = styled(center)`
   grid-column: 1/2;

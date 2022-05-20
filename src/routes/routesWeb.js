@@ -38,6 +38,7 @@ export default function RoutesWeb () {
         <Route path='/home' element={<Home />} />
         <Route path='/activities' element={<ActivitiesPage />} />
         <Route path='/activities/:id' element={<Activity />} />
+        <Route path='/news' element={<NewsPage />} />
         {/* <Route path='/members' element={<Members />} /> */}
 
         <Route path='/testimonials' element={<Testimonials />} />
@@ -46,7 +47,7 @@ export default function RoutesWeb () {
         {/* Protected routes */}
         <Route path='/profile/:id' element={<ProtectedRoute><Profile /></ProtectedRoute>} />
         <Route path='/profile/edited' element={<ProtectedRoute><Profile /></ProtectedRoute>} />
-        <Route path='/news' element={<ProtectedRoute><NewsPage /></ProtectedRoute>} />
+      
         <Route path='/news/:id' element={<ProtectedRoute><New /></ProtectedRoute>} />
 
         {/* BackOffice */}
