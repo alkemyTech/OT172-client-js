@@ -69,7 +69,3 @@ export const Head = styled.div`
   }
   
 `
-
-
-
-

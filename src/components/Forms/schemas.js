@@ -1,4 +1,3 @@
-import { yupToFormErrors } from 'formik'
 import * as Yup from 'yup'
 
 export const userSchema = Yup.object().shape({
@@ -43,7 +42,7 @@ export const createUserSchema = Yup.object().shape({
     .required('El campo password no puede estar vacío')
 })
 
-export const loginUserSchema= Yup.object().shape({//Schema to verifie login data of user
+export const loginUserSchema = Yup.object().shape({ // Schema to verifie login data of user
   email: Yup.string()
     .email('El email ingresado es invalido')
     .max(255)
@@ -58,7 +57,7 @@ export const loginUserSchema= Yup.object().shape({//Schema to verifie login data
     .required('El campo password no puede estar vacío')
 })
 
-export const contactSchema= Yup.object().shape({
+export const contactSchema = Yup.object().shape({
   firstName: Yup.string()
     .matches(/^[aA-zZ\s]+$/, 'Solo se admiten letras')
     .min(3, 'El mínimo de caracteres es 3')
@@ -77,7 +76,7 @@ export const contactSchema= Yup.object().shape({
     .max(255)
     .required('El mensaje es requerido')
 })
-export const newsSchema= Yup.object().shape({
+export const newsSchema = Yup.object().shape({
   name: Yup.string()
     .matches(/^[aA-zZ\s]+$/, 'Solo se admiten letras')
     .min(5, 'El mínimo de caracteres es 5')
@@ -87,25 +86,25 @@ export const newsSchema= Yup.object().shape({
     .nullable()
     .required('Es requerida una foto')
     .test(
-      "type", 
-      "Tipo de archivo no soportado", 
-      value=>{
-        if(typeof(value)=="object"){
-          const SUPPORTED_FORMATS = ["image/jpg", "image/jpeg", "image/png"]
+      'type',
+      'Tipo de archivo no soportado',
+      value => {
+        if (typeof (value) === 'object') {
+          const SUPPORTED_FORMATS = ['image/jpg', 'image/jpeg', 'image/png']
           return !value || (value && SUPPORTED_FORMATS.includes(value.type))
-        }else{
+        } else {
           return true
         }
       })
     .test(
-      "fileSize",
-      "Tamaño del archivo muy grande", 
-      value=>{
-        if(typeof(value)=="object"){
-          const sizeInBytes= 500000//0.5MB
+      'fileSize',
+      'Tamaño del archivo muy grande',
+      value => {
+        if (typeof (value) === 'object') {
+          const sizeInBytes = 500000// 0.5MB
           return value?.size <= sizeInBytes
-        }else{
-          return true;
+        } else {
+          return true
         }
       }),
   categoryId: Yup.number()
@@ -113,9 +112,9 @@ export const newsSchema= Yup.object().shape({
 
   content: Yup.string()
     .min(10, 'El mínimo de caracteres es 8')
-    .required('Es requerido un contenido'),
+    .required('Es requerido un contenido')
 })
-export const categorySchema= Yup.object().shape({
+export const categorySchema = Yup.object().shape({
   name: Yup.string()
     .matches(/^[aA-zZ\s]+$/, 'Solo se admiten letras')
     .min(3, 'El mínimo de caracteres es 3')
@@ -123,10 +122,10 @@ export const categorySchema= Yup.object().shape({
     .required('El nombre es requerido'),
   description: Yup.string()
     .matches(/^[aA-zZ\s]+$/, 'Solo se admiten letras')
-    .max(250, 'El máximo de caracteres es 250'),
+    .max(250, 'El máximo de caracteres es 250')
     // .required('El apellido es requerido'),
 })
-export const activitySchema= Yup.object().shape({
+export const activitySchema = Yup.object().shape({
   name: Yup.string()
     .matches(/^[aA-zZ\s]+$/, 'Solo se admiten letras')
     .min(3, 'El mínimo de caracteres es 3')
@@ -134,7 +133,7 @@ export const activitySchema= Yup.object().shape({
     .required('El nombre es requerido')
 })
 
-export const memberSchema= Yup.object().shape({
+export const memberSchema = Yup.object().shape({
   name: Yup.string()
     .matches(/^[aA-zZ\s]+$/, 'Solo se admiten letras')
     .min(3, 'El mínimo de caracteres es 3')
@@ -142,35 +141,35 @@ export const memberSchema= Yup.object().shape({
     .required('El nombre es requerido')
 })
 
-export const organizationSchema= Yup.object().shape({
+export const organizationSchema = Yup.object().shape({
   name: Yup.string()
     .matches(/^[aA-zZ\s]+$/, 'Solo se admiten letras')
     .min(5, 'El mínimo de caracteres es 5')
     .max(30, 'El máximo de caracteres es 30')
     .required('Es requerido un nombre para la organizacion'),
-    image: Yup.mixed()
+  image: Yup.mixed()
     .nullable()
     .required('Es requerida una foto')
     .test(
-      "type", 
-      "Tipo de archivo no soportado", 
-      value=>{
-        if(typeof(value)=="object"){
-          const SUPPORTED_FORMATS = ["image/jpg", "image/jpeg", "image/png"]
+      'type',
+      'Tipo de archivo no soportado',
+      value => {
+        if (typeof (value) === 'object') {
+          const SUPPORTED_FORMATS = ['image/jpg', 'image/jpeg', 'image/png']
           return !value || (value && SUPPORTED_FORMATS.includes(value.type))
-        }else{
+        } else {
           return true
         }
       })
     .test(
-      "fileSize",
-      "Tamaño del archivo muy grande", 
-      value=>{
-        if(typeof(value)=="object"){
-          const sizeInBytes= 500000//0.5MB
+      'fileSize',
+      'Tamaño del archivo muy grande',
+      value => {
+        if (typeof (value) === 'object') {
+          const sizeInBytes = 500000// 0.5MB
           return value?.size <= sizeInBytes
-        }else{
-          return true;
+        } else {
+          return true
         }
-      }),
+      })
 })

@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { mediaQueries } from 'config/responsive'
 const { screenLittle, screenMiddle } = mediaQueries
 
-export default function NotFound({resource='resource', msg=null}) {
+export default function NotFound ({ resource = 'resource', msg = null }) {
   return (
     <Container>
       <h1>Sorry, {resource} NotFound</h1>

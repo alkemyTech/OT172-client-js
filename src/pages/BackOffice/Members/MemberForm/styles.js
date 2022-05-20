@@ -49,6 +49,6 @@ border: 1px solid red ;
   }
 `
 
-export const CustomInput= styled.input`
+export const CustomInput = styled.input`
   width:100%;
 `

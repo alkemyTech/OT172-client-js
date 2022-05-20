@@ -32,7 +32,7 @@ export const Logo = styled.img`
 export const navLinkStyles = ({ isActive }) => {
   const active = 'var(--blue-02)'
   return {
-    fontWeight: isActive ? "bold" : "normal",
-    color: isActive && active 
-  };
-};
+    fontWeight: isActive ? 'bold' : 'normal',
+    color: isActive && active
+  }
+}

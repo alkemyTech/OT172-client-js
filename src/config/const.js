@@ -10,7 +10,7 @@ export const links = [
   {
     name: 'Actividades',
     path: 'activities'
-  },
+  }
   // {
   //   name: 'Testimonios',
   //   path: 'testimonials'
@@ -46,5 +46,5 @@ export const linksBackOffice = [
   {
     name: 'Editar Organizacion',
     path: `${backOffice}/edit-organization`
-  },
+  }
 ]

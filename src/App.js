@@ -4,15 +4,14 @@ import Footer from './components/Footer'
 import { useDispatch } from 'react-redux'
 import { Toaster } from 'react-hot-toast'
 import { fetchOrganizationDataPublic } from 'store/slices/organization'
-import { GlobalStyle } from 'globalStyles'
 import RoutesWeb from 'routes/routesWeb'
 
-import { ThemeProvider } from 'styled-components';
-import { GlobalStyles } from './global';
-import { theme } from './theme';
+import { ThemeProvider } from 'styled-components'
+import { GlobalStyles } from './global'
+import { theme } from './theme'
 
-const toastOptions= {
-  duration: 900,
+const toastOptions = {
+  duration: 900
 }
 
 function App () {
@@ -20,21 +19,20 @@ function App () {
   useEffect(() => {
     dispatch(fetchOrganizationDataPublic(1))
   }, [dispatch])
-  
+
   return (
     <ThemeProvider theme={theme}>
-    <>
-      <GlobalStyles />  
-      <Header/>
-      <Toaster
-        toastOptions={toastOptions}
-/>
-      <RoutesWeb />
-      <Footer />
-    </>
+      <>
+        <GlobalStyles />
+        <Header />
+        <Toaster
+          toastOptions={toastOptions}
+        />
+        <RoutesWeb />
+        <Footer />
+      </>
     </ThemeProvider>
   )
 }
 
 export default App
-

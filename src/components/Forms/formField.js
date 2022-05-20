@@ -6,11 +6,11 @@ import { fetchAllCategories } from 'store/slices/categories'
 
 export const FormField = ({ name, type, placeholder, FormContainer = CustomInput, as }) => {
   return (
-    <FormContainer error={true}>
+    <FormContainer error>
       <Field as={as} name={name} type={type} placeholder={placeholder} />
       <ErrorContainer>
         <ErrorMessage
-          component="p"
+          component='p'
           name={name}
         />
       </ErrorContainer>
@@ -19,9 +19,9 @@ export const FormField = ({ name, type, placeholder, FormContainer = CustomInput
 }
 
 export const ImageField = ({ name, type, placeholder, FormContainer = CustomInputImage, as }) => {
-  const { setFieldValue } = useFormikContext();
+  const { setFieldValue } = useFormikContext()
   return (
-    <FormContainer >
+    <FormContainer>
       <Field
         as={as}
         name={name}
@@ -32,7 +32,7 @@ export const ImageField = ({ name, type, placeholder, FormContainer = CustomInpu
       />
       <ErrorContainer>
         <ErrorMessage
-          component="p"
+          component='p'
           name={name}
         />
       </ErrorContainer>
@@ -47,12 +47,12 @@ export const CategorySelectField = ({ name, type, placeholder, FormContainer }) 
     dispatch(fetchAllCategories())
   }, [dispatch])
   return (
-    <FormContainer >
+    <FormContainer>
       <Field
         name={name}
         type={type}
         placeholder={placeholder}
-        component={"select"}
+        component='select'
       >
         <option key={-1} value='' disabled>Selecicone una categoria</option>
         {categories?.map((categorie, index) => <option key={categorie.id} value={categorie.id}>{categorie.name}</option>)}
@@ -82,12 +82,12 @@ export const RoleSelectField = ({ name, type, placeholder, FormContainer = Custo
     }
   ]
   return (
-    <FormContainer >
+    <FormContainer>
       <Field
         name={name}
         type={type}
         placeholder={placeholder}
-        component={"select"}
+        component='select'
       >
         <option key={-1} value='' disabled>Selecicone un rol</option>
         {roles?.map((rol, index) => <option key={rol.id} value={rol.id}>{rol.name}</option>)}

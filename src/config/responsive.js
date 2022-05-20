@@ -1,7 +1,7 @@
 /*
     Plantilla  mobile first, usado en los modernos frameworks CSS responsive
-design, se basa en preparar primero la vista óptima para el móvil y 
-utilizar las media queries para ir adaptando la maqueta a dispositivos 
+design, se basa en preparar primero la vista óptima para el móvil y
+utilizar las media queries para ir adaptando la maqueta a dispositivos
 mayores.
 */
 
@@ -25,5 +25,3 @@ export const mediaQueries = {
   screenMiddle,
   screenVeryBig
 }
-
-
