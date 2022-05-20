@@ -15,7 +15,7 @@ import { theme } from './theme';
 function App () {
   const dispatch = useDispatch()
   useEffect(() => {
-    dispatch(fetchOrganizationDataPublic(1))
+    dispatch(fetchOrganizationDataPublic(2))
   }, [dispatch])
   
   return (

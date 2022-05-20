@@ -1,22 +1,22 @@
 import styled from 'styled-components'
 
 const center = styled.div`
+
   display: flex;
   align-items: center;
   justify-content: center;
 `
 
 export const Container = styled(center)`
-
-  position: absolute;
-  
-  width: 100%;
-  height: 15vh;
-  z-index: -1;
-  background: ${({ theme }) => theme.primaryLightNavBar};
+position:fixed;
+bottom:0;
+width:100%;
+height:100px;   
+background: ${({ theme }) => theme.primaryLightNavBar};
 `
 
 export const Grid = styled.div`
+
   width: 60%;
   height: 100%;
   display: grid;
