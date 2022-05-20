@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import authService from './service'
-
+// eslint-disable-next-line
 const user = JSON.parse(localStorage.getItem('user'))
 
 const initialState = {

@@ -59,6 +59,7 @@ export const UserForm = ({ profile = false }) => {
 
   const params = useParams()
 
+  // eslint-disable-next-line
   const actualProfile = JSON.parse(localStorage.getItem('user'))
 
   const handleDelete = () => {
@@ -120,9 +121,10 @@ export const UserForm = ({ profile = false }) => {
     actions.setSubmitting(false)
     actions.resetForm()
     if (profile) {
+      // eslint-disable-next-line
       const actualProfile = JSON.parse(localStorage.getItem('user'))
       const updatedProfile = { ...actualProfile, ...values }
-
+      // eslint-disable-next-line
       localStorage.setItem('user', JSON.stringify(updatedProfile))
 
       navigate('/profile/edited')

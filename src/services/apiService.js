@@ -12,6 +12,7 @@ const fetcher = (verb, endPoint, body = null, isForm = false, pagination) => {
     apiService.defaults.headers = { 'x-access-token': `${token}` }
   }
   if (verb !== 'get') { // verb!=get and delete
+    // eslint-disable-next-line
     const form = new FormData()
     for (const key in body) {
       form.append(key, body[key])

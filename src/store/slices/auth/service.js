@@ -8,6 +8,7 @@ const register = async (userData) => {
 
   if (response.data) {
     setToken(response.data.token)
+    // eslint-disable-next-line
     localStorage.setItem('user', JSON.stringify(response.data.user))
   }
   return response.data.user
@@ -19,6 +20,7 @@ const login = async (userData) => {
 
   if (response.data) {
     setToken(response.data.token)
+    // eslint-disable-next-line
     localStorage.setItem('user', JSON.stringify(response.data.user))
   }
   return response.data.user
@@ -27,6 +29,7 @@ const login = async (userData) => {
 // Logout
 const logout = () => {
   deleteToken()
+  // eslint-disable-next-line
   localStorage.removeItem('user')
 }
 
