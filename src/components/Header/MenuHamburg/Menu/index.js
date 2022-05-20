@@ -25,20 +25,28 @@ const Menu = ({ open, ...props }) => {
   return (
     <StyledMenu open={open} aria-hidden={!isHidden} {...props}>
 
-      {links.map(link => <NavLink style={navLinkStyles} tabIndex={tabIndex} key={link.path} to={link.path} onClick={() => props.setOpen(false)}>
-        {link.name}
-      </NavLink>)}
+      {
+        links.map(link =>
+          <NavLink
+            style={navLinkStyles}
+            tabIndex={tabIndex}
+            key={link.path}
+            to={link.path}
+            onClick={() => props.setOpen(false)}
+          >
+            {link.name}
+          </NavLink>)
+      }
 
       <CardLoginOrRegister>
         {user // IF USER IS LOGGED IN
           ? (<NavLink style={navLinkStyles} to='/' onClick={onLogout}> Logout </NavLink>)
-          : //  IF NOT
-            (
-              <>
-                <NavLink style={navLinkStyles} to='/login' onClick={() => props.setOpen(false)}> Login </NavLink>
-                <span> - O - </span>
-                <NavLink style={navLinkStyles} to='/register' onClick={() => props.setOpen(false)}> Register </NavLink>
-              </>
+          : (
+            <>
+              <NavLink style={navLinkStyles} to='/login' onClick={() => props.setOpen(false)}> Login </NavLink>
+              <span> - O - </span>
+              <NavLink style={navLinkStyles} to='/register' onClick={() => props.setOpen(false)}> Register </NavLink>
+            </>
             )}
       </CardLoginOrRegister>
 

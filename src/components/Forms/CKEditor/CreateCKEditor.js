@@ -16,7 +16,6 @@ export default function CKEditorComponent (props) {
                 }
         data={props.value}
         editor={ClassicEditor}
-
         onReady={(editor) => {
           if (editor) {
             editor.editing.view.change((writer) => {

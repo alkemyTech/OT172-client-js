@@ -1,6 +1,4 @@
 import styled from 'styled-components'
-import { mediaQueries } from 'config/responsive'
-const { screenLittle, screenBig } = mediaQueries
 
 export const Container = styled.article`
   display: flex;

@@ -1,6 +1,6 @@
 import React from 'react'
 import { Formik, Form } from 'formik'
-import { Container, Title, SubTitle, OperationName, CustomInput, ContainerFormik } from './styles'
+import { Container, Title, SubTitle, OperationName, ContainerFormik } from './styles'
 
 export const FormikForm = ({
   title,

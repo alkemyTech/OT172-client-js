@@ -4,22 +4,18 @@ import { useSelector } from 'react-redux'
 import instaLogo from 'components/utils/assets/instaLogo.png'
 import faceLogo from 'components/utils/assets/faceLogo.png'
 import linkLogo from 'components/utils/assets/linkLogo.png'
-import gpsLogo from 'components/utils/assets/gpsLogo.png'
-import phoneLogo from 'components/utils/assets/phoneLogo.png'
+
 import {
   Container,
   Grid,
   SocialMedia,
   Organization,
-  Logo,
   Name,
   Href,
   Instagram,
   Facebook,
   LinkedIn,
   OrganizationData,
-  Separator,
-  Location,
   Adress,
   Phone
 } from './styles'

@@ -27,8 +27,8 @@ export default function NavBar () {
               <NavLink style={navLinkStyles} to='/' onClick={onLogout}> Logout </NavLink>
             </>
             )
-          : //  IF NOT
-            (<>
+          : (
+            <>
               <NavLink style={navLinkStyles} to='/login'> Login </NavLink>
               <NavLink style={navLinkStyles} to='/register'> Register </NavLink>
             </>)}

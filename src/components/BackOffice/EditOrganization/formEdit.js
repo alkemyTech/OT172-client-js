@@ -2,19 +2,18 @@ import React, { useEffect, useState } from 'react'
 import { FormField, ImageField } from 'components/Forms/formField'
 import { Button, Container } from 'components/Forms/styles'
 import { ENDPOINT_PUBLIC } from 'services/settings'
-import { getOrganizationData, updateOrganization } from 'store/slices/organization'
+import { updateOrganization } from 'store/slices/organization'
 import { CustomInput } from './styiles'
 import { useDispatch, useSelector } from 'react-redux'
-import { useNavigate, useParams, Link } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 import { getService } from 'services/apiService'
 import { alertToast } from 'services/alerts'
 import Loader from 'components/utils/Loader'
 import { TiArrowBack } from 'react-icons/ti'
 import { FormikForm } from 'components/Forms'
 import { organizationSchema } from 'components/Forms/schemas'
-import store from 'store'
 
-const FormFields = (editar = false, temp) => {
+const FormFields = () => {
   return (
     <>
       <FormField
@@ -38,7 +37,6 @@ export const EditOrganizationForm = () => {
   const { isLoading, isError, isSuccess, message, list } = useSelector((state) => state.organization)
   const dispatch = useDispatch()
   const navigate = useNavigate()
-  const params = useParams()
 
   const [values, setValues] = useState({
     name: '',

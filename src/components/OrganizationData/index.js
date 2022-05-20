@@ -18,11 +18,13 @@ export default function OrganizationData () {
     <Container>
       OrganizationData
       {ongData
-        ? <>
-          <p>{ongData.name}</p>
-          <p>{ongData.address}</p>
-          <p>{ongData.welcomeText}</p>
-        </>
+        ? (
+          <>
+            <p>{ongData.name}</p>
+            <p>{ongData.address}</p>
+            <p>{ongData.welcomeText}</p>
+          </>
+          )
         : <p>No hay datos</p>}
 
     </Container>

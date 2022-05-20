@@ -1,5 +1,4 @@
 
-import { CardBackOffice } from 'common/styles'
 import Card from 'components/CardConstructor'
 import React, { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
