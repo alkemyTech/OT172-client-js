@@ -64,7 +64,10 @@ export const HeroBtn = styled.button`
 `
 
 export const Information= styled.div`
-  height: 460px;
+  display:flex;
+  justify-contente:center;
+ 
+  min-height: 460px;
   width: 100%;
   background: linear-gradient(to right, rgba(0,0,0,0.5), rgba(0,0,0,0.1));
   background-color: #100c24; //azul claro
@@ -75,6 +78,7 @@ export const Information= styled.div`
 export const InformationItems = styled.div`
   display: flex;
   flex-direction: column;
+  margin: auto;
   justify-content: center;
   align-items: center;
   height: 100%;

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container } from './styles'
+import { Container, ContainerNews } from './styles'
 import News from 'components/News'
 import Slider from 'components/Slider'
 import HeroSection from 'components/HeroSection'
@@ -16,7 +16,9 @@ function Home () {
         </InformationItems>
       </Information>
       <Slider />
-      <News qty={4} title='Últimas Noticias' />
+      <ContainerNews>
+        <News qty={4} title='Últimas Noticias' />
+      </ContainerNews>
     </Container>
   )
 }

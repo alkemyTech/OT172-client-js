@@ -12,3 +12,8 @@ export const Container = styled.div`
     text-align: center ;
   }
 `
+export const ContainerNews = styled.div`
+  display: flex;
+  justify-content:center;
+`
+
