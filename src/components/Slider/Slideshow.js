@@ -107,6 +107,7 @@ const ContenedorPrincipal = styled.div`
 const ContenedorSlideshow = styled.div`
   display: flex;
   flex-wrap: nowrap;
+  
 `
 
 const Slide = styled.div`
@@ -114,10 +115,11 @@ const Slide = styled.div`
   overflow: hidden;
   transition: .3s ease all;
   z-index: 10;
-  /* max-height: 500px; */
   position: relative;
+
   img {
-    width: 100%;
+    min-width: 100%;
+    max-width:100%;
     vertical-align: top;
   }
 `
