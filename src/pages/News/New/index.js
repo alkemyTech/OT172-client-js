@@ -7,6 +7,8 @@ import { getService } from 'services/apiService'
 import { ENDPOINT_NEWS } from 'services/settings'
 import { Container } from './styles'
 import { TiArrowBack } from 'react-icons/ti'
+import Card from 'components/CardConstructor'
+import { LinkStyled } from 'common/styles'
 
 function New () {
   const params = useParams()
@@ -32,12 +34,12 @@ function New () {
 
   return (
     <Container>
-      <Link to='/news'><TiArrowBack /> Volver a Novedades</Link>
+      <LinkStyled to='/news'><TiArrowBack /> Volver a Novedades</LinkStyled>
       {data
-        ? <CardNew
+        ? <Card 
             data={data}
             detail
-          />
+          /> 
         : <NotFound resource='New' msg='Verifique la ruta que intenta acceder' />}
     </Container>
   )

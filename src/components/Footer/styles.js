@@ -8,11 +8,12 @@ const center = styled.div`
 
 export const Container = styled(center)`
 
-  position: absolute;
-  
-  width: 100%;
-  height: 15vh;
-  z-index: -1;
+
+position: relative;
+bottom:  -355px; // you can adjust the negative value
+
+text-align: center;
+width: 100%;
   background: ${({ theme }) => theme.primaryLightNavBar};
 `
 
@@ -35,6 +36,7 @@ export const Organization = styled(center)`
   grid-column: 1/2;
   flex-direction: column;
 `
+
 
 export const Name = styled.h2``
 
@@ -71,6 +73,8 @@ export const Separator = styled.hr`
   grid-row: 1/2;
   width: 100%;
 `
+
+
 
 export const Adress = styled(center)`
   grid-column: 1/2;

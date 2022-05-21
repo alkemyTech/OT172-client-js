@@ -25,6 +25,7 @@ import { MemberForm } from 'pages/BackOffice/Members/MemberForm'
 import { EditOrganizationForm } from 'pages/EditOrganization/formEdit'
 import { UserForm } from 'pages/BackOffice/Users/UserForm'
 import Profile from 'pages/Auth/Profile'
+import Credits from 'pages/Credits'
 
 export default function RoutesWeb () {
   return (
@@ -38,15 +39,17 @@ export default function RoutesWeb () {
         <Route path='/home' element={<Home />} />
         <Route path='/activities' element={<ActivitiesPage />} />
         <Route path='/activities/:id' element={<Activity />} />
+        <Route path='/news' element={<NewsPage />} />
         {/* <Route path='/members' element={<Members />} /> */}
 
         <Route path='/testimonials' element={<Testimonials />} />
         <Route path='/aboutus' element={<AboutUs />} />
+        <Route path='/credits' element={<Credits />} />
 
         {/* Protected routes */}
         <Route path='/profile/:id' element={<ProtectedRoute><Profile /></ProtectedRoute>} />
         <Route path='/profile/edited' element={<ProtectedRoute><Profile /></ProtectedRoute>} />
-        <Route path='/news' element={<ProtectedRoute><NewsPage /></ProtectedRoute>} />
+      
         <Route path='/news/:id' element={<ProtectedRoute><New /></ProtectedRoute>} />
 
         {/* BackOffice */}

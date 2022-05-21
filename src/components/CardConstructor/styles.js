@@ -11,7 +11,17 @@ export const Container = styled.article`
   padding: 1rem;
   color: ${({ theme }) => theme.primaryDark};
   border: ${props => props.isBackOffice ? '2px solid var(--gray-02)' : 'none'};
-`
+  //border: 1px solid red;
+  //background-color: blue;
+  //box-shadow: 0 0 20px gray;
+  //box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+  //box-shadow: rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+  background-color: #FAFAFA; 
+  &:hover{
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, ${({ theme }) => theme.linkBorderColorHover} 0px -3px 0px inset;
+  }
+  `
 export const Image = styled.div`
   min-height: ${props => props.isDetail ? '80vh' : '20vh'};
   height: ${props => props.isDetail ? '100%' : '200px'};
@@ -21,6 +31,8 @@ export const Image = styled.div`
   background-size: contain;
   background-position-x: center;
   background-position-y: center;
+  //box-shadow: rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset;
+
 `
 export const Titulo = styled.h1`
   font-size: 1rem;
@@ -35,6 +47,7 @@ export const Data = styled.div`
   width: ${props => (props.isDetail && !props.isBackOffice) ? '100%' : '50%'};
   margin: auto ;
   align-items: flex-start;
+  
 `
 export const Detail = styled.div`
   height: ${props => (props.isBackOffice) ? '300px;' : '100%;'};

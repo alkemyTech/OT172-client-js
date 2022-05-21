@@ -1,5 +1,5 @@
 import React from 'react'
-import { HeroContainer, HeroContent, HeroItems, HeroH1, HeroP } from './styles'
+import { HeroContainer, HeroContent, HeroItems, HeroH1, HeroP, HeroInformation } from './styles'
 import { useNavigate } from 'react-router-dom'
 import { Button } from 'components/Forms/styles'
 

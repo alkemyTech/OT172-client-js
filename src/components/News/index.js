@@ -3,8 +3,10 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { fetchAllNews, reset } from 'store/slices/news'
 
-import { Container } from './styles'
 import Card from 'components/CardConstructor'
+import { CardContainer, ContainerClikeable } from 'common/styles'
+
+
 export default function News ({ qty = 'all', title = '' }) {
   const { news } = useSelector(state => state.news)
   const { user } = useSelector(state => state.auth)
@@ -26,19 +28,18 @@ export default function News ({ qty = 'all', title = '' }) {
   const totalShowNews = qty === 'all' ? news.length : qty
 
   return (
-    <Container>
-      <h1>{title}</h1>
+    <CardContainer>
+      <h1>{title}</h1>{/*CREAR NUEVO ESTILO PARA ESTO*/}
       {news?.length > 0
         ? news.slice(0, totalShowNews).map((n, i) =>
-          <div key={i} onClick={() => handleShowNew(n)}>
-
+          <ContainerClikeable key={i} onClick={() => handleShowNew(n)}>
             <Card
               key={i}
               data={n}
               detail={false}
             />
-          </div>)
+          </ContainerClikeable>)
         : <p>No hay noticias</p>}
-    </Container>
+    </CardContainer>
   )
 }

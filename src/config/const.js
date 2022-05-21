@@ -11,14 +11,6 @@ export const links = [
     name: 'Actividades',
     path: 'activities'
   }
-  // {
-  //   name: 'Testimonios',
-  //   path: 'testimonials'
-  // },
-  // {
-  //   name: 'Members',
-  //   path: 'members'
-  // },
 ]
 
 const backOffice = '/backoffice'
@@ -28,12 +20,16 @@ export const linksBackOffice = [
     path: `${backOffice}/users`
   },
   {
-    name: 'Actividades',
-    path: `${backOffice}/activities`
+    name: 'Organizacion',
+    path: `${backOffice}/edit-organization`
   },
   {
     name: 'Miembros',
     path: `${backOffice}/members`
+  },
+  {
+    name: 'Actividades',
+    path: `${backOffice}/activities`
   },
   {
     name: 'Novedades',
@@ -42,9 +38,23 @@ export const linksBackOffice = [
   {
     name: 'Categorias',
     path: `${backOffice}/categories`
+  }
+]
+
+export const integrantes = [
+  {
+    name: 'Manuel Latorre',
+    github: 'https://github.com/ManuelLatorre98',
+    linkedin:''
   },
   {
-    name: 'Editar Organizacion',
-    path: `${backOffice}/edit-organization`
+    name: 'Nicolas Borzone',
+    github: 'https://github.com/nhoga',
+    linkedin:'https://www.linkedin.com/in/nicolasborzone/'
+  },
+  {
+    name: 'Fernando Masino',
+    github: 'https://github.com/fom78',
+    linkedin:'https://www.linkedin.com/in/fernandomasino/'
   }
 ]

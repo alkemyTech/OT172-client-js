@@ -143,7 +143,8 @@ export const memberSchema = Yup.object().shape({
 
 export const organizationSchema = Yup.object().shape({
   name: Yup.string()
-    .matches(/^[aA-zZ\s]+$/, 'Solo se admiten letras')
+    .matches(/^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$/, 'Solo se admiten letras')
+
     .min(5, 'El mínimo de caracteres es 5')
     .max(30, 'El máximo de caracteres es 30')
     .required('Es requerido un nombre para la organizacion'),
