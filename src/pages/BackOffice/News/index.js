@@ -21,11 +21,7 @@ function NewsScreenBackOffice () {
   }, [dispatch])
 
   return (
-    <div>
-      <NewsListBackOffice news={news} />
-      {/* <Button onClick={handleClick}>Cargar mas</Button> */}
-    </div>
-
+    <NewsListBackOffice news={news} />
   )
 }
 

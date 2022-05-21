@@ -10,6 +10,7 @@ export default function NewsCard ({ myNew }) {
   const [deleteNew, setDeleteNew] = useState(false)
   const dispatch = useDispatch()
   const navigate = useNavigate()
+  
   const handleEdit = (id) => {
     navigate(`${id}`)
   }
@@ -29,12 +30,13 @@ export default function NewsCard ({ myNew }) {
     if (deleteNew && isSuccess) alertToast('success', 'Novedad Eliminada correctamente')
     setDeleteNew(false)
   }, [isError, dispatch, deleteNew])
-
   return (
+
     <Card
+      key={myNew.id}
       data={myNew}
-      backOffice
-      detail
+      detail={false}
+      backOffice={true}
       handleEdit={() => handleEdit(myNew.id)}
       handleDelete={() => handleDelete()}
     />

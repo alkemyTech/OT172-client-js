@@ -4,13 +4,13 @@ export const Container = styled.article`
   display: flex;
   height: 100%;
   width: auto;
-  flex-direction: ${props => props.isBackOffice ? 'row-reverse' : 'column'};
+  flex-direction: ${props => props.isBackOffice ? 'column' : 'column'};
   align-items: center;
   gap:.7rem;
   margin: 1.5rem;
   padding: 1rem;
   color: ${({ theme }) => theme.primaryDark};
-  border: ${props => props.isBackOffice ? '2px solid var(--gray-02)' : 'none'};
+
   //border: 1px solid red;
   //background-color: blue;
   //box-shadow: 0 0 20px gray;
@@ -32,6 +32,7 @@ export const Image = styled.div`
   background-position-x: center;
   background-position-y: center;
   //box-shadow: rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset;
+  margin:auto;
 
 `
 export const Titulo = styled.h1`
@@ -42,40 +43,53 @@ export const Data = styled.div`
   display: flex;
   flex-direction: column;
   font-size: 1.2rem;
-  min-height: ${props => (!props.isDetail && props.isBackOffice) ? '400px' : 'auto'};
-  height: ${props => (props.isDetail && !props.isBackOffice) ? '100%' : 'auto'};
-  width: ${props => (props.isDetail && !props.isBackOffice) ? '100%' : '50%'};
-  margin: auto ;
-  align-items: flex-start;
-  
+ // min-height: ${props => (!props.isDetail && props.isBackOffice) ? '400px' : 'auto'};
+  //height: ${props => (props.isDetail && !props.isBackOffice) ? '100%' : 'auto'};
+  width: ${props => (!props.isBackOffice) ? '100%' : '50%'};
+
 `
 export const Detail = styled.div`
-  height: ${props => (props.isBackOffice) ? '300px;' : '100%;'};
+  padding: 0 15px 0 15px;
+  max-height: ${props => (props.isBackOffice) ? '300px;' : '100%;'};
+  min-height: ${props => (props.isBackOffice) ? '50px;' : '100%;'};
   width: 100%;
   font-size: 1rem;
   margin: auto ;
   margin-top: 1.5rem;
-  
-  color: ${props => (props.isSeeContent) ? 'var(--white-03);' : 'var(--black-03);'};
-  ${props => (!props.isSeeContent && props.isBackOffice) && 'white-space: nowrap;'}
-  ${props => (props.isSeeContent) && 'background-color: var(--black-01);'}
+  background-color:#E0E0E0;
   overflow: ${props => (props.isSeeContent) ? 'overlay' : 'hidden'};
-  text-overflow: ellipsis;
-  transition: all .3s linear;
+  
+  //Scrollbars styles
+  &::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  &::-webkit-scrollbar-track {
+    background-color: #E0E0E0;
+    border-radius: 10px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 10px;
+  }
 `
 
 export const Content = styled.article`
-  align-self: center;
+  display: flex;
+  flex-direction: column;
+
   padding: 1rem;
   width: 100%;
 `
 
 export const ButtonsContainer = styled.div`
+
   display:flex;
   gap: .4rem ;
   width: 100%;
-  justify-content:flex-end;
+  justify-content:center;
   align-items: center ;
+  padding:50px;
   button {
     cursor:pointer;
     background: transparent;
@@ -110,4 +124,11 @@ export const ButtonsContainer = styled.div`
         }
       }
     }
+`
+export const EditContainer = styled.div`
+    display:flex;
+    flex-direction: ${props => props.isBackOffice ? 'row' : 'column'};
+    justify-content:center;
+    height:100%;
+    width: 100%;
 `

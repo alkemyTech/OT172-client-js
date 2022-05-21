@@ -12,12 +12,13 @@ export const ContainerListBackOffice = styled.section`
     text-align: center;
     font-size: 1.2rem ;
   }
-
+  
   ${screenLittle} {
     width: 500px ;
   }
   ${screenMiddle} {
     width: 700px ;
+    
   }
 `
 
@@ -121,6 +122,9 @@ export const ContainerClikeable = styled.div`
 export const CardH1 = styled.h1`
   font-size: 1.3rem;
   margin: auto ;
-  
   box-shadow: 0 2px gray;
+  width:100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 `

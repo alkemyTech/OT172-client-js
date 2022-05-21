@@ -18,7 +18,7 @@ function App () {
   const dispatch = useDispatch()
   const { list } = useSelector((state) => state.organization)
   useEffect(() => {
-    dispatch(fetchOrganizationDataPublic(2))
+    dispatch(fetchOrganizationDataPublic(1))
   }, [dispatch])
 
   useEffect(()=>{ //This change the name of the page when reducer updates
