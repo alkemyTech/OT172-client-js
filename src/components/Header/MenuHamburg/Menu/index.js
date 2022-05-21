@@ -29,7 +29,7 @@ const Menu = ({ open, ...props }) => {
         }
       </CardMenuNavegation>
       <CardCreditos>
-        <span>Realizado con <FaHeart /> por los Inquietos.</span>
+        <NavLink style={navLinkStyles} to='/credits' onClick={() => props.setOpen(false)}> Creditos </NavLink>
       </CardCreditos>
     </StyledMenu>
   )

@@ -32,7 +32,7 @@ export const CardLoginOrRegister = styled.nav`
 export const CardCreditos = styled.section`
   display: flex;
   flex-direction: column;
-  margin: 3rem 3rem;
+  margin: 0 3rem;
   a, span {
     padding: .2rem 0;
   }
