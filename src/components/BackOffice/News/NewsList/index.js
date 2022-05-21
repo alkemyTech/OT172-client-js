@@ -22,10 +22,6 @@ export default function NewsListBackOffice () {
 
   const navigate = useNavigate()
 
-  const handleShowNew = (element) => {
-    navigate(`/news/${element.id}`)
-  }
-
   const totalShowNews = news.length
 
 
