@@ -41,6 +41,12 @@ export default function Card ({ data, detail = false, backOffice = false, handle
 
               </ButtonsContainer>
           }
+          {detail && //Tirar esto abajo de image 
+            <Detail
+              isBackOffice={backOffice}
+              dangerouslySetInnerHTML={{ __html: data.content }}
+              isSeeContent={seeContent}
+            />}
           </Content>
         </Data>
         <Image image={data.image} isDetail={detail} />
