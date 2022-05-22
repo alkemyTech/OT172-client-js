@@ -40,7 +40,6 @@ export default function Card({ data, detail = false, backOffice = false, handleE
                 </button>
 
               </ButtonsContainer>
-<<<<<<< HEAD
           }
           {detail && //Tirar esto abajo de image 
             <Detail
@@ -48,9 +47,6 @@ export default function Card({ data, detail = false, backOffice = false, handleE
               dangerouslySetInnerHTML={{ __html: data.content }}
               isSeeContent={seeContent}
             />}
-=======
-            }
->>>>>>> 6b64a03a23703b26e175701275789dec134354ca
           </Content>
         </Data>
         <Image image={data.image} isDetail={detail} />
