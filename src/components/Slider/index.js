@@ -4,7 +4,7 @@ import { Container, Titulo } from './styles'
 import { images } from './images'
 
 const Slider = ({ title = '' }) => {
-  console.log(images)
+  //console.log(images)
   return (
     <Container>
       <Titulo>{title}</Titulo>

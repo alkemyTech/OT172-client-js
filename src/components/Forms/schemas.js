@@ -2,12 +2,12 @@ import * as Yup from 'yup'
 
 export const userSchema = Yup.object().shape({
   firstName: Yup.string()
-    .matches(/^[aA-zZ\s]+$/, 'Solo se admiten letras')
+  .matches(/^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$/, 'Solo se admiten letras')
     .min(3, 'El mínimo de caracteres es 3')
     .max(30, 'El máximo de caracteres es 30')
     .required('El nombre es requerido'),
   lastName: Yup.string()
-    .matches(/^[aA-zZ\s]+$/, 'Solo se admiten letras')
+  .matches(/^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$/, 'Solo se admiten letras')
     .min(2, 'El mínimo de caracteres es 2')
     .max(30, 'El máximo de caracteres es 30')
     .required('El apellido es requerido'),
@@ -19,12 +19,12 @@ export const userSchema = Yup.object().shape({
 
 export const createUserSchema = Yup.object().shape({
   firstName: Yup.string()
-    .matches(/^[aA-zZ\s]+$/, 'Solo se admiten letras')
+    .matches(/^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$/, 'Solo se admiten letras')
     .min(3, 'El mínimo de caracteres es 3')
     .max(30, 'El máximo de caracteres es 30')
     .required('El nombre es requerido'),
   lastName: Yup.string()
-    .matches(/^[aA-zZ\s]+$/, 'Solo se admiten letras')
+  .matches(/^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$/, 'Solo se admiten letras')
     .min(2, 'El mínimo de caracteres es 2')
     .max(30, 'El máximo de caracteres es 30')
     .required('El apellido es requerido'),
@@ -59,12 +59,12 @@ export const loginUserSchema = Yup.object().shape({ // Schema to verifie login d
 
 export const contactSchema = Yup.object().shape({
   firstName: Yup.string()
-    .matches(/^[aA-zZ\s]+$/, 'Solo se admiten letras')
+    .matches(/^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$/, 'Solo se admiten letras')
     .min(3, 'El mínimo de caracteres es 3')
     .max(30, 'El máximo de caracteres es 30')
     .required('El nombre es requerido'),
   lastName: Yup.string()
-    .matches(/^[aA-zZ\s]+$/, 'Solo se admiten letras')
+    .matches(/^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$/, 'Solo se admiten letras')
     .min(2, 'El mínimo de caracteres es 2')
     .max(30, 'El máximo de caracteres es 30')
     .required('El apellido es requerido'),
@@ -78,7 +78,7 @@ export const contactSchema = Yup.object().shape({
 })
 export const newsSchema = Yup.object().shape({
   name: Yup.string()
-    .matches(/^[aA-zZ\s]+$/, 'Solo se admiten letras')
+    .matches(/^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$/, 'Solo se admiten letras')
     .min(5, 'El mínimo de caracteres es 5')
     .max(30, 'El máximo de caracteres es 30')
     .required('Es requerido un titulo'),
@@ -116,18 +116,17 @@ export const newsSchema = Yup.object().shape({
 })
 export const categorySchema = Yup.object().shape({
   name: Yup.string()
-    .matches(/^[aA-zZ\s]+$/, 'Solo se admiten letras')
+  .matches(/^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$/, 'Solo se admiten letras')
     .min(3, 'El mínimo de caracteres es 3')
     .max(30, 'El máximo de caracteres es 30')
     .required('El nombre es requerido'),
   description: Yup.string()
-    .matches(/^[aA-zZ\s]+$/, 'Solo se admiten letras')
     .max(250, 'El máximo de caracteres es 250')
-    // .required('El apellido es requerido'),
+    .required('Es requerida una descripcion'),
 })
 export const activitySchema = Yup.object().shape({
   name: Yup.string()
-    .matches(/^[aA-zZ\s]+$/, 'Solo se admiten letras')
+  .matches(/^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$/, 'Solo se admiten letras')
     .min(3, 'El mínimo de caracteres es 3')
     .max(70, 'El máximo de caracteres es 30')
     .required('El nombre es requerido')
@@ -135,7 +134,7 @@ export const activitySchema = Yup.object().shape({
 
 export const memberSchema = Yup.object().shape({
   name: Yup.string()
-    .matches(/^[aA-zZ\s]+$/, 'Solo se admiten letras')
+  .matches(/^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$/, 'Solo se admiten letras')
     .min(3, 'El mínimo de caracteres es 3')
     .max(70, 'El máximo de caracteres es 30')
     .required('El nombre es requerido')
@@ -144,7 +143,6 @@ export const memberSchema = Yup.object().shape({
 export const organizationSchema = Yup.object().shape({
   name: Yup.string()
     .matches(/^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$/, 'Solo se admiten letras')
-
     .min(5, 'El mínimo de caracteres es 5')
     .max(30, 'El máximo de caracteres es 30')
     .required('Es requerido un nombre para la organizacion'),
