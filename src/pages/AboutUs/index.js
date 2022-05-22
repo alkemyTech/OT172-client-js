@@ -2,6 +2,7 @@ import Loader from 'components/utils/Loader'
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchAllMembers } from 'store/slices/members'
+import RestOfMemmbers from './RestOfMemmbers'
 import { Faculties, Unit, Wrapper, UnitImg, Container } from './styles'
 
 export default function AboutUs () {
@@ -27,7 +28,7 @@ export default function AboutUs () {
           <hr />
         </div>
 
-        <p class='mission-txt'>Trabajar articuladamente con los distintos aspectos de la vida de las familias, generando espacios de desarrollo persona y familiar, brindando herramientas que logren mejorar la calidad de vida a través de su propio esfuerzo</p>
+        <p className='mission-txt'>Trabajar articuladamente con los distintos aspectos de la vida de las familias, generando espacios de desarrollo persona y familiar, brindando herramientas que logren mejorar la calidad de vida a través de su propio esfuerzo</p>
 
       </Wrapper>
       <Wrapper>
@@ -37,7 +38,7 @@ export default function AboutUs () {
           <hr />
         </div>
 
-        <p class='mission-txt'>Mejorar la calidad de vida de niños y familias en situacion de vulnerabilidad en el barrio La Cava, otorgando un cambio de rumbo en cada individuo a través de la educación, trabajo, deporte, responsabilidad y compromiso</p>
+        <p className='mission-txt'>Mejorar la calidad de vida de niños y familias en situacion de vulnerabilidad en el barrio La Cava, otorgando un cambio de rumbo en cada individuo a través de la educación, trabajo, deporte, responsabilidad y compromiso</p>
 
       </Wrapper>
 
@@ -68,19 +69,20 @@ export default function AboutUs () {
               <Unit>
                 <UnitImg src={members[0].image} alt='' />
                 <br />
-                <b>{members[0].name}</b>
+                <h1>{members[0].name}</h1>
                 <p dangerouslySetInnerHTML={{ __html: members[0].description }} />
               </Unit>
               <Unit>
                 <UnitImg src={members[1].image} alt='' />
                 <br />
-                <b>{members[1].name}</b>
+                <h1>{members[1].name}</h1>
                 <p dangerouslySetInnerHTML={{ __html: members[1].description }} />
               </Unit>
             </Faculties>
           </Wrapper>
           )
         : <Loader />}
+        <RestOfMemmbers members={members.slice(2)}/>
     </Container>
   )
 }

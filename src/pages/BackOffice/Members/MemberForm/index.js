@@ -78,7 +78,7 @@ export const MemberForm = () => {
       await dispatch(createMembers(values))
     }
 
-    if (isSuccess) alertToast('success', params.id ? 'Actividad editada correctamente!' : 'Miembro agregado correctamente!')
+    if (isSuccess) alertToast('success', params.id ? 'Miembro editado correctamente!' : 'Miembro agregado correctamente!')
     if (isError) alertToast('error', message)
 
     actions.setSubmitting(false)

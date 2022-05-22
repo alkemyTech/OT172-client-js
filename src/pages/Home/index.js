@@ -3,7 +3,7 @@ import { Container } from './styles'
 import News from 'components/News'
 import Slider from 'components/Slider'
 import HeroSection from 'components/HeroSection'
-import { HeroInformation, Information, InformationH2, InformationItems, InformationP } from 'components/HeroSection/styles'
+import { Information, InformationH2, InformationItems, InformationP } from 'components/HeroSection/styles'
 
 function Home () {
   return (
