@@ -43,7 +43,7 @@ export const LinkButtonStyled = styled(Button)`
 export const HeadTableBackOffice = styled.div`
   display: flex;
   justify-content: space-between;
-  border: 2px solid #006600;
+  /* border: 2px solid #006600; */
   font-weight: 700;
   margin: .2rem;
   margin-top: 1rem ;
@@ -54,7 +54,7 @@ export const CardBackOffice = styled.article`
   display: flex;
   flex-direction: column;
   gap:.7rem;
-  border: 2px solid #000066;
+  border: 2px solid var(--black-01);
   margin: .2rem;
   padding: .2rem ;
 `
