@@ -102,12 +102,15 @@ const Slideshow = ({
 
 const ContenedorPrincipal = styled.div`
   position: relative;
+
 `
 
 const ContenedorSlideshow = styled.div`
   display: flex;
   flex-wrap: nowrap;
+  max-height:43vh;
   
+
 `
 
 const Slide = styled.div`
@@ -116,11 +119,14 @@ const Slide = styled.div`
   transition: .3s ease all;
   z-index: 10;
   position: relative;
-
+  max-height:100%;
   img {
+    object-fit: cover;
     min-width: 100%;
     max-width:100%;
-    vertical-align: top;
+    min-height: 100%;
+    max-height: 100%;
+    vertical-align: center;
   }
 `
 
