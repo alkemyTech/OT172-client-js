@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import { ButtonsContainer, Container, Content, Data, Detail, Image, Titulo, EditContainer } from './styles'
 import { FaTrash, FaEdit, FaEyeSlash, FaEye } from 'react-icons/fa'
 import { CardH1 } from 'common/styles'
-export default function Card ({ data, detail = false, backOffice = false, handleEdit, handleDelete }) {
+export default function Card({ data, detail = false, backOffice = false, handleEdit, handleDelete }) {
   const [seeContent, setSeeContent] = useState(false)
 
   return (
@@ -15,7 +15,7 @@ export default function Card ({ data, detail = false, backOffice = false, handle
               {data.name}
             </CardH1>
             {
-            backOffice &&
+              backOffice &&
               <ButtonsContainer>
                 <button
                   className='see'
@@ -40,18 +40,25 @@ export default function Card ({ data, detail = false, backOffice = false, handle
                 </button>
 
               </ButtonsContainer>
-          }
+            }
           </Content>
         </Data>
         <Image image={data.image} isDetail={detail} />
-        
+
+        {(detail && !backOffice) &&
+          <Detail
+            isBackOffice={backOffice}
+            dangerouslySetInnerHTML={{ __html: data.content }}
+            isSeeContent={seeContent}
+          />
+        }
       </EditContainer>
       {seeContent && //Tirar esto abajo de image 
-            <Detail
-              isBackOffice={backOffice}
-              dangerouslySetInnerHTML={{ __html: data.content }}
-              isSeeContent={seeContent}
-            />}
+        <Detail
+          isBackOffice={backOffice}
+          dangerouslySetInnerHTML={{ __html: data.content }}
+          isSeeContent={seeContent}
+        />}
     </Container>
   )
 }
