@@ -45,7 +45,7 @@ export const integrantes = [
   {
     name: 'Manuel Latorre',
     github: 'https://github.com/ManuelLatorre98',
-    linkedin:''
+    linkedin:'https://www.linkedin.com/in/manuel-latorre-727225198/'
   },
   {
     name: 'Nicolas Borzone',
