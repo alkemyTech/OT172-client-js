@@ -13,10 +13,7 @@ export default function News ({ qty = 'all', title = '' }) {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    if (user) dispatch(fetchAllNews())
-    if (!user) {
-      dispatch(reset())
-    }
+    dispatch(fetchAllNews())
   }, [dispatch, user])
 
   const navigate = useNavigate()
