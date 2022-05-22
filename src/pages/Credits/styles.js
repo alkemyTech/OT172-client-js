@@ -40,8 +40,8 @@ export const Integrante = styled.article`
       display: flex;
       flex-direction: row;
       justify-content: space-between;
-      gap: 2rem;
-      font-size: 1.2rem;
+      gap: 1rem;
+      font-size: 1rem;
       span>svg {
             color: inherit;
             padding-right: .5rem;
