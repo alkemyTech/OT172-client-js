@@ -27,7 +27,7 @@ export default function AboutUs () {
           <hr />
         </div>
 
-        <p class='mission-txt'>Trabajar articuladamente con los distintos aspectos de la vida de las familias, generando espacios de desarrollo persona y familiar, brindando herramientas que logren mejorar la calidad de vida a través de su propio esfuerzo</p>
+        <p className='mission-txt'>Trabajar articuladamente con los distintos aspectos de la vida de las familias, generando espacios de desarrollo persona y familiar, brindando herramientas que logren mejorar la calidad de vida a través de su propio esfuerzo</p>
 
       </Wrapper>
       <Wrapper>
@@ -37,7 +37,7 @@ export default function AboutUs () {
           <hr />
         </div>
 
-        <p class='mission-txt'>Mejorar la calidad de vida de niños y familias en situacion de vulnerabilidad en el barrio La Cava, otorgando un cambio de rumbo en cada individuo a través de la educación, trabajo, deporte, responsabilidad y compromiso</p>
+        <p className='mission-txt'>Mejorar la calidad de vida de niños y familias en situacion de vulnerabilidad en el barrio La Cava, otorgando un cambio de rumbo en cada individuo a través de la educación, trabajo, deporte, responsabilidad y compromiso</p>
 
       </Wrapper>
 
