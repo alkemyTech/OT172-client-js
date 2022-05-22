@@ -11,7 +11,7 @@ export const Container = styled(center)`
 
 position: relative;
 bottom:  -355px; // you can adjust the negative value
-
+z-index: -1;
 text-align: center;
 width: 100%;
   background: ${({ theme }) => theme.primaryLightNavBar};

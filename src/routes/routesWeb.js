@@ -26,6 +26,7 @@ import { EditOrganizationForm } from 'pages/EditOrganization/formEdit'
 import { UserForm } from 'pages/BackOffice/Users/UserForm'
 import Profile from 'pages/Auth/Profile'
 import Credits from 'pages/Credits'
+import ScrollToTop from 'components/utils/ScrollToTop'
 
 export default function RoutesWeb () {
   return (
@@ -74,6 +75,8 @@ export default function RoutesWeb () {
 
         <Route path='/backoffice/edit-organization' element={<PrivatedRoute><EditOrganizationForm /></PrivatedRoute>} />
       </Routes>
+      <ScrollToTop showButtonAt={60} />
+
     </Container>
   )
 }
