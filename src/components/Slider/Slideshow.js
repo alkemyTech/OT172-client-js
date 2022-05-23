@@ -109,10 +109,10 @@ ${screenLittle} {
   min-width: 20rem;
 }
 ${screenMiddle} {
-  min-width: 100vw;
+  min-width: 100vh;
 }
 ${screenBig} {
-  min-width: 100vw;
+  min-width: 120vh;
 }
 
 `
@@ -120,7 +120,7 @@ ${screenBig} {
 const ContenedorSlideshow = styled.div`
   display: flex;
   flex-wrap: nowrap;
-  height:43vh;
+  height:50vh;
 `
 
 const Slide = styled.div`

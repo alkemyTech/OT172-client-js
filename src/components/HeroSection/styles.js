@@ -67,7 +67,7 @@ export const Information= styled.div`
   display:flex;
   justify-contente:center;
  
-  min-height: 560px;
+  min-height: 510px;
   width: 100%;
   background: linear-gradient(to right, rgba(0,0,0,0.5), rgba(0,0,0,0.1));
   background-color: #100c24; //azul claro
