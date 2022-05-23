@@ -1,5 +1,7 @@
+import { mediaQueries } from 'config/responsive'
 import styled from 'styled-components'
 
+const { screenLittle, screenMiddle } = mediaQueries
 export const Container = styled.article`
   display: flex;
   height: 100%;
@@ -21,7 +23,7 @@ export const Container = styled.article`
   ` }
   `
 export const Image = styled.div`
-  min-height: ${props => props.isDetail ? '80vh' : '20vh'};
+  min-height: ${props => props.isDetail ? '25vh' : '20vh'};
   height: ${props => props.isDetail ? '100%' : '200px'};
   width: ${props => props.isDetail ? '100%' : '80%'};
   background-image: url(${props => props.image});
@@ -31,6 +33,13 @@ export const Image = styled.div`
   background-position-y: center;
   //box-shadow: rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset;
   margin:auto;
+
+${screenLittle} {
+  min-height: ${props => props.isDetail ? '50vh' : '20vh'};
+}
+${screenMiddle} {
+  min-height: ${props => props.isDetail ? '80vh' : '20vh'};
+}
 
 `
 export const Titulo = styled.h1`
