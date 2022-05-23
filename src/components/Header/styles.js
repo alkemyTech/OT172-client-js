@@ -5,6 +5,7 @@ const { screenLittle } = mediaQueries
 export const Container = styled.header`
   display: flex ;
   position: fixed;
+  z-index: 99;
   background: ${({ theme }) => theme.primaryLightNavBar};
   width:100vw ;
   top:0;
