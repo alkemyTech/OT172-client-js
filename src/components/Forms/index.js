@@ -1,6 +1,6 @@
 import React from 'react'
 import { Formik, Form } from 'formik'
-import { Container, Title, SubTitle, OperationName, ContainerFormik } from './styles'
+import { Container, OperationName, ContainerFormik, Titles } from './styles'
 
 export const FormikForm = ({
   title,
@@ -14,8 +14,10 @@ export const FormikForm = ({
 }) => {
   return (
     <Container>
-      <Title> {title} </Title>
-      <SubTitle> {subtitle} </SubTitle>
+      <Titles>
+        <h2>{title}</h2>
+        <span> {subtitle} </span>
+      </Titles>
       <OperationName>{operationName}</OperationName>
 
       <ContainerFormik>

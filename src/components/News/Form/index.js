@@ -9,7 +9,7 @@ import { getService } from 'services/apiService'
 import { ENDPOINT_NEWS } from 'services/settings'
 import { alertToast } from 'services/alerts'
 import { createNews, updateNews } from 'store/slices/news'
-import { CustomInput, FormContainer, FormContainerCKE } from './styles'
+import { CustomInput, FormContainerCKE } from './styles'
 import { TiArrowBack } from 'react-icons/ti'
 import Loader from 'components/utils/Loader'
 import { Button, Container } from 'components/Forms/styles'
@@ -22,18 +22,18 @@ const FormFields = (editar = false, temp) => {
         type='text'
         placeholder='Titulo de la novedad'
       />
+      
+      <CategorySelectField
+        name='categoryId'
+        type='text'
+        placeholder='Categoria'
+        value={temp.categoryId}
+      />
       <ImageField
         name='image'
         type='file'
         placeholder='Foto de la novedad'
         as={CustomInput}
-      />
-      <CategorySelectField
-        name='categoryId'
-        type='text'
-        placeholder='Categoria'
-        FormContainer={FormContainer}
-        value={temp.categoryId}
       />
       <FormField
         name='content'
@@ -95,8 +95,7 @@ export const NewsForm = () => {
       <Link to='/backoffice/news'><TiArrowBack /> Volver a news</Link>
       <FormikForm
         title='Back Office'
-        subtitle='Administracion de novedades'
-        operationName={params.id ? 'Editar' : 'Agregar'}
+        subtitle={`Administracion de novedades (${params.id ? 'Editar' : 'Agregar nueva'})`}
         values={values}
         schema={newsSchema}
         onSubmit={handleSubmit}
