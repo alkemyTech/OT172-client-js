@@ -1,3 +1,4 @@
+import { Button } from 'components/Forms/styles'
 import React from 'react'
 import toast from 'react-hot-toast'
 import styled from 'styled-components'
@@ -12,16 +13,16 @@ export const confirm = (setState, msg) => toast((t) => (
   <Container>
     <Title>{msg}</Title>
     <ContainerBtns>
-      <Button onClick={() => {
+      <ButtonAlert onClick={() => {
         setState()
         toast.dismiss(t.id)
       }}
       >
         Aceptar
-      </Button>
-      <Button onClick={() => toast.dismiss(t.id)}>
+      </ButtonAlert>
+      <ButtonAlert onClick={() => toast.dismiss(t.id)}>
         Cancelar
-      </Button>
+      </ButtonAlert>
     </ContainerBtns>
   </Container>
 ),
@@ -32,9 +33,10 @@ export const confirm = (setState, msg) => toast((t) => (
 
 const Container = styled.div`
     display: block;
-    color: #713200;
+    width: 100% ;
+    color: var(--black-01);
     padding: 1rem;
-    border: 1px solid #713200;
+    border: 1px solid var(--black-01);
     border-radius: 10px;
   `
 const Title = styled.span`
@@ -46,6 +48,6 @@ const ContainerBtns = styled.div`
     gap: 1rem;
     justify-content: center;
   `
-const Button = styled.button`
-  cursor: pointer;
+const ButtonAlert = styled(Button)`
+  font-size: .85rem ;
 `

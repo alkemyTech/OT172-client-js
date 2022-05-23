@@ -2,6 +2,8 @@ import React, { useRef, useEffect, useCallback } from 'react'
 import { ReactComponent as FlechaIzquierda } from './img/iconmonstr-angel-left-thin.svg'
 import { ReactComponent as FlechaDerecha } from './img/iconmonstr-angel-right-thin.svg'
 import styled from 'styled-components'
+import { mediaQueries } from 'config/responsive'
+const { screenLittle, screenMiddle,screenBig } = mediaQueries
 
 const Slideshow = ({
   children,
@@ -102,7 +104,17 @@ const Slideshow = ({
 
 const ContenedorPrincipal = styled.div`
   position: relative;
-  
+  min-width: 15rem;
+${screenLittle} {
+  min-width: 20rem;
+}
+${screenMiddle} {
+  min-width: 100vw;
+}
+${screenBig} {
+  min-width: 100vw;
+}
+
 `
 
 const ContenedorSlideshow = styled.div`
@@ -150,6 +162,7 @@ const Controles = styled.div`
 `
 
 const Boton = styled.button`
+display: none ;
   pointer-events: all;
   background: none;
   border: none;

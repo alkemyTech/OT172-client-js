@@ -7,8 +7,7 @@ import Item from './Item'
 import {
   RestOfMemmbersSection,
   RestOfMemmbersSectionHeader,
-  RestOfMemmbersSectionContent,
-  RestOfMemmbersSectionFooter
+  RestOfMemmbersSectionContent
 } from './styles'
 
 import { integrantes } from 'config/const'
@@ -28,7 +27,6 @@ export default function RestOfMemmbers({members}) {
       <RestOfMemmbersSectionContent>
         {members.map((e, i) => <Item key={i} member={e} />)}
       </RestOfMemmbersSectionContent>
-      <RestOfMemmbersSectionFooter />
     </RestOfMemmbersSection>
   )
 }

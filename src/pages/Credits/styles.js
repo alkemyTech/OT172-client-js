@@ -42,6 +42,9 @@ export const Integrante = styled.article`
       justify-content: space-between;
       gap: 1rem;
       font-size: 1rem;
+      ${screenLittle} {
+      font-size: 1.5rem;
+      }
       span>svg {
             color: inherit;
             padding-right: .5rem;
@@ -52,26 +55,8 @@ export const Integrante = styled.article`
       }
       a:hover>svg {
             cursor:pointer;
-            color: var(--blue-01);
-
+            color: var(--blue-02);
       }
 
       
-`
-
-export const Unit = styled.div`
-      margin: 25px;
-      width: 200px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-`
-
-export const UnitImg = styled.img`
-      filter: drop-shadow(0 10px 5px black);
-      border-radius: 100px;
-      width: 150px;
-      height: 150px;
-      margin-bottom: 10px;
-      z-index: -1;
 `
