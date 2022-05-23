@@ -4,10 +4,9 @@ export const ItemStyled = styled.section`
     &>div.member{
         display: flex;
         align-items: center;
-        margin: 25px;
-      width: 200px;
         justify-content: space-between;
-        padding: 24px 0;
+        padding: .4rem 0;
+
         &>span {
             padding-right: 64px;
             font-size: 1.2rem;
@@ -40,6 +39,7 @@ export const Button = styled.button`
 export const Repuesta = styled.div`
     line-height: 1.5rem;
     padding: 24px 0;
+
     ${(props) =>
         props.collapsed &&
         `
